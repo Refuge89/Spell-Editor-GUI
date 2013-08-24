@@ -2,14 +2,7 @@
 
 Public Class Form3
 
-    Public Shared at0 As String = ""
-    Public Shared at1 As String = ""
-    Public Shared at2 As String = ""
-    Public Shared at3 As String = ""
-    Public Shared at4 As String = ""
-    Public Shared at5 As String = ""
-    Public Shared at6 As String = ""
-    Public Shared at7 As String = ""
+    Public setAttributes(8) As String
     Public attributes(8) As Integer
     Private vars As New SpellAttributes
 
@@ -84,4 +77,83 @@ Public Class Form3
         Next i
     End Sub
 
+    Private Sub CheckedListBox1_ItemCheck(sender As Object, e As ItemCheckEventArgs) Handles CheckedListBox1.ItemCheck
+        setAttributes(0) = 0
+        Dim i As Integer
+        For i = 0 To CheckedListBox1.Items.Count - 1
+            If CheckedListBox1.GetItemChecked(i) Then
+                setAttributes(0) = setAttributes(0) + vars.Attributes0(i)
+            End If
+        Next i
+    End Sub
+
+    Private Sub CheckedListBox2_ItemCheck(sender As Object, e As ItemCheckEventArgs) Handles CheckedListBox2.ItemCheck
+        setAttributes(1) = 0
+        Dim i As Integer
+        For i = 0 To CheckedListBox2.Items.Count - 1
+            If CheckedListBox2.GetItemChecked(i) Then
+                setAttributes(1) = setAttributes(1) + vars.Attributes0(i)
+            End If
+        Next i
+    End Sub
+
+    Private Sub CheckedListBox3_ItemCheck(sender As Object, e As ItemCheckEventArgs) Handles CheckedListBox3.ItemCheck
+        setAttributes(2) = 0
+        Dim i As Integer
+        For i = 0 To CheckedListBox3.Items.Count - 1
+            If CheckedListBox3.GetItemChecked(i) Then
+                setAttributes(2) = setAttributes(2) + vars.Attributes0(i)
+            End If
+        Next i
+    End Sub
+
+    Private Sub CheckedListBox4_ItemCheck(sender As Object, e As ItemCheckEventArgs) Handles CheckedListBox4.ItemCheck
+        setAttributes(3) = 0
+        Dim i As Integer
+        For i = 0 To CheckedListBox4.Items.Count - 1
+            If CheckedListBox4.GetItemChecked(i) Then
+                setAttributes(3) = setAttributes(3) + vars.Attributes0(i)
+            End If
+        Next i
+    End Sub
+
+    Private Sub CheckedListBox5_ItemCheck(sender As Object, e As ItemCheckEventArgs) Handles CheckedListBox5.ItemCheck
+        setAttributes(4) = 0
+        Dim i As Integer
+        For i = 0 To CheckedListBox5.Items.Count - 1
+            If CheckedListBox5.GetItemChecked(i) Then
+                setAttributes(4) = setAttributes(4) + vars.Attributes0(i)
+            End If
+        Next i
+    End Sub
+
+    Private Sub CheckedListBox6_ItemCheck(sender As Object, e As ItemCheckEventArgs) Handles CheckedListBox6.ItemCheck
+        setAttributes(5) = 0
+        Dim i As Integer
+        For i = 0 To CheckedListBox6.Items.Count - 1
+            If CheckedListBox6.GetItemChecked(i) Then
+                setAttributes(5) = setAttributes(5) + vars.Attributes0(i)
+            End If
+        Next i
+    End Sub
+
+    Private Sub CheckedListBox7_ItemCheck(sender As Object, e As ItemCheckEventArgs) Handles CheckedListBox7.ItemCheck
+        setAttributes(6) = 0
+        Dim i As Integer
+        For i = 0 To CheckedListBox7.Items.Count - 1
+            If CheckedListBox7.GetItemChecked(i) Then
+                setAttributes(6) = setAttributes(6) + vars.Attributes0(i)
+            End If
+        Next i
+    End Sub
+
+    Private Sub CheckedListBox8_ItemCheck(sender As Object, e As ItemCheckEventArgs) Handles CheckedListBox8.ItemCheck
+        setAttributes(7) = 0
+        Dim i As Integer
+        For i = 0 To CheckedListBox8.Items.Count - 1
+            If CheckedListBox8.GetItemChecked(i) Then
+                setAttributes(7) = setAttributes(7) + vars.Attributes0(i)
+            End If
+        Next i
+    End Sub
 End Class

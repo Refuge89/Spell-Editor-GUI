@@ -58,6 +58,7 @@ Public Class Form1
 
             For i = 0 To 8
                 f2.attributes(i) = dt.Rows.Item(0).Item(4 + i)
+                f2.setAttributes(i) = dt.Rows.Item(0).Item(4 + i)
             Next i
 
             Button1.Enabled = True
@@ -106,6 +107,11 @@ Public Class Form1
                 dt.Rows.Item(0).Item(133) = f.iconID
                 f.iconID = ""
             End If
+
+            Dim i As Integer
+            For i = 0 To 8
+                dt.Rows.Item(0).Item(4 + i) = f2.setAttributes(i)
+            Next i
 
             Dim insertstring As String = "INSERT INTO dbc_spell VALUES ("
 
