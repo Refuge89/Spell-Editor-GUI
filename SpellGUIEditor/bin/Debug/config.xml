@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config>
+	<mysql>
+		<mysqlhost>127.0.0.1</mysqlhost>
+		<mysqluser>root</mysqluser>
+		<mysqlpass>12345</mysqlpass>
+		<mysqldb>harry_world</mysqldb>
+	</mysql>
+	<gen>
+		<iconfilepath>SpellIcon.dbc.csv</iconfilepath>
+	</gen>
+</config>
