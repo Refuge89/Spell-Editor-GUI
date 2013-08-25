@@ -57,6 +57,13 @@ Partial Class Form1
         Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
+        Me.Button6 = New System.Windows.Forms.Button()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.spellevel = New System.Windows.Forms.TextBox()
+        Me.baselevel = New System.Windows.Forms.TextBox()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.maxlevel = New System.Windows.Forms.TextBox()
+        Me.Label16 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'ListBox1
@@ -159,7 +166,7 @@ Partial Class Form1
         Me.Button3.Enabled = False
         Me.Button3.Location = New System.Drawing.Point(330, 35)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(104, 66)
+        Me.Button3.Size = New System.Drawing.Size(104, 42)
         Me.Button3.TabIndex = 11
         Me.Button3.Text = "Icon Editor"
         Me.Button3.UseVisualStyleBackColor = True
@@ -167,7 +174,7 @@ Partial Class Form1
         'iconid
         '
         Me.iconid.AutoSize = True
-        Me.iconid.Location = New System.Drawing.Point(331, 108)
+        Me.iconid.Location = New System.Drawing.Point(331, 80)
         Me.iconid.Name = "iconid"
         Me.iconid.Size = New System.Drawing.Size(103, 17)
         Me.iconid.TabIndex = 12
@@ -359,11 +366,75 @@ Partial Class Form1
         Me.Button5.Text = "Attributes Editor"
         Me.Button5.UseVisualStyleBackColor = True
         '
+        'Button6
+        '
+        Me.Button6.Location = New System.Drawing.Point(91, 312)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(233, 26)
+        Me.Button6.TabIndex = 39
+        Me.Button6.Text = "Targets Editor"
+        Me.Button6.UseVisualStyleBackColor = True
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Location = New System.Drawing.Point(327, 117)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(77, 17)
+        Me.Label14.TabIndex = 40
+        Me.Label14.Text = "Spell Level"
+        '
+        'spellevel
+        '
+        Me.spellevel.Location = New System.Drawing.Point(327, 137)
+        Me.spellevel.Name = "spellevel"
+        Me.spellevel.Size = New System.Drawing.Size(109, 22)
+        Me.spellevel.TabIndex = 41
+        '
+        'baselevel
+        '
+        Me.baselevel.Location = New System.Drawing.Point(327, 182)
+        Me.baselevel.Name = "baselevel"
+        Me.baselevel.Size = New System.Drawing.Size(109, 22)
+        Me.baselevel.TabIndex = 43
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Location = New System.Drawing.Point(327, 162)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(78, 17)
+        Me.Label15.TabIndex = 42
+        Me.Label15.Text = "Base Level"
+        '
+        'maxlevel
+        '
+        Me.maxlevel.Location = New System.Drawing.Point(327, 233)
+        Me.maxlevel.Name = "maxlevel"
+        Me.maxlevel.Size = New System.Drawing.Size(109, 22)
+        Me.maxlevel.TabIndex = 45
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Location = New System.Drawing.Point(327, 213)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(71, 17)
+        Me.Label16.TabIndex = 44
+        Me.Label16.Text = "Max Level"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(923, 489)
+        Me.Controls.Add(Me.maxlevel)
+        Me.Controls.Add(Me.Label16)
+        Me.Controls.Add(Me.baselevel)
+        Me.Controls.Add(Me.Label15)
+        Me.Controls.Add(Me.spellevel)
+        Me.Controls.Add(Me.Label14)
+        Me.Controls.Add(Me.Button6)
         Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.RichTextBox1)
@@ -440,5 +511,12 @@ Partial Class Form1
     Friend WithEvents RichTextBox1 As System.Windows.Forms.RichTextBox
     Friend WithEvents Button4 As System.Windows.Forms.Button
     Friend WithEvents Button5 As System.Windows.Forms.Button
+    Friend WithEvents Button6 As System.Windows.Forms.Button
+    Friend WithEvents Label14 As System.Windows.Forms.Label
+    Friend WithEvents spellevel As System.Windows.Forms.TextBox
+    Friend WithEvents baselevel As System.Windows.Forms.TextBox
+    Friend WithEvents Label15 As System.Windows.Forms.Label
+    Friend WithEvents maxlevel As System.Windows.Forms.TextBox
+    Friend WithEvents Label16 As System.Windows.Forms.Label
 
 End Class

@@ -43,7 +43,7 @@ Partial Class Form3
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(722, 630)
+        Me.Button2.Location = New System.Drawing.Point(943, 627)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(85, 35)
         Me.Button2.TabIndex = 1
@@ -62,7 +62,7 @@ Partial Class Form3
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(421, 12)
+        Me.Label2.Location = New System.Drawing.Point(526, 12)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(122, 17)
         Me.Label2.TabIndex = 4
@@ -80,7 +80,7 @@ Partial Class Form3
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(421, 338)
+        Me.Label4.Location = New System.Drawing.Point(526, 338)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(130, 17)
         Me.Label4.TabIndex = 8
@@ -107,7 +107,7 @@ Partial Class Form3
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(421, 175)
+        Me.Label7.Location = New System.Drawing.Point(526, 175)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(130, 17)
         Me.Label7.TabIndex = 14
@@ -116,7 +116,7 @@ Partial Class Form3
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(421, 484)
+        Me.Label8.Location = New System.Drawing.Point(526, 484)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(130, 17)
         Me.Label8.TabIndex = 16
@@ -128,16 +128,16 @@ Partial Class Form3
         Me.CheckedListBox1.Items.AddRange(New Object() {"UNK0", "REQ_AMMO", "ON_NEXT_SWING", "IS_REPLENISHMENT", "ABILITY", "TRADESPELL", "PASSIVE", "HIDDEN_CLIENTSIDE", "HIDE_IN_COMBAT_LOG", "TARGET_MAINHAND_ITEM", "ON_NEXT_SWING_2", "UNK11", "DAYTIME_ONLY", "NIGHT_ONLY", "INDOORS_ONLY", "OUTDOORS_ONLY", "NOT_SHAPESHIFT", "ONLY_STEALTHED", "DONT_AFFECT_SHEATH_STATE", "LEVEL_DAMAGE_CALCULATION", "STOP_ATTACK_TARGET", "IMPOSSIBLE_DODGE_PARRY_BLOCK", "CAST_TRACK_TARGET", "CASTABLE_WHILE_DEAD", "CASTABLE_WHILE_MOUNTED", "DISABLED_WHILE_ACTIVE", "NEGATIVE_1", "CASTABLE_WHILE_SITTING", "CANT_USED_IN_COMBAT", "UNAFFECTED_BY_INVULNERABILITY", "BREAKABLE_BY_DAMAGE", "CANT_CANCEL"})
         Me.CheckedListBox1.Location = New System.Drawing.Point(157, 12)
         Me.CheckedListBox1.Name = "CheckedListBox1"
-        Me.CheckedListBox1.Size = New System.Drawing.Size(258, 157)
+        Me.CheckedListBox1.Size = New System.Drawing.Size(363, 157)
         Me.CheckedListBox1.TabIndex = 18
         '
         'CheckedListBox2
         '
         Me.CheckedListBox2.FormattingEnabled = True
         Me.CheckedListBox2.Items.AddRange(New Object() {"DISMISS_PET", "DRAIN_ALL_POWER", "CHANNELED_1", "CANT_BE_REDIRECTED", "UNK4", "NOT_BREAK_STEALTH", "CHANNELED_2", "CANT_BE_REFLECTED", "CANT_TARGET_IN_COMBAT", "MELEE_COMBAT_START", "NO_THREAT", "UNK11", "IS_PICKPOCKET", "FARSIGHT", "CHANNEL_TRACK_TARGET", "DISPEL_AURAS_ON_IMMUNITY", "UNAFFECTED_BY_SCHOOL_IMMUNE", "UNAUTOCASTABLE_BY_PET", "UNK18", "CANT_TARGET_SELF", "REQ_COMBO_POINTS1", "UNK21", "REQ_COMBO_POINTS2", "UNK23", "IS_FISHING", "UNK25", "UNK26", "UNK27", "DONT_DISPLAY_IN_AURA_BAR", "CHANNEL_DISPLAY_SPELL_NAME", "ENABLE_AT_DODGE", "UNK31"})
-        Me.CheckedListBox2.Location = New System.Drawing.Point(549, 12)
+        Me.CheckedListBox2.Location = New System.Drawing.Point(654, 12)
         Me.CheckedListBox2.Name = "CheckedListBox2"
-        Me.CheckedListBox2.Size = New System.Drawing.Size(258, 157)
+        Me.CheckedListBox2.Size = New System.Drawing.Size(374, 157)
         Me.CheckedListBox2.TabIndex = 19
         '
         'CheckedListBox3
@@ -146,16 +146,16 @@ Partial Class Form3
         Me.CheckedListBox3.Items.AddRange(New Object() {"CAN_TARGET_DEAD", "UNK1", "CAN_TARGET_NOT_IN_LOS", "UNK3", "DISPLAY_IN_STANCE_BAR", "AUTOREPEAT_FLAG", "CANT_TARGET_TAPPED", "UNK7", "UNK8", "UNK9", "UNK10", "HEALTH_FUNNEL", "UNK12", "PRESERVE_ENCHANT_IN_ARENA", "UNK14", "UNK15", "TAME_BEAST", "NOT_RESET_AUTO_ACTIONS", "REQ_DEAD_PET", "NOT_NEED_SHAPESHIFT", "UNK20", "DAMAGE_REDUCED_SHIELD", "UNK22", "IS_ARCANE_CONCENTRATION", "UNK24", "UNK25", "UNK26", "UNK27", "UNK28", "CANT_CRIT", "TRIGGERED_CAN_TRIGGER_PROC", "FOOD_BUFF"})
         Me.CheckedListBox3.Location = New System.Drawing.Point(157, 175)
         Me.CheckedListBox3.Name = "CheckedListBox3"
-        Me.CheckedListBox3.Size = New System.Drawing.Size(258, 157)
+        Me.CheckedListBox3.Size = New System.Drawing.Size(363, 157)
         Me.CheckedListBox3.TabIndex = 20
         '
         'CheckedListBox4
         '
         Me.CheckedListBox4.FormattingEnabled = True
         Me.CheckedListBox4.Items.AddRange(New Object() {"UNK0", "UNK1", "UNK2", "BLOCKABLE_SPELL", "IGNORE_RESURRECTION_TIMER", "UNK5", "UNK6", "STACK_FOR_DIFF_CASTERS", "ONLY_TARGET_PLAYERS", "TRIGGERED_CAN_TRIGGER_PROC_2", "MAIN_HAND", "BATTLEGROUND", "ONLY_TARGET_GHOSTS", "UNK13", "IS_HONORLESS_TARGET", "UNK15", "CANT_TRIGGER_PROC", "NO_INITIAL_AGGRO", "IGNORE_HIT_RESULT", "DISABLE_PROC", "DEATH_PERSISTENT", "UNK21", "REQ_WAND", "UNK23", "REQ_OFFHAND", "UNK25", "CAN_PROC_WITH_TRIGGERED", "DRAIN_SOUL", "UNK28", "NO_DONE_BONUS", "DONT_DISPLAY_RANGE", "UNK31"})
-        Me.CheckedListBox4.Location = New System.Drawing.Point(549, 175)
+        Me.CheckedListBox4.Location = New System.Drawing.Point(654, 175)
         Me.CheckedListBox4.Name = "CheckedListBox4"
-        Me.CheckedListBox4.Size = New System.Drawing.Size(258, 157)
+        Me.CheckedListBox4.Size = New System.Drawing.Size(374, 157)
         Me.CheckedListBox4.TabIndex = 21
         '
         'CheckedListBox5
@@ -164,16 +164,16 @@ Partial Class Form3
         Me.CheckedListBox5.Items.AddRange(New Object() {"IGNORE_RESISTANCES", "PROC_ONLY_ON_CASTER", "UNK2", "UNK3", "UNK4", "UNK5", "NOT_STEALABLE", "TRIGGERED", "UNK8", "TRIGGER_ACTIVATE", "SPELL_VS_EXTEND_COST", "UNK11", "UNK12", "UNK13", "DAMAGE_DOESNT_BREAK_AURAS", "UNK15", "NOT_USABLE_IN_ARENA", "USABLE_IN_ARENA", "AREA_TARGET_CHAIN", "UNK19", "NOT_CHECK_SELFCAST_POWER", "UNK21", "UNK22", "UNK23", "UNK24", "IS_PET_SCALING", "CAST_ONLY_IN_OUTLAND", "UNK27", "UNK28", "UNK29", "UNK30", "UNK31"})
         Me.CheckedListBox5.Location = New System.Drawing.Point(157, 338)
         Me.CheckedListBox5.Name = "CheckedListBox5"
-        Me.CheckedListBox5.Size = New System.Drawing.Size(258, 140)
+        Me.CheckedListBox5.Size = New System.Drawing.Size(363, 140)
         Me.CheckedListBox5.TabIndex = 22
         '
         'CheckedListBox6
         '
         Me.CheckedListBox6.FormattingEnabled = True
         Me.CheckedListBox6.Items.AddRange(New Object() {"UNK0", "NO_REAGENT_WHILE_PREP", "UNK2", "USABLE_WHILE_STUNNED", "UNK4", "SINGLE_TARGET_SPELL", "UNK6", "UNK7", "UNK8", "START_PERIODIC_AT_APPLY", "HIDE_DURATION", "ALLOW_TARGET_OF_TARGET_AS_TARGET", "UNK12", "HASTE_AFFECT_DURATION", "UNK14", "UNK15", "SPECIAL_ITEM_CLASS_CHECK", "USABLE_WHILE_FEARED", "USABLE_WHILE_CONFUSED", "UNK19", "UNK20", "UNK21", "UNK22", "UNK23", "UNK24", "UNK25", "UNK26", "UNK27", "UNK28", "UNK29", "UNK30", "UNK31"})
-        Me.CheckedListBox6.Location = New System.Drawing.Point(549, 338)
+        Me.CheckedListBox6.Location = New System.Drawing.Point(654, 338)
         Me.CheckedListBox6.Name = "CheckedListBox6"
-        Me.CheckedListBox6.Size = New System.Drawing.Size(258, 140)
+        Me.CheckedListBox6.Size = New System.Drawing.Size(374, 140)
         Me.CheckedListBox6.TabIndex = 23
         '
         'CheckedListBox7
@@ -182,23 +182,23 @@ Partial Class Form3
         Me.CheckedListBox7.Items.AddRange(New Object() {"DONT_DISPLAY_COOLDOWN", "ONLY_IN_ARENA", "IGNORE_CASTER_AURAS", "UNK3", "UNK4", "UNK5", "UNK6", "UNK7", "CANT_TARGET_CROWD_CONTROLLED", "UNK9", "CAN_TARGET_POSSESSED_FRIENDS", "NOT_IN_RAID_INSTANCE", "CASTABLE_WHILE_ON_VEHICLE", "CAN_TARGET_INVISIBLE", "UNK14", "UNK15", "UNK16", "UNK17", "CAST_BY_CHARMER", "UNK19", "UNK20", "CLIENT_UI_TARGET_EFFECTS", "UNK22", "UNK23", "CAN_TARGET_UNTARGETABLE", "UNK25", "UNK26", "UNK27", "UNK28", "NO_DONE_PCT_DAMAGE_MODS", "UNK30", "UNK31"})
         Me.CheckedListBox7.Location = New System.Drawing.Point(157, 484)
         Me.CheckedListBox7.Name = "CheckedListBox7"
-        Me.CheckedListBox7.Size = New System.Drawing.Size(258, 140)
+        Me.CheckedListBox7.Size = New System.Drawing.Size(363, 140)
         Me.CheckedListBox7.TabIndex = 24
         '
         'CheckedListBox8
         '
         Me.CheckedListBox8.FormattingEnabled = True
         Me.CheckedListBox8.Items.AddRange(New Object() {"UNK0", "UNK1", "REACTIVATE_AT_RESURRECT", "IS_CHEAT_SPELL", "UNK4", "SUMMON_PLAYER_TOTEM", "UNK6", "UNK7", "HORDE_ONLY", "ALLIANCE_ONLY", "DISPEL_CHARGES", "INTERRUPT_ONLY_NONPLAYER", "UNK12", "UNK13", "UNK14", "UNK15", "UNK16", "UNK17", "HAS_CHARGE_EFFECT", "ZONE_TELEPORT", "UNK20", "UNK21", "UNK22", "UNK23", "UNK24", "UNK25", "UNK26", "UNK27", "UNK28", "UNK29", "UNK30", "UNK31"})
-        Me.CheckedListBox8.Location = New System.Drawing.Point(549, 484)
+        Me.CheckedListBox8.Location = New System.Drawing.Point(654, 484)
         Me.CheckedListBox8.Name = "CheckedListBox8"
-        Me.CheckedListBox8.Size = New System.Drawing.Size(258, 140)
+        Me.CheckedListBox8.Size = New System.Drawing.Size(374, 140)
         Me.CheckedListBox8.TabIndex = 25
         '
         'Form3
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(819, 674)
+        Me.ClientSize = New System.Drawing.Size(1040, 674)
         Me.Controls.Add(Me.CheckedListBox8)
         Me.Controls.Add(Me.CheckedListBox7)
         Me.Controls.Add(Me.CheckedListBox6)

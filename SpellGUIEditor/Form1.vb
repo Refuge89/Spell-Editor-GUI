@@ -5,6 +5,7 @@ Public Class Form1
     Public Shared f As Form2 = New Form2
     Public Shared f2 As Form3 = New Form3
     Public Shared f3 As Form4 = New Form4
+    Public Shared f4 As Form5 = New Form5
     Public Shared dt As DataTable
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -21,6 +22,8 @@ Public Class Form1
             Next i
             ListBox1.Update()
 
+            ToggleButtons(False)
+
         Catch ex As Exception
 
             MessageBox.Show(ex.Message.ToString())
@@ -32,6 +35,12 @@ Public Class Form1
     Private Sub ListBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBox1.SelectedIndexChanged
 
         Try
+            f.Hide()
+            f2.Hide()
+            f3.Hide()
+            f4.Hide()
+            ToggleButtons(False)
+
             mydb.executeSQL("SELECT * FROM dbc_spell WHERE Id = '" & ListBox1.Items.Item(ListBox1.SelectedIndex).ToString() & "'", dt)
 
             If dt.Rows.Count <> 1 Then
@@ -61,9 +70,12 @@ Public Class Form1
                 f2.setAttributes(i) = dt.Rows.Item(0).Item(4 + i)
             Next i
 
-            Button1.Enabled = True
-            Button2.Enabled = True
-            Button3.Enabled = True
+            f4.targets = dt.Rows.Item(0).Item(16)
+            maxlevel.Text = dt.Rows.Item(0).Item(37)
+            baselevel.Text = dt.Rows.Item(0).Item(38)
+            spellevel.Text = dt.Rows.Item(0).Item(39)
+
+            ToggleButtons(True)
 
         Catch ex As Exception
 
@@ -81,9 +93,7 @@ Public Class Form1
                 Return
             End If
 
-            Button2.Enabled = False
-            Button1.Enabled = False
-            Button3.Enabled = False
+            ToggleButtons(False)
 
         Catch ex As Exception
 
@@ -108,6 +118,8 @@ Public Class Form1
                 f.iconID = ""
             End If
 
+            dt.Rows.Item(0).Item(16) = f4.targets
+
             Dim i As Integer
             For i = 0 To 8
                 dt.Rows.Item(0).Item(4 + i) = f2.setAttributes(i)
@@ -115,7 +127,6 @@ Public Class Form1
 
             Dim insertstring As String = "INSERT INTO dbc_spell VALUES ("
 
-            Dim i As Integer
             For i = 0 To 173
                 insertstring = insertstring & "'" & dt.Rows.Item(0).Item(i).ToString & "',"
             Next i
@@ -128,10 +139,6 @@ Public Class Form1
             If Not mydb.UpdateSQL(insertstring) Then
                 MessageBox.Show("Saving failed.")
             End If
-
-            Button2.Enabled = False
-            Button1.Enabled = False
-            Button3.Enabled = False
 
             ListBox1_SelectedIndexChanged(sender, e)
 
@@ -181,5 +188,30 @@ Public Class Form1
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
         f3.Show()
+    End Sub
+
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        f4.show()
+    End Sub
+
+    Private Sub spellevel_TextChanged(sender As Object, e As EventArgs) Handles spellevel.TextChanged
+        dt.Rows.Item(0).Item(39) = spellevel.Text
+    End Sub
+
+    Private Sub baselevel_TextChanged(sender As Object, e As EventArgs) Handles baselevel.TextChanged
+        dt.Rows.Item(0).Item(38) = baselevel.Text
+    End Sub
+
+    Private Sub maxlevel_TextChanged(sender As Object, e As EventArgs) Handles maxlevel.TextChanged
+        dt.Rows.Item(0).Item(37) = maxlevel.Text
+    End Sub
+
+    Private Sub ToggleButtons(ByVal e As Boolean)
+        Button1.Enabled = e
+        Button2.Enabled = e
+        Button3.Enabled = e
+        Button4.Enabled = e
+        Button5.Enabled = e
+        Button6.Enabled = e
     End Sub
 End Class
