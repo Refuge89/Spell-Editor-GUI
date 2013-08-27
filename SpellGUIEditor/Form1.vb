@@ -6,7 +6,10 @@ Public Class Form1
     Public Shared f2 As Form3 = New Form3
     Public Shared f3 As Form4 = New Form4
     Public Shared f4 As Form5 = New Form5
+    Public Shared f5 As Form6 = New Form6
     Public Shared dt As DataTable
+    Private rangedindexes() As Integer = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 34, 35, 36, 37, 38, 54, 74, 94, 95, 96, 114, 134, 135, 136, 137, 139, 140, 141, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 176, 177, 179, 180, 181, 184, 187}
+    Private castindexes() As Integer = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 50, 70, 90, 91, 110, 130, 150, 151, 152, 153, 170, 171, 190, 191, 192, 193, 194, 195, 196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209}
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -40,6 +43,7 @@ Public Class Form1
             f3.Hide()
             f4.Hide()
             ToggleButtons(False)
+            Tabs.SelectedIndex = 0
 
             mydb.executeSQL("SELECT * FROM dbc_spell WHERE Id = '" & ListBox1.Items.Item(ListBox1.SelectedIndex).ToString() & "'", dt)
 
@@ -65,21 +69,50 @@ Public Class Form1
             Effect2Max.Text = dt.Rows.Item(0).Item(75)
             Effect3Max.Text = dt.Rows.Item(0).Item(76)
 
+            Dim pos As Integer = 0
             For i = 0 To 8
-                f2.attributes(i) = dt.Rows.Item(0).Item(4 + i)
-                f2.setAttributes(i) = dt.Rows.Item(0).Item(4 + i)
+                pos = i + 4
+                f2.attributes(i) = dt.Rows.Item(0).Item(pos)
+                f2.setAttributes(i) = dt.Rows.Item(0).Item(pos)
             Next i
 
             f4.targets = dt.Rows.Item(0).Item(16)
             maxlevel.Text = dt.Rows.Item(0).Item(37)
             baselevel.Text = dt.Rows.Item(0).Item(38)
             spellevel.Text = dt.Rows.Item(0).Item(39)
+            dispeltype.SelectedIndex = dt.Rows.Item(0).Item(2) + 1
+            If dt.Rows.Item(0).Item(3) = -1 Then
+                dt.Rows.Item(0).Item(3) = 0
+            End If
+            mechanics.SelectedIndex = dt.Rows.Item(0).Item(3)
+            Dim rangedex As Integer = 0
+            For i = 0 To rangedindexes.Count
+                If rangedindexes(i) = dt.Rows.Item(0).Item(46) Then
+                    rangedex = i
+                    Exit For
+                End If
+            Next
+            range.SelectedIndex = rangedex
+            rangedex = 0
+            For i = 0 To castindexes.Count
+                If castindexes(i) = dt.Rows.Item(0).Item(28) Then
+                    rangedex = i
+                    Exit For
+                End If
+            Next
+            casttime.SelectedIndex = rangedex
+            TextBox1.Text = dt.Rows.Item(0).Item(29)
+            TextBox2.Text = dt.Rows.Item(0).Item(30)
+            f5.interrupts(0) = dt.Rows.Item(0).Item(31)
+            f5.interrupts(1) = dt.Rows.Item(0).Item(32)
+            f5.interrupts(2) = dt.Rows.Item(0).Item(33)
 
             ToggleButtons(True)
 
         Catch ex As Exception
 
             MessageBox.Show(ex.Message.ToString())
+            ToggleButtons(False)
 
         End Try
 
@@ -119,6 +152,9 @@ Public Class Form1
             End If
 
             dt.Rows.Item(0).Item(16) = f4.targets
+            dt.Rows.Item(0).Item(31) = f5.interrupts(0)
+            dt.Rows.Item(0).Item(32) = f5.interrupts(1)
+            dt.Rows.Item(0).Item(33) = f5.interrupts(2)
 
             Dim i As Integer
             For i = 0 To 8
@@ -213,58 +249,38 @@ Public Class Form1
         Button4.Enabled = e
         Button5.Enabled = e
         Button6.Enabled = e
+        Button7.Enabled = e
     End Sub
 
+    Private Sub dispeltype_SelectedIndexChanged(sender As Object, e As EventArgs) Handles dispeltype.SelectedIndexChanged
+        Dim t As Integer = dispeltype.SelectedIndex
+        If t <> 0 Then
+            t = t - 1
+        End If
+        dt.Rows.Item(0).Item(2) = t
+    End Sub
 
-    '    Enum DISPEL_TYPE
-    '{
-    '    DISPEL_ZGTRINKETS		= -1,
-    '    DISPEL_NULL				= 0,
-    '    DISPEL_MAGIC			= 1,
-    '    DISPEL_CURSE			= 2,
-    '    DISPEL_DISEASE			= 3,
-    '    DISPEL_POISON			= 4,
-    '    DISPEL_STEALTH			= 5,
-    '    DISPEL_INVISIBILTY		= 6,
-    '    DISPEL_ALL				= 7,
-    '    DISPEL_SPECIAL_NPCONLY	= 8,
-    '    DISPEL_FRENZY			= 9,
-    '};
+    Private Sub mechanics_SelectedIndexChanged(sender As Object, e As EventArgs) Handles mechanics.SelectedIndexChanged
+        dt.Rows.Item(0).Item(3) = mechanics.SelectedIndex
+    End Sub
 
-    '    Enum MECHANICS
-    '{
-    '    MECHANIC_NONE = 0,
-    '    MECHANIC_CHARMED, // 1
-    '    MECHANIC_DISORIENTED, // 2
-    '    MECHANIC_DISARMED, // 3
-    '    MECHANIC_DISTRACED, // 4
-    '    MECHANIC_FLEEING, // 5
-    '    MECHANIC_CLUMSY, // 6
-    '    MECHANIC_ROOTED, // 7
-    '    MECHANIC_PACIFIED, // 8
-    '    MECHANIC_SILENCED, // 9
-    '    MECHANIC_ASLEEP, // 10
-    '    MECHANIC_ENSNARED, // 11
-    '    MECHANIC_STUNNED, // 12
-    '    MECHANIC_FROZEN, // 13
-    '    MECHANIC_INCAPACIPATED, // 14
-    '    MECHANIC_BLEEDING, // 15
-    '    MECHANIC_HEALING, // 16
-    '    MECHANIC_POLYMORPHED, // 17
-    '    MECHANIC_BANISHED, // 18
-    '    MECHANIC_SHIELDED, // 19
-    '    MECHANIC_SHACKLED, // 20
-    '    MECHANIC_MOUNTED, // 21
-    '    MECHANIC_SEDUCED, // 22
-    '    MECHANIC_TURNED, // 23
-    '    MECHANIC_HORRIFIED, // 24
-    '    MECHANIC_INVULNARABLE, // 25
-    '    MECHANIC_INTERRUPTED, // 26
-    '    MECHANIC_DAZED, // 27
-    '    MECHANIC_DISCOVERY, // 28
-    '    MECHANIC_INVULNERABLE, // 29
-    '    MECHANIC_SAPPED, // 30
-    '    MECHANIC_ENRAGED, // 31
-    '    MECHANIC_END
-    '};
+    Private Sub range_SelectedIndexChanged(sender As Object, e As EventArgs) Handles range.SelectedIndexChanged
+        dt.Rows.Item(0).Item(46) = rangedindexes(range.SelectedIndex)
+    End Sub
+
+    Private Sub casttime_SelectedIndexChanged(sender As Object, e As EventArgs) Handles casttime.SelectedIndexChanged
+        dt.Rows.Item(0).Item(28) = castindexes(casttime.SelectedIndex)
+    End Sub
+
+    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
+        dt.Rows.Item(0).Item(29) = TextBox1.Text
+    End Sub
+
+    Private Sub TextBox2_TextChanged(sender As Object, e As EventArgs) Handles TextBox2.TextChanged
+        dt.Rows.Item(0).Item(30) = TextBox2.Text
+    End Sub
+
+    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
+        f5.Show()
+    End Sub
 End Class

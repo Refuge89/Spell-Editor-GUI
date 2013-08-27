@@ -5,6 +5,7 @@ Public Class Form3
     Public setAttributes(8) As String
     Public attributes(8) As Integer
     Private vars As New SpellAttributes
+    Private loading As Boolean = False
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Me.Hide()
@@ -16,7 +17,10 @@ Public Class Form3
     End Sub
 
     Private Sub Form3_Load(sender As Object, e As EventArgs) Handles MyBase.Load, MyBase.VisibleChanged
-
+        If Not Me.Visible Then
+            Return
+        End If
+        loading = True
         Dim i As Integer
         Dim state As Boolean
         For i = 0 To CheckedListBox1.Items.Count - 1
@@ -75,9 +79,13 @@ Public Class Form3
             End If
             CheckedListBox8.SetItemChecked(i, state)
         Next i
+        loading = False
     End Sub
 
     Private Sub CheckedListBox1_ItemCheck(sender As Object, e As ItemCheckEventArgs) Handles CheckedListBox1.ItemCheck
+        If loading Then
+            Return
+        End If
         setAttributes(0) = 0
         Dim i As Integer
         For i = 0 To CheckedListBox1.Items.Count - 1
@@ -88,6 +96,9 @@ Public Class Form3
     End Sub
 
     Private Sub CheckedListBox2_ItemCheck(sender As Object, e As ItemCheckEventArgs) Handles CheckedListBox2.ItemCheck
+        If loading Then
+            Return
+        End If
         setAttributes(1) = 0
         Dim i As Integer
         For i = 0 To CheckedListBox2.Items.Count - 1
@@ -98,6 +109,9 @@ Public Class Form3
     End Sub
 
     Private Sub CheckedListBox3_ItemCheck(sender As Object, e As ItemCheckEventArgs) Handles CheckedListBox3.ItemCheck
+        If loading Then
+            Return
+        End If
         setAttributes(2) = 0
         Dim i As Integer
         For i = 0 To CheckedListBox3.Items.Count - 1
@@ -108,6 +122,9 @@ Public Class Form3
     End Sub
 
     Private Sub CheckedListBox4_ItemCheck(sender As Object, e As ItemCheckEventArgs) Handles CheckedListBox4.ItemCheck
+        If loading Then
+            Return
+        End If
         setAttributes(3) = 0
         Dim i As Integer
         For i = 0 To CheckedListBox4.Items.Count - 1
@@ -118,6 +135,9 @@ Public Class Form3
     End Sub
 
     Private Sub CheckedListBox5_ItemCheck(sender As Object, e As ItemCheckEventArgs) Handles CheckedListBox5.ItemCheck
+        If loading Then
+            Return
+        End If
         setAttributes(4) = 0
         Dim i As Integer
         For i = 0 To CheckedListBox5.Items.Count - 1
@@ -128,6 +148,9 @@ Public Class Form3
     End Sub
 
     Private Sub CheckedListBox6_ItemCheck(sender As Object, e As ItemCheckEventArgs) Handles CheckedListBox6.ItemCheck
+        If loading Then
+            Return
+        End If
         setAttributes(5) = 0
         Dim i As Integer
         For i = 0 To CheckedListBox6.Items.Count - 1
@@ -138,6 +161,9 @@ Public Class Form3
     End Sub
 
     Private Sub CheckedListBox7_ItemCheck(sender As Object, e As ItemCheckEventArgs) Handles CheckedListBox7.ItemCheck
+        If loading Then
+            Return
+        End If
         setAttributes(6) = 0
         Dim i As Integer
         For i = 0 To CheckedListBox7.Items.Count - 1
@@ -148,6 +174,9 @@ Public Class Form3
     End Sub
 
     Private Sub CheckedListBox8_ItemCheck(sender As Object, e As ItemCheckEventArgs) Handles CheckedListBox8.ItemCheck
+        If loading Then
+            Return
+        End If
         setAttributes(7) = 0
         Dim i As Integer
         For i = 0 To CheckedListBox8.Items.Count - 1

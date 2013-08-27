@@ -4,6 +4,7 @@ Public Class Form5
 
     Private vars As New SpellAttributes
     Public targets As Integer = 0
+    Private loading As Boolean = False
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Me.Hide()
@@ -18,6 +19,7 @@ Public Class Form5
         If Not Me.Visible Then
             Return
         End If
+        loading = True
         Dim i As Integer
         Dim state As Boolean
         For i = 0 To CheckedListBox1.Items.Count - 1
@@ -27,9 +29,13 @@ Public Class Form5
             End If
             CheckedListBox1.SetItemChecked(i, state)
         Next i
+        loading = False
     End Sub
 
     Private Sub CheckedListBox1_ItemCheck(sender As Object, e As ItemCheckEventArgs) Handles CheckedListBox1.ItemCheck
+        If loading Then
+            Return
+        End If
         targets = 0
         Dim i As Integer
         For i = 0 To CheckedListBox1.Items.Count - 1
