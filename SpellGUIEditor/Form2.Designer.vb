@@ -26,16 +26,16 @@ Partial Class Form2
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form2))
         Me.Button2 = New System.Windows.Forms.Button()
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
-        Me.PictureBox0 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox5 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox6 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox7 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox8 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox9 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox00 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox01 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox02 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox03 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox04 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox05 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox06 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox07 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox08 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox09 = New System.Windows.Forms.PictureBox()
         Me.PictureBox10 = New System.Windows.Forms.PictureBox()
         Me.PictureBox11 = New System.Windows.Forms.PictureBox()
         Me.PictureBox12 = New System.Windows.Forms.PictureBox()
@@ -85,16 +85,16 @@ Partial Class Form2
         Me.Label1 = New System.Windows.Forms.Label()
         Me.currentbox = New System.Windows.Forms.PictureBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        CType(Me.PictureBox0, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox9, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox00, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox01, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox02, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox03, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox04, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox05, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox06, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox07, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox08, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox09, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox10, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox11, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox12, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -158,95 +158,95 @@ Partial Class Form2
         Me.ImageList1.ImageSize = New System.Drawing.Size(16, 16)
         Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
         '
-        'PictureBox0
+        'PictureBox00
         '
-        Me.PictureBox0.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.PictureBox0.Location = New System.Drawing.Point(12, 12)
-        Me.PictureBox0.Name = "PictureBox0"
-        Me.PictureBox0.Size = New System.Drawing.Size(64, 64)
-        Me.PictureBox0.TabIndex = 2
-        Me.PictureBox0.TabStop = False
+        Me.PictureBox00.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PictureBox00.Location = New System.Drawing.Point(12, 12)
+        Me.PictureBox00.Name = "PictureBox00"
+        Me.PictureBox00.Size = New System.Drawing.Size(64, 64)
+        Me.PictureBox00.TabIndex = 2
+        Me.PictureBox00.TabStop = False
         '
-        'PictureBox1
+        'PictureBox01
         '
-        Me.PictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.PictureBox1.Location = New System.Drawing.Point(82, 12)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(64, 64)
-        Me.PictureBox1.TabIndex = 3
-        Me.PictureBox1.TabStop = False
+        Me.PictureBox01.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PictureBox01.Location = New System.Drawing.Point(82, 12)
+        Me.PictureBox01.Name = "PictureBox01"
+        Me.PictureBox01.Size = New System.Drawing.Size(64, 64)
+        Me.PictureBox01.TabIndex = 3
+        Me.PictureBox01.TabStop = False
         '
-        'PictureBox2
+        'PictureBox02
         '
-        Me.PictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.PictureBox2.Location = New System.Drawing.Point(152, 12)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(64, 64)
-        Me.PictureBox2.TabIndex = 4
-        Me.PictureBox2.TabStop = False
+        Me.PictureBox02.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PictureBox02.Location = New System.Drawing.Point(152, 12)
+        Me.PictureBox02.Name = "PictureBox02"
+        Me.PictureBox02.Size = New System.Drawing.Size(64, 64)
+        Me.PictureBox02.TabIndex = 4
+        Me.PictureBox02.TabStop = False
         '
-        'PictureBox3
+        'PictureBox03
         '
-        Me.PictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.PictureBox3.Location = New System.Drawing.Point(222, 12)
-        Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(64, 64)
-        Me.PictureBox3.TabIndex = 5
-        Me.PictureBox3.TabStop = False
+        Me.PictureBox03.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PictureBox03.Location = New System.Drawing.Point(222, 12)
+        Me.PictureBox03.Name = "PictureBox03"
+        Me.PictureBox03.Size = New System.Drawing.Size(64, 64)
+        Me.PictureBox03.TabIndex = 5
+        Me.PictureBox03.TabStop = False
         '
-        'PictureBox4
+        'PictureBox04
         '
-        Me.PictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.PictureBox4.Location = New System.Drawing.Point(292, 12)
-        Me.PictureBox4.Name = "PictureBox4"
-        Me.PictureBox4.Size = New System.Drawing.Size(64, 64)
-        Me.PictureBox4.TabIndex = 6
-        Me.PictureBox4.TabStop = False
+        Me.PictureBox04.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PictureBox04.Location = New System.Drawing.Point(292, 12)
+        Me.PictureBox04.Name = "PictureBox04"
+        Me.PictureBox04.Size = New System.Drawing.Size(64, 64)
+        Me.PictureBox04.TabIndex = 6
+        Me.PictureBox04.TabStop = False
         '
-        'PictureBox5
+        'PictureBox05
         '
-        Me.PictureBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.PictureBox5.Location = New System.Drawing.Point(362, 12)
-        Me.PictureBox5.Name = "PictureBox5"
-        Me.PictureBox5.Size = New System.Drawing.Size(64, 64)
-        Me.PictureBox5.TabIndex = 7
-        Me.PictureBox5.TabStop = False
+        Me.PictureBox05.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PictureBox05.Location = New System.Drawing.Point(362, 12)
+        Me.PictureBox05.Name = "PictureBox05"
+        Me.PictureBox05.Size = New System.Drawing.Size(64, 64)
+        Me.PictureBox05.TabIndex = 7
+        Me.PictureBox05.TabStop = False
         '
-        'PictureBox6
+        'PictureBox06
         '
-        Me.PictureBox6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.PictureBox6.Location = New System.Drawing.Point(432, 12)
-        Me.PictureBox6.Name = "PictureBox6"
-        Me.PictureBox6.Size = New System.Drawing.Size(64, 64)
-        Me.PictureBox6.TabIndex = 8
-        Me.PictureBox6.TabStop = False
+        Me.PictureBox06.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PictureBox06.Location = New System.Drawing.Point(432, 12)
+        Me.PictureBox06.Name = "PictureBox06"
+        Me.PictureBox06.Size = New System.Drawing.Size(64, 64)
+        Me.PictureBox06.TabIndex = 8
+        Me.PictureBox06.TabStop = False
         '
-        'PictureBox7
+        'PictureBox07
         '
-        Me.PictureBox7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.PictureBox7.Location = New System.Drawing.Point(502, 12)
-        Me.PictureBox7.Name = "PictureBox7"
-        Me.PictureBox7.Size = New System.Drawing.Size(64, 64)
-        Me.PictureBox7.TabIndex = 9
-        Me.PictureBox7.TabStop = False
+        Me.PictureBox07.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PictureBox07.Location = New System.Drawing.Point(502, 12)
+        Me.PictureBox07.Name = "PictureBox07"
+        Me.PictureBox07.Size = New System.Drawing.Size(64, 64)
+        Me.PictureBox07.TabIndex = 9
+        Me.PictureBox07.TabStop = False
         '
-        'PictureBox8
+        'PictureBox08
         '
-        Me.PictureBox8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.PictureBox8.Location = New System.Drawing.Point(572, 12)
-        Me.PictureBox8.Name = "PictureBox8"
-        Me.PictureBox8.Size = New System.Drawing.Size(64, 64)
-        Me.PictureBox8.TabIndex = 10
-        Me.PictureBox8.TabStop = False
+        Me.PictureBox08.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PictureBox08.Location = New System.Drawing.Point(572, 12)
+        Me.PictureBox08.Name = "PictureBox08"
+        Me.PictureBox08.Size = New System.Drawing.Size(64, 64)
+        Me.PictureBox08.TabIndex = 10
+        Me.PictureBox08.TabStop = False
         '
-        'PictureBox9
+        'PictureBox09
         '
-        Me.PictureBox9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.PictureBox9.Location = New System.Drawing.Point(642, 12)
-        Me.PictureBox9.Name = "PictureBox9"
-        Me.PictureBox9.Size = New System.Drawing.Size(64, 64)
-        Me.PictureBox9.TabIndex = 11
-        Me.PictureBox9.TabStop = False
+        Me.PictureBox09.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PictureBox09.Location = New System.Drawing.Point(642, 12)
+        Me.PictureBox09.Name = "PictureBox09"
+        Me.PictureBox09.Size = New System.Drawing.Size(64, 64)
+        Me.PictureBox09.TabIndex = 11
+        Me.PictureBox09.TabStop = False
         '
         'PictureBox10
         '
@@ -743,16 +743,16 @@ Partial Class Form2
         Me.Controls.Add(Me.PictureBox12)
         Me.Controls.Add(Me.PictureBox11)
         Me.Controls.Add(Me.PictureBox10)
-        Me.Controls.Add(Me.PictureBox9)
-        Me.Controls.Add(Me.PictureBox8)
-        Me.Controls.Add(Me.PictureBox7)
-        Me.Controls.Add(Me.PictureBox6)
-        Me.Controls.Add(Me.PictureBox5)
-        Me.Controls.Add(Me.PictureBox4)
-        Me.Controls.Add(Me.PictureBox3)
-        Me.Controls.Add(Me.PictureBox2)
-        Me.Controls.Add(Me.PictureBox1)
-        Me.Controls.Add(Me.PictureBox0)
+        Me.Controls.Add(Me.PictureBox09)
+        Me.Controls.Add(Me.PictureBox08)
+        Me.Controls.Add(Me.PictureBox07)
+        Me.Controls.Add(Me.PictureBox06)
+        Me.Controls.Add(Me.PictureBox05)
+        Me.Controls.Add(Me.PictureBox04)
+        Me.Controls.Add(Me.PictureBox03)
+        Me.Controls.Add(Me.PictureBox02)
+        Me.Controls.Add(Me.PictureBox01)
+        Me.Controls.Add(Me.PictureBox00)
         Me.Controls.Add(Me.Button2)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
@@ -761,16 +761,16 @@ Partial Class Form2
         Me.ShowIcon = False
         Me.Text = "Icon Editor - Stoneharry"
         Me.TopMost = True
-        CType(Me.PictureBox0, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox9, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox00, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox01, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox02, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox03, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox04, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox05, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox06, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox07, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox08, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox09, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox10, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox11, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox12, System.ComponentModel.ISupportInitialize).EndInit()
@@ -823,16 +823,16 @@ Partial Class Form2
     End Sub
     Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents ImageList1 As System.Windows.Forms.ImageList
-    Friend WithEvents PictureBox0 As System.Windows.Forms.PictureBox
-    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
-    Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
-    Friend WithEvents PictureBox3 As System.Windows.Forms.PictureBox
-    Friend WithEvents PictureBox4 As System.Windows.Forms.PictureBox
-    Friend WithEvents PictureBox5 As System.Windows.Forms.PictureBox
-    Friend WithEvents PictureBox6 As System.Windows.Forms.PictureBox
-    Friend WithEvents PictureBox7 As System.Windows.Forms.PictureBox
-    Friend WithEvents PictureBox8 As System.Windows.Forms.PictureBox
-    Friend WithEvents PictureBox9 As System.Windows.Forms.PictureBox
+    Friend WithEvents PictureBox00 As System.Windows.Forms.PictureBox
+    Friend WithEvents PictureBox01 As System.Windows.Forms.PictureBox
+    Friend WithEvents PictureBox02 As System.Windows.Forms.PictureBox
+    Friend WithEvents PictureBox03 As System.Windows.Forms.PictureBox
+    Friend WithEvents PictureBox04 As System.Windows.Forms.PictureBox
+    Friend WithEvents PictureBox05 As System.Windows.Forms.PictureBox
+    Friend WithEvents PictureBox06 As System.Windows.Forms.PictureBox
+    Friend WithEvents PictureBox07 As System.Windows.Forms.PictureBox
+    Friend WithEvents PictureBox08 As System.Windows.Forms.PictureBox
+    Friend WithEvents PictureBox09 As System.Windows.Forms.PictureBox
     Friend WithEvents PictureBox10 As System.Windows.Forms.PictureBox
     Friend WithEvents PictureBox11 As System.Windows.Forms.PictureBox
     Friend WithEvents PictureBox12 As System.Windows.Forms.PictureBox

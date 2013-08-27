@@ -5,8 +5,8 @@ Public Class Form2
     Public iconID As String = ""
     Public iconFile As String = ""
     ' column 133 = icon ID
-    Private iconpaths As ArrayList = New ArrayList
-    Private iconids As ArrayList = New ArrayList
+    Public iconpaths As ArrayList = New ArrayList
+    Public iconids As ArrayList = New ArrayList
     Private paths(55) As String
     Dim currentIndex As Integer = -1
     Dim ctrlDict As New Dictionary(Of String, PictureBox)
@@ -22,16 +22,16 @@ Public Class Form2
     End Sub
 
     Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ctrlDict.Add("0", PictureBox0)
-        ctrlDict.Add("1", PictureBox1)
-        ctrlDict.Add("2", PictureBox2)
-        ctrlDict.Add("3", PictureBox3)
-        ctrlDict.Add("4", PictureBox4)
-        ctrlDict.Add("5", PictureBox5)
-        ctrlDict.Add("6", PictureBox6)
-        ctrlDict.Add("7", PictureBox7)
-        ctrlDict.Add("8", PictureBox8)
-        ctrlDict.Add("9", PictureBox9)
+        ctrlDict.Add("0", PictureBox00)
+        ctrlDict.Add("1", PictureBox01)
+        ctrlDict.Add("2", PictureBox02)
+        ctrlDict.Add("3", PictureBox03)
+        ctrlDict.Add("4", PictureBox04)
+        ctrlDict.Add("5", PictureBox05)
+        ctrlDict.Add("6", PictureBox06)
+        ctrlDict.Add("7", PictureBox07)
+        ctrlDict.Add("8", PictureBox08)
+        ctrlDict.Add("9", PictureBox09)
         ctrlDict.Add("10", PictureBox10)
         ctrlDict.Add("11", PictureBox11)
         ctrlDict.Add("12", PictureBox12)
@@ -77,53 +77,6 @@ Public Class Form2
         ctrlDict.Add("52", PictureBox52)
         ctrlDict.Add("53", PictureBox53)
         ctrlDict.Add("54", PictureBox54)
-
-        Dim fileReader As String
-        fileReader = My.Computer.FileSystem.ReadAllText(iconFile)
-
-        Dim line As String = ""
-        Dim i As Integer = 0
-        Dim currentId As Integer = 0
-        Dim currentp As String = ""
-        Dim path As Boolean = False
-        Try
-            For i = 0 To fileReader.Length() - 1
-                Dim c As String = fileReader.Chars(i)
-                If path Then
-                    ' read path
-                    If c = """" Then
-                        currentp = line
-                        line = ""
-                        path = False
-                        i = i + 3 ' Read ,
-                        ' Read \
-                        ' read n
-                    Else
-                        line = line & c
-                    End If
-                Else
-                    ' Read ID
-                    If c = "," Then
-                        currentId = Integer.Parse(line)
-                        line = ""
-                        path = True
-                        i = i + 1
-                    Else
-                        line = line & c
-                    End If
-                End If
-                ' save info
-                If (currentId <> 0 And currentp.Length <> 0) Then
-                    iconpaths.Add(currentp)
-                    iconids.Add(currentId.ToString())
-                    currentp = ""
-                    currentId = 0
-                End If
-            Next i
-        Catch ex As Exception
-            MessageBox.Show(ex.Message)
-            Return
-        End Try
 
         Try
             For i = 0 To iconids.Count - 1
@@ -178,7 +131,8 @@ Public Class Form2
         Try
             Dim pic As PictureBox = DirectCast(sender, PictureBox)
             Dim name As String = pic.Name.ToString()
-            Dim impath As String = paths(Integer.Parse(name.Chars(name.Length - 1)))
+            Dim temp As String = name.Chars(name.Length - 2) & name.Chars(name.Length - 1)
+            Dim impath As String = paths(Integer.Parse(temp))
             Dim i As Integer
             For i = 0 To iconpaths.Count - 1
                 If impath.Equals(iconpaths.Item(i)) Then
@@ -189,6 +143,8 @@ Public Class Form2
             iconID = iconids.Item(i).ToString()
             Form1.iconid.Text = "Icon ID: " & iconID
             originalID = iconID
+            Form1.updateCurrentImage()
+
             Me.Hide()
         Catch ex As Exception
             MessageBox.Show(ex.Message.ToString())

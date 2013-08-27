@@ -11,6 +11,7 @@ Public Class Form1
     Public Shared dt As DataTable
     Private rangedindexes() As Integer = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 34, 35, 36, 37, 38, 54, 74, 94, 95, 96, 114, 134, 135, 136, 137, 139, 140, 141, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 176, 177, 179, 180, 181, 184, 187}
     Private castindexes() As Integer = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 50, 70, 90, 91, 110, 130, 150, 151, 152, 153, 170, 171, 190, 191, 192, 193, 194, 195, 196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209}
+    Private durationindexes() As Integer = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 35, 36, 37, 38, 39, 40, 41, 42, 62, 63, 64, 65, 66, 85, 86, 105, 106, 125, 145, 165, 185, 186, 187, 205, 225, 245, 265, 285, 305, 325, 326, 327, 328, 347, 367, 387, 407, 427, 447, 467, 468, 487, 507, 508, 527, 547, 548, 549, 550, 551, 552, 553, 554, 555, 556, 557, 558, 559, 560, 561, 562, 563, 564, 565, 566, 567, 568, 569, 570, 571, 572, 573, 574, 575, 576, 577, 578, 579, 580, 581, 582, 583, 584, 585, 586, 587, 588, 589, 590, 591, 592, 593, 594, 596, 597, 598, 600, 602}
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -27,6 +28,52 @@ Public Class Form1
             ListBox1.Update()
 
             ToggleButtons(False)
+
+            Dim fileReader As String
+            fileReader = My.Computer.FileSystem.ReadAllText(f.iconFile)
+
+            Dim line As String = ""
+            Dim currentId As Integer = 0
+            Dim currentp As String = ""
+            Dim path As Boolean = False
+            Try
+                For i = 0 To fileReader.Length() - 1
+                    Dim c As String = fileReader.Chars(i)
+                    If path Then
+                        ' read path
+                        If c = """" Then
+                            currentp = line
+                            line = ""
+                            path = False
+                            i = i + 3 ' Read ,
+                            ' Read \
+                            ' read n
+                        Else
+                            line = line & c
+                        End If
+                    Else
+                        ' Read ID
+                        If c = "," Then
+                            currentId = Integer.Parse(line)
+                            line = ""
+                            path = True
+                            i = i + 1
+                        Else
+                            line = line & c
+                        End If
+                    End If
+                    ' save info
+                    If (currentId <> 0 And currentp.Length <> 0) Then
+                        f.iconpaths.Add(currentp)
+                        f.iconids.Add(currentId.ToString())
+                        currentp = ""
+                        currentId = 0
+                    End If
+                Next i
+            Catch ex As Exception
+                MessageBox.Show(ex.Message)
+                Return
+            End Try
 
         Catch ex As Exception
 
@@ -53,6 +100,7 @@ Public Class Form1
                 Return
             End If
 
+            Category.Text = dt.Rows.Item(0).Item(1).ToString()
             SName.Text = dt.Rows.Item(0).Item(136).ToString()
             Description.Text = dt.Rows.Item(0).Item(140).ToString()
             Rank.Text = dt.Rows.Item(0).Item(138).ToString()
@@ -87,7 +135,7 @@ Public Class Form1
             End If
             mechanics.SelectedIndex = dt.Rows.Item(0).Item(3)
             Dim rangedex As Integer = 0
-            For i = 0 To rangedindexes.Count
+            For i = 0 To rangedindexes.Count - 1
                 If rangedindexes(i) = dt.Rows.Item(0).Item(46) Then
                     rangedex = i
                     Exit For
@@ -95,13 +143,21 @@ Public Class Form1
             Next
             range.SelectedIndex = rangedex
             rangedex = 0
-            For i = 0 To castindexes.Count
+            For i = 0 To castindexes.Count - 1
                 If castindexes(i) = dt.Rows.Item(0).Item(28) Then
                     rangedex = i
                     Exit For
                 End If
             Next
             casttime.SelectedIndex = rangedex
+            rangedex = 0
+            For i = 0 To durationindexes.Count - 1
+                If durationindexes(i) = dt.Rows.Item(0).Item(40) Then
+                    rangedex = i
+                    Exit For
+                End If
+            Next
+            durationind.SelectedIndex = rangedex
             TextBox1.Text = dt.Rows.Item(0).Item(29)
             TextBox2.Text = dt.Rows.Item(0).Item(30)
             f5.interrupts(0) = dt.Rows.Item(0).Item(31)
@@ -110,6 +166,8 @@ Public Class Form1
             f6.values(0) = dt.Rows.Item(0).Item(34)
             f6.values(1) = dt.Rows.Item(0).Item(35)
             f6.values(2) = dt.Rows.Item(0).Item(36)
+
+            updateCurrentImage()
 
             ToggleButtons(True)
 
@@ -120,6 +178,18 @@ Public Class Form1
 
         End Try
 
+    End Sub
+
+    Public Sub updateCurrentImage()
+        Try
+            For i = 0 To f.iconids.Count - 1
+                If f.iconids(i).Equals(f.originalID) Then
+                    currentbox.Image = Image.FromFile(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly.Location) & "\" & f.iconpaths.Item(i) & ".png")
+                    currentbox.Update()
+                End If
+            Next i
+        Catch ex As Exception
+        End Try
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
@@ -294,5 +364,13 @@ Public Class Form1
 
     Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
         f6.Show()
+    End Sub
+
+    Private Sub Category_TextChanged(sender As Object, e As EventArgs) Handles Category.TextChanged
+        dt.Rows.Item(0).Item(1) = Category.Text
+    End Sub
+
+    Private Sub ComboBox1_SelectedIndexChanged_1(sender As Object, e As EventArgs) Handles durationind.SelectedIndexChanged
+        dt.Rows.Item(0).Item(40) = castindexes(durationind.SelectedIndex)
     End Sub
 End Class

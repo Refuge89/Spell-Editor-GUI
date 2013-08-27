@@ -80,11 +80,17 @@ Partial Class Form1
         Me.Tabs = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
-        Me.Label23 = New System.Windows.Forms.Label()
         Me.Button8 = New System.Windows.Forms.Button()
+        Me.Label23 = New System.Windows.Forms.Label()
+        Me.Label24 = New System.Windows.Forms.Label()
+        Me.Category = New System.Windows.Forms.TextBox()
+        Me.Duration = New System.Windows.Forms.Label()
+        Me.durationind = New System.Windows.Forms.ComboBox()
+        Me.currentbox = New System.Windows.Forms.PictureBox()
         Me.Tabs.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
+        CType(Me.currentbox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ListBox1
@@ -185,7 +191,7 @@ Partial Class Form1
         'Button3
         '
         Me.Button3.Enabled = False
-        Me.Button3.Location = New System.Drawing.Point(376, 161)
+        Me.Button3.Location = New System.Drawing.Point(249, 110)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(109, 42)
         Me.Button3.TabIndex = 11
@@ -195,7 +201,7 @@ Partial Class Form1
         'iconid
         '
         Me.iconid.AutoSize = True
-        Me.iconid.Location = New System.Drawing.Point(376, 206)
+        Me.iconid.Location = New System.Drawing.Point(246, 79)
         Me.iconid.Name = "iconid"
         Me.iconid.Size = New System.Drawing.Size(103, 17)
         Me.iconid.TabIndex = 12
@@ -501,7 +507,7 @@ Partial Class Form1
         'Label20
         '
         Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(246, 310)
+        Me.Label20.Location = New System.Drawing.Point(246, 309)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(71, 17)
         Me.Label20.TabIndex = 53
@@ -570,6 +576,11 @@ Partial Class Form1
         'TabPage1
         '
         Me.TabPage1.BackColor = System.Drawing.Color.Gainsboro
+        Me.TabPage1.Controls.Add(Me.currentbox)
+        Me.TabPage1.Controls.Add(Me.Duration)
+        Me.TabPage1.Controls.Add(Me.durationind)
+        Me.TabPage1.Controls.Add(Me.Label24)
+        Me.TabPage1.Controls.Add(Me.Category)
         Me.TabPage1.Controls.Add(Me.Description)
         Me.TabPage1.Controls.Add(Me.SName)
         Me.TabPage1.Controls.Add(Me.Label22)
@@ -607,6 +618,7 @@ Partial Class Form1
         '
         'TabPage2
         '
+        Me.TabPage2.BackColor = System.Drawing.Color.LightGray
         Me.TabPage2.Controls.Add(Me.Button8)
         Me.TabPage2.Controls.Add(Me.Effect1)
         Me.TabPage2.Controls.Add(Me.Button7)
@@ -637,7 +649,15 @@ Partial Class Form1
         Me.TabPage2.Size = New System.Drawing.Size(503, 471)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Extra"
-        Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'Button8
+        '
+        Me.Button8.Location = New System.Drawing.Point(8, 345)
+        Me.Button8.Name = "Button8"
+        Me.Button8.Size = New System.Drawing.Size(221, 29)
+        Me.Button8.TabIndex = 59
+        Me.Button8.Text = "Proc Editor"
+        Me.Button8.UseVisualStyleBackColor = True
         '
         'Label23
         '
@@ -648,14 +668,47 @@ Partial Class Form1
         Me.Label23.TabIndex = 60
         Me.Label23.Text = "Spells"
         '
-        'Button8
+        'Label24
         '
-        Me.Button8.Location = New System.Drawing.Point(8, 345)
-        Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(221, 29)
-        Me.Button8.TabIndex = 59
-        Me.Button8.Text = "Proc Editor"
-        Me.Button8.UseVisualStyleBackColor = True
+        Me.Label24.AutoSize = True
+        Me.Label24.Location = New System.Drawing.Point(246, 219)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(65, 17)
+        Me.Label24.TabIndex = 59
+        Me.Label24.Text = "Category"
+        '
+        'Category
+        '
+        Me.Category.Location = New System.Drawing.Point(249, 239)
+        Me.Category.Name = "Category"
+        Me.Category.Size = New System.Drawing.Size(233, 22)
+        Me.Category.TabIndex = 58
+        '
+        'Duration
+        '
+        Me.Duration.AutoSize = True
+        Me.Duration.Location = New System.Drawing.Point(246, 262)
+        Me.Duration.Name = "Duration"
+        Me.Duration.Size = New System.Drawing.Size(62, 17)
+        Me.Duration.TabIndex = 61
+        Me.Duration.Text = "Duration"
+        '
+        'durationind
+        '
+        Me.durationind.FormattingEnabled = True
+        Me.durationind.Items.AddRange(New Object() {"10000 (10 seconds)", "300000010", "60000 (60 seconds)", "120000 (12 seconds)", "300000", "600000", "5000000", "15000", "30000", "60000000", "100000000", "30000000", "6000000", "12000000", "30000000", "230000", "5000000", "200", "3000000", "60000000", "-1", "45000", "90000", "160000", "180000", "240000", "3000", "5000", "12000", "1800000", "8000", "6000", "4000", "1000", "1", "11000", "200", "1200000", "360000", "3600000", "75000", "25000", "40000", "1500", "2500", "18000", "21000", "9000", "24000", "35000", "2700000", "7000", "6000", "200", "200", "27000", "604800000", "50000", "55000", "1000", "14000", "36000", "44000", "500", "250", "900000", "7200000", "16000", "100", "-600000", "200", "22000", "26000", "1700", "1100", "1100", "14400000", "5400000", "10800000", "3800", "2147483647", "3500", "210000", "6000", "155000", "4500", "28000", "165000", "114000", "53000", "299000", "3300000", "150000", "20500", "13000", "70000", "200", "135000", "1250", "280000", "32000", "5500", "100000", "11999900", "200", "17000", "43200000", "160000", "14250", "170000", "64800000", "9000", "3200", "600", "800", "200", "200", "31000", "200", "6500", "330000", "80000", "400", "300", "660000", "900", "4700", "3600", "42000", "480000"})
+        Me.durationind.Location = New System.Drawing.Point(249, 282)
+        Me.durationind.Name = "durationind"
+        Me.durationind.Size = New System.Drawing.Size(233, 24)
+        Me.durationind.TabIndex = 60
+        '
+        'currentbox
+        '
+        Me.currentbox.Location = New System.Drawing.Point(249, 14)
+        Me.currentbox.Name = "currentbox"
+        Me.currentbox.Size = New System.Drawing.Size(64, 64)
+        Me.currentbox.TabIndex = 62
+        Me.currentbox.TabStop = False
         '
         'Form1
         '
@@ -677,6 +730,7 @@ Partial Class Form1
         Me.TabPage1.PerformLayout()
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage2.PerformLayout()
+        CType(Me.currentbox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -740,5 +794,10 @@ Partial Class Form1
     Friend WithEvents TabPage2 As System.Windows.Forms.TabPage
     Friend WithEvents Label23 As System.Windows.Forms.Label
     Friend WithEvents Button8 As System.Windows.Forms.Button
+    Friend WithEvents Label24 As System.Windows.Forms.Label
+    Friend WithEvents Category As System.Windows.Forms.TextBox
+    Friend WithEvents Duration As System.Windows.Forms.Label
+    Friend WithEvents durationind As System.Windows.Forms.ComboBox
+    Friend WithEvents currentbox As System.Windows.Forms.PictureBox
 
 End Class
