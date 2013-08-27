@@ -3,7 +3,7 @@
 Public Class Form6
 
     Private vars As New SpellAttributes
-    Public interrupts() As Integer = {0, 0, 0}
+    Public interrupts() As UInt32 = {0, 0, 0}
     Private loading As Boolean = False
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click

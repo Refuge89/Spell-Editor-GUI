@@ -3,7 +3,7 @@
 Public Class Form5
 
     Private vars As New SpellAttributes
-    Public targets As Integer = 0
+    Public targets As UInt32 = 0
     Private loading As Boolean = False
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click

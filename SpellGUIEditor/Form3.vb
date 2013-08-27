@@ -3,7 +3,7 @@
 Public Class Form3
 
     Public setAttributes(8) As String
-    Public attributes(8) As Integer
+    Public attributes(8) As UInt32
     Private vars As New SpellAttributes
     Private loading As Boolean = False
 
