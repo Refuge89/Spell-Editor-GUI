@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <config>
 	<mysql>
-		<mysqlhost>eoc.servegame.com</mysqlhost>
-		<mysqluser>StoneHarry</mysqluser>
-		<mysqlpass>St0n3H4rry@2012</mysqlpass>
+		<mysqlhost>127.0.0.1</mysqlhost>
+		<mysqluser>root</mysqluser>
+		<mysqlpass>12345</mysqlpass>
 		<mysqldb>harry_world</mysqldb>
 	</mysql>
 	<gen>

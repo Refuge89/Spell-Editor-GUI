@@ -7,6 +7,7 @@ Public Class Form1
     Public Shared f3 As Form4 = New Form4
     Public Shared f4 As Form5 = New Form5
     Public Shared f5 As Form6 = New Form6
+    Public Shared f6 As Form7 = New Form7
     Public Shared dt As DataTable
     Private rangedindexes() As Integer = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 34, 35, 36, 37, 38, 54, 74, 94, 95, 96, 114, 134, 135, 136, 137, 139, 140, 141, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 176, 177, 179, 180, 181, 184, 187}
     Private castindexes() As Integer = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 50, 70, 90, 91, 110, 130, 150, 151, 152, 153, 170, 171, 190, 191, 192, 193, 194, 195, 196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209}
@@ -106,6 +107,9 @@ Public Class Form1
             f5.interrupts(0) = dt.Rows.Item(0).Item(31)
             f5.interrupts(1) = dt.Rows.Item(0).Item(32)
             f5.interrupts(2) = dt.Rows.Item(0).Item(33)
+            f6.values(0) = dt.Rows.Item(0).Item(34)
+            f6.values(1) = dt.Rows.Item(0).Item(35)
+            f6.values(2) = dt.Rows.Item(0).Item(36)
 
             ToggleButtons(True)
 
@@ -155,6 +159,9 @@ Public Class Form1
             dt.Rows.Item(0).Item(31) = f5.interrupts(0)
             dt.Rows.Item(0).Item(32) = f5.interrupts(1)
             dt.Rows.Item(0).Item(33) = f5.interrupts(2)
+            dt.Rows.Item(0).Item(34) = f6.values(0)
+            dt.Rows.Item(0).Item(35) = f6.values(1)
+            dt.Rows.Item(0).Item(36) = f6.values(2)
 
             Dim i As Integer
             For i = 0 To 8
@@ -250,6 +257,7 @@ Public Class Form1
         Button5.Enabled = e
         Button6.Enabled = e
         Button7.Enabled = e
+        Button8.Enabled = e
     End Sub
 
     Private Sub dispeltype_SelectedIndexChanged(sender As Object, e As EventArgs) Handles dispeltype.SelectedIndexChanged
@@ -282,5 +290,9 @@ Public Class Form1
 
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
         f5.Show()
+    End Sub
+
+    Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
+        f6.Show()
     End Sub
 End Class
