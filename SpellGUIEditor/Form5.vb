@@ -39,7 +39,7 @@ Public Class Form5
         targets = 0
         Dim i As Integer
         For i = 0 To CheckedListBox1.Items.Count - 1
-            If CheckedListBox1.GetItemChecked(i) Then
+            If CheckedListBox1.GetItemChecked(i) Or i = e.Index Then
                 targets = targets + vars.Attributes0(i)
             End If
         Next i
