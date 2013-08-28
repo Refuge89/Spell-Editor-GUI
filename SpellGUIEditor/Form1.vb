@@ -117,6 +117,11 @@ Public Class Form1
             Effect1Max.Text = dt.Rows.Item(0).Item(74)
             Effect2Max.Text = dt.Rows.Item(0).Item(75)
             Effect3Max.Text = dt.Rows.Item(0).Item(76)
+            TextBox3.Text = dt.Rows.Item(0).Item(42)
+            TextBox4.Text = dt.Rows.Item(0).Item(43)
+            TextBox5.Text = dt.Rows.Item(0).Item(44)
+            TextBox6.Text = dt.Rows.Item(0).Item(45)
+            powertype.SelectedIndex = dt.Rows.Item(0).Item(41)
 
             Dim pos As Integer = 0
             For i = 0 To 8
@@ -166,6 +171,23 @@ Public Class Form1
             f6.values(0) = dt.Rows.Item(0).Item(34)
             f6.values(1) = dt.Rows.Item(0).Item(35)
             f6.values(2) = dt.Rows.Item(0).Item(36)
+            TextBox7.Text = dt.Rows.Item(0).Item(131)
+            TextBox8.Text = dt.Rows.Item(0).Item(144)
+            TextBox9.Text = dt.Rows.Item(0).Item(147)
+            TextBox10.Text = dt.Rows.Item(0).Item(148)
+            TextBox11.Text = dt.Rows.Item(0).Item(152)
+            TextBox12.Text = dt.Rows.Item(0).Item(153)
+            TextBox13.Text = dt.Rows.Item(0).Item(167)
+            ComboBox2.SelectedIndex = dt.Rows.Item(0).Item(154)
+
+            Dim state As Boolean
+            For i = 0 To CheckedListBox1.Items.Count - 1
+                state = False
+                If (dt.Rows.Item(0).Item(165) And f5.vars.Attributes0(i)) Then
+                    state = True
+                End If
+                CheckedListBox1.SetItemChecked(i, state)
+            Next i
 
             updateCurrentImage()
 
@@ -189,6 +211,11 @@ Public Class Form1
                 End If
             Next i
         Catch ex As Exception
+            Try
+                currentbox.Image = Image.FromFile(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly.Location) & "\" & "Interface\Icons\questionmark.png")
+                currentbox.Update()
+            Catch ex2 As Exception
+            End Try
         End Try
     End Sub
 
@@ -372,5 +399,69 @@ Public Class Form1
 
     Private Sub ComboBox1_SelectedIndexChanged_1(sender As Object, e As EventArgs) Handles durationind.SelectedIndexChanged
         dt.Rows.Item(0).Item(40) = castindexes(durationind.SelectedIndex)
+    End Sub
+
+    Private Sub TextBox3_TextChanged(sender As Object, e As EventArgs) Handles TextBox3.TextChanged
+        dt.Rows.Item(0).Item(42) = TextBox3.Text
+    End Sub
+
+    Private Sub TextBox4_TextChanged(sender As Object, e As EventArgs) Handles TextBox4.TextChanged
+        dt.Rows.Item(0).Item(43) = TextBox4.Text
+    End Sub
+
+    Private Sub TextBox5_TextChanged(sender As Object, e As EventArgs) Handles TextBox5.TextChanged
+        dt.Rows.Item(0).Item(44) = TextBox5.Text
+    End Sub
+
+    Private Sub TextBox6_TextChanged(sender As Object, e As EventArgs) Handles TextBox6.TextChanged
+        dt.Rows.Item(0).Item(45) = TextBox6.Text
+    End Sub
+
+    Private Sub powertype_SelectedIndexChanged(sender As Object, e As EventArgs) Handles powertype.SelectedIndexChanged
+        dt.Rows.Item(0).Item(41) = powertype.SelectedIndex
+    End Sub
+
+    Private Sub TextBox7_TextChanged(sender As Object, e As EventArgs) Handles TextBox7.TextChanged
+        dt.Rows.Item(0).Item(131) = TextBox7.Text
+    End Sub
+
+    Private Sub TextBox8_TextChanged(sender As Object, e As EventArgs) Handles TextBox8.TextChanged
+        dt.Rows.Item(0).Item(144) = TextBox8.Text
+    End Sub
+
+    Private Sub TextBox9_TextChanged(sender As Object, e As EventArgs) Handles TextBox9.TextChanged
+        dt.Rows.Item(0).Item(147) = TextBox9.Text
+    End Sub
+
+    Private Sub TextBox11_TextChanged(sender As Object, e As EventArgs) Handles TextBox11.TextChanged
+        dt.Rows.Item(0).Item(152) = TextBox11.Text
+    End Sub
+
+    Private Sub TextBox10_TextChanged(sender As Object, e As EventArgs) Handles TextBox10.TextChanged
+        dt.Rows.Item(0).Item(148) = TextBox10.Text
+    End Sub
+
+    Private Sub TextBox12_TextChanged(sender As Object, e As EventArgs) Handles TextBox12.TextChanged
+        dt.Rows.Item(0).Item(153) = TextBox12.Text
+    End Sub
+
+    Private Sub ComboBox2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox2.SelectedIndexChanged
+        dt.Rows.Item(0).Item(154) = ComboBox2.SelectedIndex
+    End Sub
+
+    Private Sub CheckedListBox1_ItemCheck(sender As Object, e As ItemCheckEventArgs) Handles CheckedListBox1.ItemCheck
+        If Button1.Enabled Then
+            dt.Rows.Item(0).Item(165) = 0
+            Dim i As Integer
+            For i = 0 To CheckedListBox1.Items.Count - 1
+                If CheckedListBox1.GetItemChecked(i) Then
+                    dt.Rows.Item(0).Item(165) = dt.Rows.Item(0).Item(165) + f5.vars.Attributes0(i)
+                End If
+            Next i
+        End If
+    End Sub
+
+    Private Sub TextBox13_TextChanged(sender As Object, e As EventArgs) Handles TextBox13.TextChanged
+        dt.Rows.Item(0).Item(167) = TextBox13.Text
     End Sub
 End Class

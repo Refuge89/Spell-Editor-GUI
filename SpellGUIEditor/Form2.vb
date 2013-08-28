@@ -86,6 +86,11 @@ Public Class Form2
                 End If
             Next i
         Catch ex As Exception
+            Try
+                currentbox.Image = Image.FromFile(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly.Location) & "\" & "Interface\Icons\questionmark.png")
+                currentbox.Update()
+            Catch ex2 As Exception
+            End Try
             MessageBox.Show("Unable to find original icon image.")
         End Try
 
@@ -168,6 +173,11 @@ Public Class Form2
                 End If
             Next i
         Catch ex As Exception
+            Try
+                currentbox.Image = Image.FromFile(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly.Location) & "\" & "Interface\Icons\questionmark.png")
+                currentbox.Update()
+            Catch ex2 As Exception
+            End Try
             MessageBox.Show("Unable to find original icon image.")
         End Try
     End Sub

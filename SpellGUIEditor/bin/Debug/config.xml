@@ -5,6 +5,7 @@
 		<mysqluser>root</mysqluser>
 		<mysqlpass>12345</mysqlpass>
 		<mysqldb>harry_world</mysqldb>
+		<!-- The database 'dbc_spell' is used.-->
 	</mysql>
 	<gen>
 		<iconfilepath>SpellIcon.dbc.csv</iconfilepath>

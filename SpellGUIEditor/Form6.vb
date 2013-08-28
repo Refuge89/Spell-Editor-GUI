@@ -2,7 +2,7 @@
 
 Public Class Form6
 
-    Private vars As New SpellAttributes
+    Public vars As New SpellAttributes
     Public interrupts() As UInt32 = {0, 0, 0}
     Private loading As Boolean = False
 

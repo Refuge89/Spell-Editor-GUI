@@ -79,18 +79,48 @@ Partial Class Form1
         Me.Button7 = New System.Windows.Forms.Button()
         Me.Tabs = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
-        Me.TabPage2 = New System.Windows.Forms.TabPage()
-        Me.Button8 = New System.Windows.Forms.Button()
-        Me.Label23 = New System.Windows.Forms.Label()
-        Me.Label24 = New System.Windows.Forms.Label()
-        Me.Category = New System.Windows.Forms.TextBox()
+        Me.Label30 = New System.Windows.Forms.Label()
+        Me.TextBox7 = New System.Windows.Forms.TextBox()
+        Me.currentbox = New System.Windows.Forms.PictureBox()
         Me.Duration = New System.Windows.Forms.Label()
         Me.durationind = New System.Windows.Forms.ComboBox()
-        Me.currentbox = New System.Windows.Forms.PictureBox()
+        Me.Label24 = New System.Windows.Forms.Label()
+        Me.Category = New System.Windows.Forms.TextBox()
+        Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.TextBox12 = New System.Windows.Forms.TextBox()
+        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.Label36 = New System.Windows.Forms.Label()
+        Me.Label35 = New System.Windows.Forms.Label()
+        Me.Button8 = New System.Windows.Forms.Button()
+        Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.Label37 = New System.Windows.Forms.Label()
+        Me.CheckedListBox1 = New System.Windows.Forms.CheckedListBox()
+        Me.Label34 = New System.Windows.Forms.Label()
+        Me.TextBox11 = New System.Windows.Forms.TextBox()
+        Me.Label33 = New System.Windows.Forms.Label()
+        Me.TextBox10 = New System.Windows.Forms.TextBox()
+        Me.Label32 = New System.Windows.Forms.Label()
+        Me.TextBox9 = New System.Windows.Forms.TextBox()
+        Me.Label31 = New System.Windows.Forms.Label()
+        Me.TextBox8 = New System.Windows.Forms.TextBox()
+        Me.Label29 = New System.Windows.Forms.Label()
+        Me.TextBox6 = New System.Windows.Forms.TextBox()
+        Me.Label28 = New System.Windows.Forms.Label()
+        Me.TextBox5 = New System.Windows.Forms.TextBox()
+        Me.Label27 = New System.Windows.Forms.Label()
+        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.powertype = New System.Windows.Forms.ComboBox()
+        Me.Label25 = New System.Windows.Forms.Label()
+        Me.Label26 = New System.Windows.Forms.Label()
+        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.Label23 = New System.Windows.Forms.Label()
+        Me.Label38 = New System.Windows.Forms.Label()
+        Me.TextBox13 = New System.Windows.Forms.TextBox()
         Me.Tabs.SuspendLayout()
         Me.TabPage1.SuspendLayout()
-        Me.TabPage2.SuspendLayout()
         CType(Me.currentbox, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabPage2.SuspendLayout()
+        Me.TabPage3.SuspendLayout()
         Me.SuspendLayout()
         '
         'ListBox1
@@ -516,7 +546,7 @@ Partial Class Form1
         'casttime
         '
         Me.casttime.FormattingEnabled = True
-        Me.casttime.Items.AddRange(New Object() {"Instant", "250 (0.25 seconds)", "500 (0.5 seconds)", "1000 (1 second)", "2000", "5000", "10000", "20000", "30000", "1000", "2000", "5000", "30000", "3000", "4000", "1500", "-1000000 (what?)", "2500", "2500", "2600", "3500", "1800", "2200", "2900", "3700", "4100", "3200", "4700", "4500", "2300", "7000", "2000", "3000", "12500", "600", "25000", "45000", "50000", "1300", "300000", "1700", "2800", "750", "1600", "3800", "2700", "3100", "3400", "8000", "6000", "100", "Instant", "15000", "12000", "-1000000 (lolwut)", "1100", "750", "850", "900", "333", "Instant", "19000", "1400", "14000", "9000", "Instant", "1250", "40000", "60000", "200"})
+        Me.casttime.Items.AddRange(New Object() {"Instant", "250 (0.25 seconds)", "500 (0.5 seconds)", "1000 (1 second)", "2000", "5000", "10000", "20000", "30000", "1000", "2000", "5000", "30000", "3000", "4000", "1500", "-1000000 (what?)", "2500", "2500", "2600", "3500", "1800", "2200", "2900", "3700", "4100", "3200", "4700", "4500", "2300", "7000", "2000", "3000", "12500", "600", "25000", "45000", "50000", "1300", "300000", "1700", "2800", "750", "1600", "3800", "2700", "3100", "3400", "8000", "6000", "100", "Instant", "15000", "12000", "-1000000 (lolwut)", "1100", "750", "850", "900", "333", "Instant", "19000", "1400", "14000", "9000", "Instant", "1250", "40000", "60000", "200", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN"})
         Me.casttime.Location = New System.Drawing.Point(249, 329)
         Me.casttime.Name = "casttime"
         Me.casttime.Size = New System.Drawing.Size(233, 24)
@@ -567,6 +597,7 @@ Partial Class Form1
         '
         Me.Tabs.Controls.Add(Me.TabPage1)
         Me.Tabs.Controls.Add(Me.TabPage2)
+        Me.Tabs.Controls.Add(Me.TabPage3)
         Me.Tabs.Location = New System.Drawing.Point(91, 12)
         Me.Tabs.Name = "Tabs"
         Me.Tabs.SelectedIndex = 0
@@ -576,6 +607,8 @@ Partial Class Form1
         'TabPage1
         '
         Me.TabPage1.BackColor = System.Drawing.Color.Gainsboro
+        Me.TabPage1.Controls.Add(Me.Label30)
+        Me.TabPage1.Controls.Add(Me.TextBox7)
         Me.TabPage1.Controls.Add(Me.currentbox)
         Me.TabPage1.Controls.Add(Me.Duration)
         Me.TabPage1.Controls.Add(Me.durationind)
@@ -616,9 +649,71 @@ Partial Class Form1
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Main"
         '
+        'Label30
+        '
+        Me.Label30.AutoSize = True
+        Me.Label30.Location = New System.Drawing.Point(246, 174)
+        Me.Label30.Name = "Label30"
+        Me.Label30.Size = New System.Drawing.Size(81, 17)
+        Me.Label30.TabIndex = 64
+        Me.Label30.Text = "Spell Visual"
+        '
+        'TextBox7
+        '
+        Me.TextBox7.Location = New System.Drawing.Point(249, 194)
+        Me.TextBox7.Name = "TextBox7"
+        Me.TextBox7.Size = New System.Drawing.Size(233, 22)
+        Me.TextBox7.TabIndex = 63
+        '
+        'currentbox
+        '
+        Me.currentbox.Location = New System.Drawing.Point(249, 14)
+        Me.currentbox.Name = "currentbox"
+        Me.currentbox.Size = New System.Drawing.Size(64, 64)
+        Me.currentbox.TabIndex = 62
+        Me.currentbox.TabStop = False
+        '
+        'Duration
+        '
+        Me.Duration.AutoSize = True
+        Me.Duration.Location = New System.Drawing.Point(246, 262)
+        Me.Duration.Name = "Duration"
+        Me.Duration.Size = New System.Drawing.Size(62, 17)
+        Me.Duration.TabIndex = 61
+        Me.Duration.Text = "Duration"
+        '
+        'durationind
+        '
+        Me.durationind.FormattingEnabled = True
+        Me.durationind.Items.AddRange(New Object() {"10000 (10 seconds)", "300000010", "60000 (60 seconds)", "120000 (12 seconds)", "300000", "600000", "5000000", "15000", "30000", "60000000", "100000000", "30000000", "6000000", "12000000", "30000000", "230000", "5000000", "200", "3000000", "60000000", "-1", "45000", "90000", "160000", "180000", "240000", "3000", "5000", "12000", "1800000", "8000", "6000", "4000", "1000", "1", "11000", "200", "1200000", "360000", "3600000", "75000", "25000", "40000", "1500", "2500", "18000", "21000", "9000", "24000", "35000", "2700000", "7000", "6000", "200", "200", "27000", "604800000", "50000", "55000", "1000", "14000", "36000", "44000", "500", "250", "900000", "7200000", "16000", "100", "-600000", "200", "22000", "26000", "1700", "1100", "1100", "14400000", "5400000", "10800000", "3800", "2147483647", "3500", "210000", "6000", "155000", "4500", "28000", "165000", "114000", "53000", "299000", "3300000", "150000", "20500", "13000", "70000", "200", "135000", "1250", "280000", "32000", "5500", "100000", "11999900", "200", "17000", "43200000", "160000", "14250", "170000", "64800000", "9000", "3200", "600", "800", "200", "200", "31000", "200", "6500", "330000", "80000", "400", "300", "660000", "900", "4700", "3600", "42000", "480000", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN"})
+        Me.durationind.Location = New System.Drawing.Point(249, 282)
+        Me.durationind.Name = "durationind"
+        Me.durationind.Size = New System.Drawing.Size(233, 24)
+        Me.durationind.TabIndex = 60
+        '
+        'Label24
+        '
+        Me.Label24.AutoSize = True
+        Me.Label24.Location = New System.Drawing.Point(246, 219)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(65, 17)
+        Me.Label24.TabIndex = 59
+        Me.Label24.Text = "Category"
+        '
+        'Category
+        '
+        Me.Category.Location = New System.Drawing.Point(249, 239)
+        Me.Category.Name = "Category"
+        Me.Category.Size = New System.Drawing.Size(233, 22)
+        Me.Category.TabIndex = 58
+        '
         'TabPage2
         '
         Me.TabPage2.BackColor = System.Drawing.Color.LightGray
+        Me.TabPage2.Controls.Add(Me.TextBox12)
+        Me.TabPage2.Controls.Add(Me.ComboBox2)
+        Me.TabPage2.Controls.Add(Me.Label36)
+        Me.TabPage2.Controls.Add(Me.Label35)
         Me.TabPage2.Controls.Add(Me.Button8)
         Me.TabPage2.Controls.Add(Me.Effect1)
         Me.TabPage2.Controls.Add(Me.Button7)
@@ -650,6 +745,40 @@ Partial Class Form1
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Extra"
         '
+        'TextBox12
+        '
+        Me.TextBox12.Location = New System.Drawing.Point(144, 384)
+        Me.TextBox12.Name = "TextBox12"
+        Me.TextBox12.Size = New System.Drawing.Size(288, 22)
+        Me.TextBox12.TabIndex = 65
+        '
+        'ComboBox2
+        '
+        Me.ComboBox2.FormattingEnabled = True
+        Me.ComboBox2.Items.AddRange(New Object() {"PREVENTION_TYPE_NONE", "PREVENTION_TYPE_SILENCE", "PREVENTION_TYPE_PACIFY", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN"})
+        Me.ComboBox2.Location = New System.Drawing.Point(144, 412)
+        Me.ComboBox2.Name = "ComboBox2"
+        Me.ComboBox2.Size = New System.Drawing.Size(288, 24)
+        Me.ComboBox2.TabIndex = 64
+        '
+        'Label36
+        '
+        Me.Label36.AutoSize = True
+        Me.Label36.Location = New System.Drawing.Point(5, 415)
+        Me.Label36.Name = "Label36"
+        Me.Label36.Size = New System.Drawing.Size(112, 17)
+        Me.Label36.TabIndex = 63
+        Me.Label36.Text = "Prevention Type"
+        '
+        'Label35
+        '
+        Me.Label35.AutoSize = True
+        Me.Label35.Location = New System.Drawing.Point(6, 387)
+        Me.Label35.Name = "Label35"
+        Me.Label35.Size = New System.Drawing.Size(132, 17)
+        Me.Label35.TabIndex = 61
+        Me.Label35.Text = "Spell Damage Type"
+        '
         'Button8
         '
         Me.Button8.Location = New System.Drawing.Point(8, 345)
@@ -658,6 +787,201 @@ Partial Class Form1
         Me.Button8.TabIndex = 59
         Me.Button8.Text = "Proc Editor"
         Me.Button8.UseVisualStyleBackColor = True
+        '
+        'TabPage3
+        '
+        Me.TabPage3.BackColor = System.Drawing.Color.LightGray
+        Me.TabPage3.Controls.Add(Me.Label38)
+        Me.TabPage3.Controls.Add(Me.TextBox13)
+        Me.TabPage3.Controls.Add(Me.Label37)
+        Me.TabPage3.Controls.Add(Me.CheckedListBox1)
+        Me.TabPage3.Controls.Add(Me.Label34)
+        Me.TabPage3.Controls.Add(Me.TextBox11)
+        Me.TabPage3.Controls.Add(Me.Label33)
+        Me.TabPage3.Controls.Add(Me.TextBox10)
+        Me.TabPage3.Controls.Add(Me.Label32)
+        Me.TabPage3.Controls.Add(Me.TextBox9)
+        Me.TabPage3.Controls.Add(Me.Label31)
+        Me.TabPage3.Controls.Add(Me.TextBox8)
+        Me.TabPage3.Controls.Add(Me.Label29)
+        Me.TabPage3.Controls.Add(Me.TextBox6)
+        Me.TabPage3.Controls.Add(Me.Label28)
+        Me.TabPage3.Controls.Add(Me.TextBox5)
+        Me.TabPage3.Controls.Add(Me.Label27)
+        Me.TabPage3.Controls.Add(Me.TextBox4)
+        Me.TabPage3.Controls.Add(Me.powertype)
+        Me.TabPage3.Controls.Add(Me.Label25)
+        Me.TabPage3.Controls.Add(Me.Label26)
+        Me.TabPage3.Controls.Add(Me.TextBox3)
+        Me.TabPage3.Location = New System.Drawing.Point(4, 25)
+        Me.TabPage3.Name = "TabPage3"
+        Me.TabPage3.Size = New System.Drawing.Size(503, 471)
+        Me.TabPage3.TabIndex = 2
+        Me.TabPage3.Text = "Extra 2"
+        '
+        'Label37
+        '
+        Me.Label37.AutoSize = True
+        Me.Label37.Location = New System.Drawing.Point(11, 276)
+        Me.Label37.Name = "Label37"
+        Me.Label37.Size = New System.Drawing.Size(51, 17)
+        Me.Label37.TabIndex = 37
+        Me.Label37.Text = "School"
+        '
+        'CheckedListBox1
+        '
+        Me.CheckedListBox1.FormattingEnabled = True
+        Me.CheckedListBox1.Items.AddRange(New Object() {"SCHOOL_NORMAL", "SCHOOL_HOLY", "SCHOOL_FIRE", "SCHOOL_NATURE", "SCHOOL_FROST", "SCHOOL_SHADOW", "SCHOOL_ARCANE"})
+        Me.CheckedListBox1.Location = New System.Drawing.Point(170, 276)
+        Me.CheckedListBox1.Name = "CheckedListBox1"
+        Me.CheckedListBox1.Size = New System.Drawing.Size(233, 123)
+        Me.CheckedListBox1.TabIndex = 36
+        '
+        'Label34
+        '
+        Me.Label34.AutoSize = True
+        Me.Label34.Location = New System.Drawing.Point(11, 248)
+        Me.Label34.Name = "Label34"
+        Me.Label34.Size = New System.Drawing.Size(86, 17)
+        Me.Label34.TabIndex = 34
+        Me.Label34.Text = "Max Targets"
+        '
+        'TextBox11
+        '
+        Me.TextBox11.Location = New System.Drawing.Point(170, 248)
+        Me.TextBox11.Name = "TextBox11"
+        Me.TextBox11.Size = New System.Drawing.Size(233, 22)
+        Me.TextBox11.TabIndex = 35
+        '
+        'Label33
+        '
+        Me.Label33.AutoSize = True
+        Me.Label33.Location = New System.Drawing.Point(11, 219)
+        Me.Label33.Name = "Label33"
+        Me.Label33.Size = New System.Drawing.Size(124, 17)
+        Me.Label33.TabIndex = 32
+        Me.Label33.Text = "Spell Family Name"
+        '
+        'TextBox10
+        '
+        Me.TextBox10.Location = New System.Drawing.Point(170, 219)
+        Me.TextBox10.Name = "TextBox10"
+        Me.TextBox10.Size = New System.Drawing.Size(233, 22)
+        Me.TextBox10.TabIndex = 33
+        '
+        'Label32
+        '
+        Me.Label32.AutoSize = True
+        Me.Label32.Location = New System.Drawing.Point(11, 191)
+        Me.Label32.Name = "Label32"
+        Me.Label32.Size = New System.Drawing.Size(117, 17)
+        Me.Label32.TabIndex = 30
+        Me.Label32.Text = "Max Target Level"
+        '
+        'TextBox9
+        '
+        Me.TextBox9.Location = New System.Drawing.Point(170, 191)
+        Me.TextBox9.Name = "TextBox9"
+        Me.TextBox9.Size = New System.Drawing.Size(233, 22)
+        Me.TextBox9.TabIndex = 31
+        '
+        'Label31
+        '
+        Me.Label31.AutoSize = True
+        Me.Label31.Location = New System.Drawing.Point(11, 163)
+        Me.Label31.Name = "Label31"
+        Me.Label31.Size = New System.Drawing.Size(91, 17)
+        Me.Label31.TabIndex = 28
+        Me.Label31.Text = "Mana Cost %"
+        '
+        'TextBox8
+        '
+        Me.TextBox8.Location = New System.Drawing.Point(170, 163)
+        Me.TextBox8.Name = "TextBox8"
+        Me.TextBox8.Size = New System.Drawing.Size(233, 22)
+        Me.TextBox8.TabIndex = 29
+        '
+        'Label29
+        '
+        Me.Label29.AutoSize = True
+        Me.Label29.Location = New System.Drawing.Point(11, 135)
+        Me.Label29.Name = "Label29"
+        Me.Label29.Size = New System.Drawing.Size(146, 17)
+        Me.Label29.TabIndex = 26
+        Me.Label29.Text = "Per Second Per Level"
+        '
+        'TextBox6
+        '
+        Me.TextBox6.Location = New System.Drawing.Point(170, 135)
+        Me.TextBox6.Name = "TextBox6"
+        Me.TextBox6.Size = New System.Drawing.Size(233, 22)
+        Me.TextBox6.TabIndex = 27
+        '
+        'Label28
+        '
+        Me.Label28.AutoSize = True
+        Me.Label28.Location = New System.Drawing.Point(11, 104)
+        Me.Label28.Name = "Label28"
+        Me.Label28.Size = New System.Drawing.Size(153, 17)
+        Me.Label28.TabIndex = 24
+        Me.Label28.Text = "Mana Cost Per Second"
+        '
+        'TextBox5
+        '
+        Me.TextBox5.Location = New System.Drawing.Point(170, 104)
+        Me.TextBox5.Name = "TextBox5"
+        Me.TextBox5.Size = New System.Drawing.Size(233, 22)
+        Me.TextBox5.TabIndex = 25
+        '
+        'Label27
+        '
+        Me.Label27.AutoSize = True
+        Me.Label27.Location = New System.Drawing.Point(11, 76)
+        Me.Label27.Name = "Label27"
+        Me.Label27.Size = New System.Drawing.Size(143, 17)
+        Me.Label27.TabIndex = 22
+        Me.Label27.Text = "Mana Cost  Per Level"
+        '
+        'TextBox4
+        '
+        Me.TextBox4.Location = New System.Drawing.Point(170, 76)
+        Me.TextBox4.Name = "TextBox4"
+        Me.TextBox4.Size = New System.Drawing.Size(233, 22)
+        Me.TextBox4.TabIndex = 23
+        '
+        'powertype
+        '
+        Me.powertype.FormattingEnabled = True
+        Me.powertype.Items.AddRange(New Object() {"MANA", "RAGE", "FOCUS", "ENERGY", "HAPPINESS", "RUNES", "RUNIC_POWER", "STEAM (This can cause crashes)", "PYRITE (This can cause crashes)", "HEAT (This can cause crashes)", "OOZE (This can cause crashes)", "BLOOD (This can cause crashes)", "WRATH (This can cause crashes)"})
+        Me.powertype.Location = New System.Drawing.Point(170, 19)
+        Me.powertype.Name = "powertype"
+        Me.powertype.Size = New System.Drawing.Size(233, 24)
+        Me.powertype.TabIndex = 18
+        '
+        'Label25
+        '
+        Me.Label25.AutoSize = True
+        Me.Label25.Location = New System.Drawing.Point(11, 19)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(83, 17)
+        Me.Label25.TabIndex = 19
+        Me.Label25.Text = "Power Type"
+        '
+        'Label26
+        '
+        Me.Label26.AutoSize = True
+        Me.Label26.Location = New System.Drawing.Point(11, 48)
+        Me.Label26.Name = "Label26"
+        Me.Label26.Size = New System.Drawing.Size(75, 17)
+        Me.Label26.TabIndex = 20
+        Me.Label26.Text = "Mana Cost"
+        '
+        'TextBox3
+        '
+        Me.TextBox3.Location = New System.Drawing.Point(170, 48)
+        Me.TextBox3.Name = "TextBox3"
+        Me.TextBox3.Size = New System.Drawing.Size(233, 22)
+        Me.TextBox3.TabIndex = 21
         '
         'Label23
         '
@@ -668,47 +992,21 @@ Partial Class Form1
         Me.Label23.TabIndex = 60
         Me.Label23.Text = "Spells"
         '
-        'Label24
+        'Label38
         '
-        Me.Label24.AutoSize = True
-        Me.Label24.Location = New System.Drawing.Point(246, 219)
-        Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(65, 17)
-        Me.Label24.TabIndex = 59
-        Me.Label24.Text = "Category"
+        Me.Label38.AutoSize = True
+        Me.Label38.Location = New System.Drawing.Point(11, 408)
+        Me.Label38.Name = "Label38"
+        Me.Label38.Size = New System.Drawing.Size(98, 17)
+        Me.Label38.TabIndex = 38
+        Me.Label38.Text = "Spell Visual ID"
         '
-        'Category
+        'TextBox13
         '
-        Me.Category.Location = New System.Drawing.Point(249, 239)
-        Me.Category.Name = "Category"
-        Me.Category.Size = New System.Drawing.Size(233, 22)
-        Me.Category.TabIndex = 58
-        '
-        'Duration
-        '
-        Me.Duration.AutoSize = True
-        Me.Duration.Location = New System.Drawing.Point(246, 262)
-        Me.Duration.Name = "Duration"
-        Me.Duration.Size = New System.Drawing.Size(62, 17)
-        Me.Duration.TabIndex = 61
-        Me.Duration.Text = "Duration"
-        '
-        'durationind
-        '
-        Me.durationind.FormattingEnabled = True
-        Me.durationind.Items.AddRange(New Object() {"10000 (10 seconds)", "300000010", "60000 (60 seconds)", "120000 (12 seconds)", "300000", "600000", "5000000", "15000", "30000", "60000000", "100000000", "30000000", "6000000", "12000000", "30000000", "230000", "5000000", "200", "3000000", "60000000", "-1", "45000", "90000", "160000", "180000", "240000", "3000", "5000", "12000", "1800000", "8000", "6000", "4000", "1000", "1", "11000", "200", "1200000", "360000", "3600000", "75000", "25000", "40000", "1500", "2500", "18000", "21000", "9000", "24000", "35000", "2700000", "7000", "6000", "200", "200", "27000", "604800000", "50000", "55000", "1000", "14000", "36000", "44000", "500", "250", "900000", "7200000", "16000", "100", "-600000", "200", "22000", "26000", "1700", "1100", "1100", "14400000", "5400000", "10800000", "3800", "2147483647", "3500", "210000", "6000", "155000", "4500", "28000", "165000", "114000", "53000", "299000", "3300000", "150000", "20500", "13000", "70000", "200", "135000", "1250", "280000", "32000", "5500", "100000", "11999900", "200", "17000", "43200000", "160000", "14250", "170000", "64800000", "9000", "3200", "600", "800", "200", "200", "31000", "200", "6500", "330000", "80000", "400", "300", "660000", "900", "4700", "3600", "42000", "480000"})
-        Me.durationind.Location = New System.Drawing.Point(249, 282)
-        Me.durationind.Name = "durationind"
-        Me.durationind.Size = New System.Drawing.Size(233, 24)
-        Me.durationind.TabIndex = 60
-        '
-        'currentbox
-        '
-        Me.currentbox.Location = New System.Drawing.Point(249, 14)
-        Me.currentbox.Name = "currentbox"
-        Me.currentbox.Size = New System.Drawing.Size(64, 64)
-        Me.currentbox.TabIndex = 62
-        Me.currentbox.TabStop = False
+        Me.TextBox13.Location = New System.Drawing.Point(170, 405)
+        Me.TextBox13.Name = "TextBox13"
+        Me.TextBox13.Size = New System.Drawing.Size(233, 22)
+        Me.TextBox13.TabIndex = 39
         '
         'Form1
         '
@@ -728,9 +1026,11 @@ Partial Class Form1
         Me.Tabs.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage1.PerformLayout()
+        CType(Me.currentbox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage2.PerformLayout()
-        CType(Me.currentbox, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabPage3.ResumeLayout(False)
+        Me.TabPage3.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -799,5 +1099,34 @@ Partial Class Form1
     Friend WithEvents Duration As System.Windows.Forms.Label
     Friend WithEvents durationind As System.Windows.Forms.ComboBox
     Friend WithEvents currentbox As System.Windows.Forms.PictureBox
+    Friend WithEvents TabPage3 As System.Windows.Forms.TabPage
+    Friend WithEvents Label28 As System.Windows.Forms.Label
+    Friend WithEvents TextBox5 As System.Windows.Forms.TextBox
+    Friend WithEvents Label27 As System.Windows.Forms.Label
+    Friend WithEvents TextBox4 As System.Windows.Forms.TextBox
+    Friend WithEvents powertype As System.Windows.Forms.ComboBox
+    Friend WithEvents Label25 As System.Windows.Forms.Label
+    Friend WithEvents Label26 As System.Windows.Forms.Label
+    Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
+    Friend WithEvents Label29 As System.Windows.Forms.Label
+    Friend WithEvents TextBox6 As System.Windows.Forms.TextBox
+    Friend WithEvents Label30 As System.Windows.Forms.Label
+    Friend WithEvents TextBox7 As System.Windows.Forms.TextBox
+    Friend WithEvents Label34 As System.Windows.Forms.Label
+    Friend WithEvents TextBox11 As System.Windows.Forms.TextBox
+    Friend WithEvents Label33 As System.Windows.Forms.Label
+    Friend WithEvents TextBox10 As System.Windows.Forms.TextBox
+    Friend WithEvents Label32 As System.Windows.Forms.Label
+    Friend WithEvents TextBox9 As System.Windows.Forms.TextBox
+    Friend WithEvents Label31 As System.Windows.Forms.Label
+    Friend WithEvents TextBox8 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox12 As System.Windows.Forms.TextBox
+    Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
+    Friend WithEvents Label36 As System.Windows.Forms.Label
+    Friend WithEvents Label35 As System.Windows.Forms.Label
+    Friend WithEvents Label37 As System.Windows.Forms.Label
+    Friend WithEvents CheckedListBox1 As System.Windows.Forms.CheckedListBox
+    Friend WithEvents Label38 As System.Windows.Forms.Label
+    Friend WithEvents TextBox13 As System.Windows.Forms.TextBox
 
 End Class
