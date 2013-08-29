@@ -13,3 +13,4 @@ C:\Users\Harry\Documents\Visual Studio 2012\Projects\WindowsApplication1\SpellGU
 C:\Users\Harry\Documents\Visual Studio 2012\Projects\WindowsApplication1\SpellGUIEditor\obj\Debug\WindowsApplication1.exe
 C:\Users\Harry\Documents\Visual Studio 2012\Projects\WindowsApplication1\SpellGUIEditor\obj\Debug\WindowsApplication1.xml
 C:\Users\Harry\Documents\Visual Studio 2012\Projects\WindowsApplication1\SpellGUIEditor\obj\Debug\WindowsApplication1.pdb
+C:\Users\Harry\Desktop\Spell GUI Editor\SpellGUIEditor\bin\Debug\WindowsApplication1.exe.config

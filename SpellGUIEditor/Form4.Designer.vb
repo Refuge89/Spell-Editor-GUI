@@ -302,7 +302,7 @@ Partial Class Form4
         'ComboBox5
         '
         Me.ComboBox5.FormattingEnabled = True
-        Me.ComboBox5.Items.AddRange(New Object() {"NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING"})
+        Me.ComboBox5.Items.AddRange(New Object() {"2", "5", "20", "30", "45", "100", "10", "8", "3", "1", "13", "15", "18", "25", "35", "200", "40", "65", "70", "4", "50", "50000", "6", "500", "80", "12", "99", "55", "0", "7", "21", "34", "9", "150", "11", "16", "0.5", "10", "5", "15", "60", "90", "15", "60", "5", "60", "50000", "130", "38", "45", "50000", "32", "44", "14", "47", "23", "3.5", "80"})
         Me.ComboBox5.Location = New System.Drawing.Point(119, 238)
         Me.ComboBox5.Name = "ComboBox5"
         Me.ComboBox5.Size = New System.Drawing.Size(233, 24)
@@ -693,7 +693,7 @@ Partial Class Form4
         'ComboBox8
         '
         Me.ComboBox8.FormattingEnabled = True
-        Me.ComboBox8.Items.AddRange(New Object() {"NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING"})
+        Me.ComboBox8.Items.AddRange(New Object() {"2", "5", "20", "30", "45", "100", "10", "8", "3", "1", "13", "15", "18", "25", "35", "200", "40", "65", "70", "4", "50", "50000", "6", "500", "80", "12", "99", "55", "0", "7", "21", "34", "9", "150", "11", "16", "0.5", "10", "5", "15", "60", "90", "15", "60", "5", "60", "50000", "130", "38", "45", "50000", "32", "44", "14", "47", "23", "3.5", "80"})
         Me.ComboBox8.Location = New System.Drawing.Point(119, 238)
         Me.ComboBox8.Name = "ComboBox8"
         Me.ComboBox8.Size = New System.Drawing.Size(233, 24)
@@ -1084,7 +1084,7 @@ Partial Class Form4
         'ComboBox14
         '
         Me.ComboBox14.FormattingEnabled = True
-        Me.ComboBox14.Items.AddRange(New Object() {"NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING", "NEEDS IMPLEMENTING"})
+        Me.ComboBox14.Items.AddRange(New Object() {"2", "5", "20", "30", "45", "100", "10", "8", "3", "1", "13", "15", "18", "25", "35", "200", "40", "65", "70", "4", "50", "50000", "6", "500", "80", "12", "99", "55", "0", "7", "21", "34", "9", "150", "11", "16", "0.5", "10", "5", "15", "60", "90", "15", "60", "5", "60", "50000", "130", "38", "45", "50000", "32", "44", "14", "47", "23", "3.5", "80"})
         Me.ComboBox14.Location = New System.Drawing.Point(119, 238)
         Me.ComboBox14.Name = "ComboBox14"
         Me.ComboBox14.Size = New System.Drawing.Size(233, 24)
