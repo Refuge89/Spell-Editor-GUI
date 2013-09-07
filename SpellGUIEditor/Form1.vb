@@ -33,7 +33,7 @@ Public Class Form1
 
             DBC.UpdateListBox()
 
-            DBC.DumpRecordsDebug()
+            'DBC.DumpRecordsDebug()
 
             ToggleButtons(False)
 
@@ -101,12 +101,14 @@ Public Class Form1
             ToggleButtons(False)
             Tabs.SelectedIndex = 0
 
-            mydb.executeSQL("SELECT * FROM dbc_spell WHERE Id = '" & ListBox1.Items.Item(ListBox1.SelectedIndex).ToString() & "'", dt)
+            'mydb.executeSQL("SELECT * FROM dbc_spell WHERE Id = '" & ListBox1.Items.Item(ListBox1.SelectedIndex).ToString() & "'", dt)
 
-            If dt.Rows.Count <> 1 Then
-                MessageBox.Show("Spell does not exist!")
-                Return
-            End If
+            'If dt.Rows.Count <> 1 Then
+            '    MessageBox.Show("Spell does not exist!")
+            '    Return
+            'End If
+
+            DBC.GenerateDataTable(ListBox1.SelectedItem)
 
             Category.Text = dt.Rows.Item(0).Item(1).ToString()
             SName.Text = dt.Rows.Item(0).Item(136).ToString()
@@ -227,7 +229,7 @@ Public Class Form1
         End Try
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub Button2_Click(sender As Object, e As EventArgs)
 
         Try
             If Not mydb.UpdateSQL("DELETE FROM dbc_spell WHERE Id = '" & ListBox1.Items.Item(ListBox1.SelectedIndex).ToString() & "'") Then
@@ -249,11 +251,11 @@ Public Class Form1
 
         Try
 
-            Dim row As Integer = Integer.Parse(ListBox1.Items.Item(ListBox1.SelectedIndex))
+            'Dim row As Integer = Integer.Parse(ListBox1.Items.Item(ListBox1.SelectedIndex))
 
-            If Not mydb.UpdateSQL("DELETE FROM dbc_spell WHERE Id = '" & row.ToString() & "'") Then
-                MessageBox.Show("Preparing to insert failed because old record deleted badly. If no other error shows, then inserted correctly anyway.")
-            End If
+            'If Not mydb.UpdateSQL("DELETE FROM dbc_spell WHERE Id = '" & row.ToString() & "'") Then
+            '    MessageBox.Show("Preparing to insert failed because old record deleted badly. If no other error shows, then inserted correctly anyway.")
+            'End If
 
             If f.iconID.Length <> 0 Then
                 dt.Rows.Item(0).Item(133) = f.iconID
@@ -273,20 +275,21 @@ Public Class Form1
                 dt.Rows.Item(0).Item(4 + i) = f2.setAttributes(i)
             Next i
 
-            Dim insertstring As String = "INSERT INTO dbc_spell VALUES ("
+            'Dim insertstring As String = "INSERT INTO dbc_spell VALUES ("
 
-            For i = 0 To 173
-                insertstring = insertstring & "'" & dt.Rows.Item(0).Item(i).ToString & "',"
-            Next i
+            'For i = 0 To 173
+            '    insertstring = insertstring & "'" & dt.Rows.Item(0).Item(i).ToString & "',"
+            'Next i
 
-            Dim temp() As Char = insertstring.ToCharArray()
-            Dim t As Char = ")"
-            temp(temp.Length - 1) = t
-            insertstring = New String(temp)
+            'Dim temp() As Char = insertstring.ToCharArray()
+            'Dim t As Char = ")"
+            'temp(temp.Length - 1) = t
+            'insertstring = New String(temp)
 
-            If Not mydb.UpdateSQL(insertstring) Then
-                MessageBox.Show("Saving failed.")
-            End If
+            'If Not mydb.UpdateSQL(insertstring) Then
+            '    MessageBox.Show("Saving failed.")
+            'End If
+            DBC.SaveCurrentSpell(dt.Rows.Item(0).Item(0))
 
             ListBox1_SelectedIndexChanged(sender, e)
 
@@ -471,5 +474,10 @@ Public Class Form1
 
     Private Sub TextBox13_TextChanged(sender As Object, e As EventArgs) Handles TextBox13.TextChanged
         dt.Rows.Item(0).Item(167) = TextBox13.Text
+    End Sub
+
+    Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles Button2.Click
+        DBC.DumpRecordsDebug()
+        MessageBox.Show("Created new DBC file!")
     End Sub
 End Class

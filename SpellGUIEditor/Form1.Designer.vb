@@ -33,7 +33,6 @@ Partial Class Form1
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.iconid = New System.Windows.Forms.Label()
         Me.Effect1 = New System.Windows.Forms.ComboBox()
@@ -93,6 +92,8 @@ Partial Class Form1
         Me.Label35 = New System.Windows.Forms.Label()
         Me.Button8 = New System.Windows.Forms.Button()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.Label38 = New System.Windows.Forms.Label()
+        Me.TextBox13 = New System.Windows.Forms.TextBox()
         Me.Label37 = New System.Windows.Forms.Label()
         Me.CheckedListBox1 = New System.Windows.Forms.CheckedListBox()
         Me.Label34 = New System.Windows.Forms.Label()
@@ -114,8 +115,7 @@ Partial Class Form1
         Me.Label26 = New System.Windows.Forms.Label()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.Label23 = New System.Windows.Forms.Label()
-        Me.Label38 = New System.Windows.Forms.Label()
-        Me.TextBox13 = New System.Windows.Forms.TextBox()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.Tabs.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         CType(Me.currentbox, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -201,22 +201,12 @@ Partial Class Form1
         'Button1
         '
         Me.Button1.Enabled = False
-        Me.Button1.Location = New System.Drawing.Point(608, 482)
+        Me.Button1.Location = New System.Drawing.Point(492, 514)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(98, 30)
+        Me.Button1.Size = New System.Drawing.Size(106, 30)
         Me.Button1.TabIndex = 9
         Me.Button1.Text = "Save Spell"
         Me.Button1.UseVisualStyleBackColor = True
-        '
-        'Button2
-        '
-        Me.Button2.Enabled = False
-        Me.Button2.Location = New System.Drawing.Point(608, 37)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(98, 27)
-        Me.Button2.TabIndex = 10
-        Me.Button2.Text = "Delete Spell"
-        Me.Button2.UseVisualStyleBackColor = True
         '
         'Button3
         '
@@ -819,6 +809,22 @@ Partial Class Form1
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Extra 2"
         '
+        'Label38
+        '
+        Me.Label38.AutoSize = True
+        Me.Label38.Location = New System.Drawing.Point(11, 408)
+        Me.Label38.Name = "Label38"
+        Me.Label38.Size = New System.Drawing.Size(98, 17)
+        Me.Label38.TabIndex = 38
+        Me.Label38.Text = "Spell Visual ID"
+        '
+        'TextBox13
+        '
+        Me.TextBox13.Location = New System.Drawing.Point(170, 405)
+        Me.TextBox13.Name = "TextBox13"
+        Me.TextBox13.Size = New System.Drawing.Size(233, 22)
+        Me.TextBox13.TabIndex = 39
+        '
         'Label37
         '
         Me.Label37.AutoSize = True
@@ -992,30 +998,23 @@ Partial Class Form1
         Me.Label23.TabIndex = 60
         Me.Label23.Text = "Spells"
         '
-        'Label38
+        'Button2
         '
-        Me.Label38.AutoSize = True
-        Me.Label38.Location = New System.Drawing.Point(11, 408)
-        Me.Label38.Name = "Label38"
-        Me.Label38.Size = New System.Drawing.Size(98, 17)
-        Me.Label38.TabIndex = 38
-        Me.Label38.Text = "Spell Visual ID"
-        '
-        'TextBox13
-        '
-        Me.TextBox13.Location = New System.Drawing.Point(170, 405)
-        Me.TextBox13.Name = "TextBox13"
-        Me.TextBox13.Size = New System.Drawing.Size(233, 22)
-        Me.TextBox13.TabIndex = 39
+        Me.Button2.Location = New System.Drawing.Point(91, 518)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(162, 26)
+        Me.Button2.TabIndex = 61
+        Me.Button2.Text = "Save Data To DBC"
+        Me.Button2.UseVisualStyleBackColor = True
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(715, 523)
+        Me.ClientSize = New System.Drawing.Size(610, 550)
+        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Label23)
         Me.Controls.Add(Me.Tabs)
-        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.ListBox1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -1045,7 +1044,6 @@ Partial Class Form1
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Button1 As System.Windows.Forms.Button
-    Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents Button3 As System.Windows.Forms.Button
     Friend WithEvents iconid As System.Windows.Forms.Label
     Friend WithEvents Effect1 As System.Windows.Forms.ComboBox
@@ -1128,5 +1126,6 @@ Partial Class Form1
     Friend WithEvents CheckedListBox1 As System.Windows.Forms.CheckedListBox
     Friend WithEvents Label38 As System.Windows.Forms.Label
     Friend WithEvents TextBox13 As System.Windows.Forms.TextBox
+    Friend WithEvents Button2 As System.Windows.Forms.Button
 
 End Class

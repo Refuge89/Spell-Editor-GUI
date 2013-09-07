@@ -119,7 +119,7 @@ Public Class DBC
         For i = 0 To SpellDBC.Header.record_count - 1
             If SpellDBC.records(i).SpellName <> 0 Then
                 If dict.ContainsKey(SpellDBC.records(i).SpellName) Then
-                    SpellDBC.records(i).SpellName_String = dict.Keys(SpellDBC.records(i).SpellName)
+                    SpellDBC.records(i).SpellName_String = dict.Item(SpellDBC.records(i).SpellName)
                 End If
             End If
             If SpellDBC.records(i).Rank <> 0 Then
@@ -138,6 +138,22 @@ Public Class DBC
                 End If
             End If
         Next i
+    End Sub
+
+    Public Sub GenerateDataTable(ByVal index As Integer)
+        Form1.dt = New DataTable
+        For i = 0 To SpellDBC.Header.field_count - 1
+            Form1.dt.Columns.Add(i.ToString())
+        Next i
+        Dim dr As DataRow = Form1.dt.NewRow
+        dr(0) = System.Guid.NewGuid()
+        Form1.dt.Rows.Add(dr)
+
+        PopulateDataTable(index)
+    End Sub
+
+    Public Sub SaveCurrentSpell(ByVal index As Integer)
+
     End Sub
 
     Private Sub ReadRecord(ByRef Spell As SpellRecord, ByRef i As UInt32)
@@ -699,6 +715,188 @@ Public Class DBC
         writer.Write(spell.EffectBonusMultiplier3)
         writer.Write(spell.spellDescriptionVariableID)
         writer.Write(spell.SpellDifficultyId)
+    End Sub
+
+    Sub PopulateDataTable(ByVal index As Integer)
+        For i = 0 To SpellDBC.records.Count - 1
+            If SpellDBC.records(i).Id = index Then
+                index = i
+                Exit For
+            End If
+        Next i
+        Form1.dt.Rows(0).Item(0) = SpellDBC.records(index).Id
+        Form1.dt.Rows(0).Item(1) = SpellDBC.records(index).Category
+        Form1.dt.Rows(0).Item(2) = SpellDBC.records(index).Dispel
+        Form1.dt.Rows(0).Item(3) = SpellDBC.records(index).Mechanic
+        Form1.dt.Rows(0).Item(4) = SpellDBC.records(index).Attributes
+        Form1.dt.Rows(0).Item(5) = SpellDBC.records(index).AttributesEx
+        Form1.dt.Rows(0).Item(6) = SpellDBC.records(index).AttributesEx2
+        Form1.dt.Rows(0).Item(7) = SpellDBC.records(index).AttributesEx3
+        Form1.dt.Rows(0).Item(8) = SpellDBC.records(index).AttributesEx4
+        Form1.dt.Rows(0).Item(9) = SpellDBC.records(index).AttributesEx5
+        Form1.dt.Rows(0).Item(10) = SpellDBC.records(index).AttributesEx6
+        Form1.dt.Rows(0).Item(11) = SpellDBC.records(index).AttributesEx7
+        Form1.dt.Rows(0).Item(12) = SpellDBC.records(index).Stances
+        Form1.dt.Rows(0).Item(13) = SpellDBC.records(index).unk_320_2
+        Form1.dt.Rows(0).Item(14) = SpellDBC.records(index).StancesNot
+        Form1.dt.Rows(0).Item(15) = SpellDBC.records(index).unk_320_3
+        Form1.dt.Rows(0).Item(16) = SpellDBC.records(index).Targets
+        Form1.dt.Rows(0).Item(17) = SpellDBC.records(index).TargetCreatureType
+        Form1.dt.Rows(0).Item(18) = SpellDBC.records(index).RequiresSpellFocus
+        Form1.dt.Rows(0).Item(19) = SpellDBC.records(index).FacingCasterFlags
+        Form1.dt.Rows(0).Item(20) = SpellDBC.records(index).CasterAuraState
+        Form1.dt.Rows(0).Item(21) = SpellDBC.records(index).TargetAuraState
+        Form1.dt.Rows(0).Item(22) = SpellDBC.records(index).CasterAuraStateNot
+        Form1.dt.Rows(0).Item(23) = SpellDBC.records(index).TargetAuraStateNot
+        Form1.dt.Rows(0).Item(24) = SpellDBC.records(index).casterAuraSpell
+        Form1.dt.Rows(0).Item(25) = SpellDBC.records(index).targetAuraSpell
+        Form1.dt.Rows(0).Item(26) = SpellDBC.records(index).excludeCasterAuraSpell
+        Form1.dt.Rows(0).Item(27) = SpellDBC.records(index).excludeTargetAuraSpell
+        Form1.dt.Rows(0).Item(28) = SpellDBC.records(index).CastingTimeIndex
+        Form1.dt.Rows(0).Item(29) = SpellDBC.records(index).RecoveryTime
+        Form1.dt.Rows(0).Item(30) = SpellDBC.records(index).CategoryRecoveryTime
+        Form1.dt.Rows(0).Item(31) = SpellDBC.records(index).InterruptFlags
+        Form1.dt.Rows(0).Item(32) = SpellDBC.records(index).AuraInterruptFlags
+        Form1.dt.Rows(0).Item(33) = SpellDBC.records(index).ChannelInterruptFlags
+        Form1.dt.Rows(0).Item(34) = SpellDBC.records(index).procFlags
+        Form1.dt.Rows(0).Item(35) = SpellDBC.records(index).procChance
+        Form1.dt.Rows(0).Item(36) = SpellDBC.records(index).procCharges
+        Form1.dt.Rows(0).Item(37) = SpellDBC.records(index).maxLevel
+        Form1.dt.Rows(0).Item(38) = SpellDBC.records(index).baseLevel
+        Form1.dt.Rows(0).Item(39) = SpellDBC.records(index).spellLevel
+        Form1.dt.Rows(0).Item(40) = SpellDBC.records(index).DurationIndex
+        Form1.dt.Rows(0).Item(41) = SpellDBC.records(index).powerType
+        Form1.dt.Rows(0).Item(42) = SpellDBC.records(index).manaCost
+        Form1.dt.Rows(0).Item(43) = SpellDBC.records(index).manaCostPerlevel
+        Form1.dt.Rows(0).Item(44) = SpellDBC.records(index).manaPerSecond
+        Form1.dt.Rows(0).Item(45) = SpellDBC.records(index).manaPerSecondPerLevel
+        Form1.dt.Rows(0).Item(46) = SpellDBC.records(index).rangeIndex
+        Form1.dt.Rows(0).Item(47) = SpellDBC.records(index).speed
+        Form1.dt.Rows(0).Item(48) = SpellDBC.records(index).modalNextSpell
+        Form1.dt.Rows(0).Item(49) = SpellDBC.records(index).StackAmount
+        Form1.dt.Rows(0).Item(50) = SpellDBC.records(index).Totem1
+        Form1.dt.Rows(0).Item(51) = SpellDBC.records(index).Totem2
+        Form1.dt.Rows(0).Item(52) = SpellDBC.records(index).Reagent1
+        Form1.dt.Rows(0).Item(53) = SpellDBC.records(index).Reagent2
+        Form1.dt.Rows(0).Item(54) = SpellDBC.records(index).Reagent3
+        Form1.dt.Rows(0).Item(55) = SpellDBC.records(index).Reagent4
+        Form1.dt.Rows(0).Item(56) = SpellDBC.records(index).Reagent5
+        Form1.dt.Rows(0).Item(57) = SpellDBC.records(index).Reagent6
+        Form1.dt.Rows(0).Item(58) = SpellDBC.records(index).Reagent7
+        Form1.dt.Rows(0).Item(59) = SpellDBC.records(index).Reagent8
+        Form1.dt.Rows(0).Item(60) = SpellDBC.records(index).ReagentCount1
+        Form1.dt.Rows(0).Item(61) = SpellDBC.records(index).ReagentCount2
+        Form1.dt.Rows(0).Item(62) = SpellDBC.records(index).ReagentCount3
+        Form1.dt.Rows(0).Item(63) = SpellDBC.records(index).ReagentCount4
+        Form1.dt.Rows(0).Item(64) = SpellDBC.records(index).ReagentCount5
+        Form1.dt.Rows(0).Item(65) = SpellDBC.records(index).ReagentCount6
+        Form1.dt.Rows(0).Item(66) = SpellDBC.records(index).ReagentCount7
+        Form1.dt.Rows(0).Item(67) = SpellDBC.records(index).ReagentCount8
+        Form1.dt.Rows(0).Item(68) = SpellDBC.records(index).EquippedItemClass
+        Form1.dt.Rows(0).Item(69) = SpellDBC.records(index).EquippedItemSubClassMask
+        Form1.dt.Rows(0).Item(70) = SpellDBC.records(index).EquippedItemInventoryTypeMask
+        Form1.dt.Rows(0).Item(71) = SpellDBC.records(index).Effect1
+        Form1.dt.Rows(0).Item(72) = SpellDBC.records(index).Effect2
+        Form1.dt.Rows(0).Item(73) = SpellDBC.records(index).Effect3
+        Form1.dt.Rows(0).Item(74) = SpellDBC.records(index).EffectDieSides1
+        Form1.dt.Rows(0).Item(75) = SpellDBC.records(index).EffectDieSides2
+        Form1.dt.Rows(0).Item(76) = SpellDBC.records(index).EffectDieSides3
+        Form1.dt.Rows(0).Item(77) = SpellDBC.records(index).EffectRealPointsPerLevel1
+        Form1.dt.Rows(0).Item(78) = SpellDBC.records(index).EffectRealPointsPerLevel2
+        Form1.dt.Rows(0).Item(79) = SpellDBC.records(index).EffectRealPointsPerLevel3
+        Form1.dt.Rows(0).Item(80) = SpellDBC.records(index).EffectBasePoints1
+        Form1.dt.Rows(0).Item(81) = SpellDBC.records(index).EffectBasePoints2
+        Form1.dt.Rows(0).Item(82) = SpellDBC.records(index).EffectBasePoints3
+        Form1.dt.Rows(0).Item(83) = SpellDBC.records(index).EffectMechanic1
+        Form1.dt.Rows(0).Item(84) = SpellDBC.records(index).EffectMechanic2
+        Form1.dt.Rows(0).Item(85) = SpellDBC.records(index).EffectMechanic3
+        Form1.dt.Rows(0).Item(86) = SpellDBC.records(index).EffectImplicitTargetA1
+        Form1.dt.Rows(0).Item(87) = SpellDBC.records(index).EffectImplicitTargetA2
+        Form1.dt.Rows(0).Item(88) = SpellDBC.records(index).EffectImplicitTargetA3
+        Form1.dt.Rows(0).Item(89) = SpellDBC.records(index).EffectImplicitTargetB1
+        Form1.dt.Rows(0).Item(90) = SpellDBC.records(index).EffectImplicitTargetB2
+        Form1.dt.Rows(0).Item(91) = SpellDBC.records(index).EffectImplicitTargetB3
+        Form1.dt.Rows(0).Item(92) = SpellDBC.records(index).EffectRadiusIndex1
+        Form1.dt.Rows(0).Item(93) = SpellDBC.records(index).EffectRadiusIndex2
+        Form1.dt.Rows(0).Item(94) = SpellDBC.records(index).EffectRadiusIndex3
+        Form1.dt.Rows(0).Item(95) = SpellDBC.records(index).EffectApplyAuraName1
+        Form1.dt.Rows(0).Item(96) = SpellDBC.records(index).EffectApplyAuraName2
+        Form1.dt.Rows(0).Item(97) = SpellDBC.records(index).EffectApplyAuraName3
+        Form1.dt.Rows(0).Item(98) = SpellDBC.records(index).EffectAmplitude1
+        Form1.dt.Rows(0).Item(99) = SpellDBC.records(index).EffectAmplitude2
+        Form1.dt.Rows(0).Item(100) = SpellDBC.records(index).EffectAmplitude3
+        Form1.dt.Rows(0).Item(101) = SpellDBC.records(index).EffectMultipleValue1
+        Form1.dt.Rows(0).Item(102) = SpellDBC.records(index).EffectMultipleValue2
+        Form1.dt.Rows(0).Item(103) = SpellDBC.records(index).EffectMultipleValue3
+        Form1.dt.Rows(0).Item(104) = SpellDBC.records(index).EffectChainTarget1
+        Form1.dt.Rows(0).Item(105) = SpellDBC.records(index).EffectChainTarget2
+        Form1.dt.Rows(0).Item(106) = SpellDBC.records(index).EffectChainTarget3
+        Form1.dt.Rows(0).Item(107) = SpellDBC.records(index).EffectItemType1
+        Form1.dt.Rows(0).Item(108) = SpellDBC.records(index).EffectItemType2
+        Form1.dt.Rows(0).Item(109) = SpellDBC.records(index).EffectItemType3
+        Form1.dt.Rows(0).Item(110) = SpellDBC.records(index).EffectMiscValue1
+        Form1.dt.Rows(0).Item(111) = SpellDBC.records(index).EffectMiscValue2
+        Form1.dt.Rows(0).Item(112) = SpellDBC.records(index).EffectMiscValue3
+        Form1.dt.Rows(0).Item(113) = SpellDBC.records(index).EffectMiscValueB1
+        Form1.dt.Rows(0).Item(114) = SpellDBC.records(index).EffectMiscValueB2
+        Form1.dt.Rows(0).Item(115) = SpellDBC.records(index).EffectMiscValueB3
+        Form1.dt.Rows(0).Item(116) = SpellDBC.records(index).EffectTriggerSpell1
+        Form1.dt.Rows(0).Item(117) = SpellDBC.records(index).EffectTriggerSpell2
+        Form1.dt.Rows(0).Item(118) = SpellDBC.records(index).EffectTriggerSpell3
+        Form1.dt.Rows(0).Item(119) = SpellDBC.records(index).EffectPointsPerComboPoint1
+        Form1.dt.Rows(0).Item(120) = SpellDBC.records(index).EffectPointsPerComboPoint2
+        Form1.dt.Rows(0).Item(121) = SpellDBC.records(index).EffectPointsPerComboPoint3
+        Form1.dt.Rows(0).Item(122) = SpellDBC.records(index).EffectSpellClassMaskA1
+        Form1.dt.Rows(0).Item(123) = SpellDBC.records(index).EffectSpellClassMaskA2
+        Form1.dt.Rows(0).Item(124) = SpellDBC.records(index).EffectSpellClassMaskA3
+        Form1.dt.Rows(0).Item(125) = SpellDBC.records(index).EffectSpellClassMaskB1
+        Form1.dt.Rows(0).Item(126) = SpellDBC.records(index).EffectSpellClassMaskB2
+        Form1.dt.Rows(0).Item(127) = SpellDBC.records(index).EffectSpellClassMaskB3
+        Form1.dt.Rows(0).Item(128) = SpellDBC.records(index).EffectSpellClassMaskC1
+        Form1.dt.Rows(0).Item(129) = SpellDBC.records(index).EffectSpellClassMaskC2
+        Form1.dt.Rows(0).Item(130) = SpellDBC.records(index).EffectSpellClassMaskC3
+        Form1.dt.Rows(0).Item(131) = SpellDBC.records(index).SpellVisual1
+        Form1.dt.Rows(0).Item(132) = SpellDBC.records(index).SpellVisual2
+        Form1.dt.Rows(0).Item(133) = SpellDBC.records(index).SpellIconID
+        Form1.dt.Rows(0).Item(134) = SpellDBC.records(index).activeIconID
+        Form1.dt.Rows(0).Item(135) = SpellDBC.records(index).spellPriority
+        Form1.dt.Rows(0).Item(136) = SpellDBC.records(index).SpellName_String
+        Form1.dt.Rows(0).Item(137) = SpellDBC.records(index).SpellNameFlag
+        Form1.dt.Rows(0).Item(138) = SpellDBC.records(index).Rank_String
+        Form1.dt.Rows(0).Item(139) = SpellDBC.records(index).RankFlags
+        Form1.dt.Rows(0).Item(140) = SpellDBC.records(index).Description_String
+        Form1.dt.Rows(0).Item(141) = SpellDBC.records(index).DescriptionFlags
+        Form1.dt.Rows(0).Item(142) = SpellDBC.records(index).ToolTip_String
+        Form1.dt.Rows(0).Item(143) = SpellDBC.records(index).ToolTipFlags
+        Form1.dt.Rows(0).Item(144) = SpellDBC.records(index).ManaCostPercentage
+        Form1.dt.Rows(0).Item(145) = SpellDBC.records(index).StartRecoveryCategory
+        Form1.dt.Rows(0).Item(146) = SpellDBC.records(index).StartRecoveryTime
+        Form1.dt.Rows(0).Item(147) = SpellDBC.records(index).MaxTargetLevel
+        Form1.dt.Rows(0).Item(148) = SpellDBC.records(index).SpellFamilyName
+        Form1.dt.Rows(0).Item(149) = SpellDBC.records(index).SpellFamilyFlags
+        Form1.dt.Rows(0).Item(150) = SpellDBC.records(index).SpellFamilyFlags2
+        Form1.dt.Rows(0).Item(151) = SpellDBC.records(index).MaxAffectedTargets
+        Form1.dt.Rows(0).Item(152) = SpellDBC.records(index).DmgClass
+        Form1.dt.Rows(0).Item(153) = SpellDBC.records(index).PreventionType
+        Form1.dt.Rows(0).Item(154) = SpellDBC.records(index).StanceBarOrder
+        Form1.dt.Rows(0).Item(155) = SpellDBC.records(index).DmgMultiplier1
+        Form1.dt.Rows(0).Item(156) = SpellDBC.records(index).DmgMultiplier2
+        Form1.dt.Rows(0).Item(157) = SpellDBC.records(index).DmgMultiplier3
+        Form1.dt.Rows(0).Item(158) = SpellDBC.records(index).MinFactionId
+        Form1.dt.Rows(0).Item(159) = SpellDBC.records(index).MinReputation
+        Form1.dt.Rows(0).Item(160) = SpellDBC.records(index).RequiredAuraVision
+        Form1.dt.Rows(0).Item(161) = SpellDBC.records(index).TotemCategory1
+        Form1.dt.Rows(0).Item(162) = SpellDBC.records(index).TotemCategory2
+        Form1.dt.Rows(0).Item(163) = SpellDBC.records(index).AreaGroupId
+        Form1.dt.Rows(0).Item(164) = SpellDBC.records(index).SchoolMask
+        Form1.dt.Rows(0).Item(165) = SpellDBC.records(index).runeCostID
+        Form1.dt.Rows(0).Item(166) = SpellDBC.records(index).spellMissileID
+        Form1.dt.Rows(0).Item(167) = SpellDBC.records(index).PowerDisplayId
+        Form1.dt.Rows(0).Item(168) = SpellDBC.records(index).EffectBonusMultiplier1
+        Form1.dt.Rows(0).Item(169) = SpellDBC.records(index).EffectBonusMultiplier2
+        Form1.dt.Rows(0).Item(170) = SpellDBC.records(index).EffectBonusMultiplier3
+        Form1.dt.Rows(0).Item(171) = SpellDBC.records(index).spellDescriptionVariableID
+        Form1.dt.Rows(0).Item(172) = SpellDBC.records(index).SpellDifficultyId
     End Sub
 End Class
 
