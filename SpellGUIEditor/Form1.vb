@@ -26,7 +26,7 @@ Public Class Form1
             DBC.OpenDBC("spell.DBC")
             DBC.ReadHeader()
             prog.bar.Step = 100
-            prog.bar.Maximum = DBC.GetRecordCount()
+            prog.bar.Maximum = DBC.GetRecordCount() - 1
             DBC.ReadBody()
             DBC.CloseDBC()
             prog.Close()

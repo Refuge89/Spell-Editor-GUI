@@ -18,19 +18,22 @@ End Structure
 Public Class DBC
     Private fsSource As FileStream
     Dim bytes() As Byte
-    Dim numBytesToRead As UInt32
     Dim numBytesRead As UInt32
+    Dim numBytesToRead As UInt32
 
     Private SpellDBC As DBC_Body
 
     Private sizeofUint32 As UInt32
     Private sizeofUint64 As UInt32
 
+    Public dict As Dictionary(Of Integer, String)
+
     Public Sub OpenDBC(ByVal path As String)
         fsSource = New FileStream(path, FileMode.Open, FileAccess.Read)
         bytes = New Byte((fsSource.Length) - 1) {}
         numBytesToRead = CType(fsSource.Length, Integer)
         numBytesRead = 0
+        dict = New Dictionary(Of Integer, String)
     End Sub
 
     Public Sub CloseDBC()
@@ -52,8 +55,7 @@ Public Class DBC
     Public Sub ReadHeader()
         Dim Header As New DBC_Header
 
-        Dim n As UInt32 = fsSource.Read(bytes, numBytesRead, Marshal.SizeOf(Header))
-        numBytesToRead = (numBytesToRead - n)
+        fsSource.Read(bytes, numBytesRead, Marshal.SizeOf(Header))
 
         Dim temp As UInt64
         sizeofUint32 = Marshal.SizeOf(Header.magic)
@@ -76,14 +78,13 @@ Public Class DBC
     End Sub
 
     Public Sub ReadBody()
-
+        ' Load DBC's
         Dim i As UInt32
         For i = 0 To SpellDBC.Header.record_count - 1
 
             Dim Spell As New SpellRecord
 
-            Dim n As UInt32 = fsSource.Read(bytes, numBytesRead, SpellDBC.Header.record_size)
-            numBytesToRead = (numBytesToRead - n)
+            fsSource.Read(bytes, numBytesRead, SpellDBC.Header.record_size)
 
             ReadRecord(Spell, i)
 
@@ -94,7 +95,49 @@ Public Class DBC
                 Application.DoEvents()
             End If
         Next i
-        i = 0
+        Application.DoEvents()
+        ' Load string block
+        fsSource.Read(bytes, numBytesRead, SpellDBC.Header.string_block_size)
+        i = 1
+        numBytesRead = numBytesRead + 1 ' Skip over the first null character
+        While numBytesRead < numBytesToRead
+            Dim cha As Char = " "
+            Dim str As String = ""
+            cha = Convert.ToChar(bytes(numBytesRead))
+            numBytesRead = numBytesRead + 1
+            While cha <> Chr(0)
+                str = str & cha
+                cha = Convert.ToChar(bytes(numBytesRead))
+                numBytesRead = numBytesRead + 1
+            End While
+            str = str & cha
+            dict.Add(i, str)
+            i = i + 1
+        End While
+        bytes = {} ' Remove ~50MB from memory
+        ' Now to convert the existing spells into strings where needed
+        For i = 0 To SpellDBC.Header.record_count - 1
+            If SpellDBC.records(i).SpellName <> 0 Then
+                If dict.ContainsKey(SpellDBC.records(i).SpellName) Then
+                    SpellDBC.records(i).SpellName_String = dict.Keys(SpellDBC.records(i).SpellName)
+                End If
+            End If
+            If SpellDBC.records(i).Rank <> 0 Then
+                If dict.ContainsKey(SpellDBC.records(i).Rank) Then
+                    SpellDBC.records(i).Rank_String = dict.Item(SpellDBC.records(i).Rank)
+                End If
+            End If
+            If SpellDBC.records(i).Description <> 0 Then
+                If dict.ContainsKey(SpellDBC.records(i).Description) Then
+                    SpellDBC.records(i).Description_String = dict.Item(SpellDBC.records(i).Description)
+                End If
+            End If
+            If SpellDBC.records(i).ToolTip <> 0 Then
+                If dict.ContainsKey(SpellDBC.records(i).ToolTip) Then
+                    SpellDBC.records(i).ToolTip_String = dict.Item(SpellDBC.records(i).ToolTip)
+                End If
+            End If
+        Next i
     End Sub
 
     Private Sub ReadRecord(ByRef Spell As SpellRecord, ByRef i As UInt32)
@@ -425,7 +468,7 @@ Public Class DBC
             numBytesRead = numBytesRead + sizeofUint32
             Spell.TotemCategory2 = BitConverter.ToUInt32(bytes, numBytesRead)
             numBytesRead = numBytesRead + sizeofUint32
-            Spell.AreaGroupId = BitConverter.ToUInt32(bytes, numBytesRead)
+            Spell.AreaGroupId = BitConverter.ToInt32(bytes, numBytesRead)
             numBytesRead = numBytesRead + sizeofUint32
             Spell.SchoolMask = BitConverter.ToUInt32(bytes, numBytesRead)
             numBytesRead = numBytesRead + sizeofUint32
@@ -462,7 +505,7 @@ Public Class DBC
         writer.Write(SpellDBC.Header.record_size)
         writer.Write(SpellDBC.Header.string_block_size)
         Dim i As Integer = 0
-        For i = 0 To 0 ' SpellDBC.records.Count - 1
+        For i = 0 To SpellDBC.Header.record_count - 1
             DumpRecord(SpellDBC.records(i), writer)
         Next i
         writer.Close()
@@ -797,12 +840,16 @@ Structure SpellRecord
     Dim activeIconID As UInt32                                  ' 134      m_activeIconID
     Dim spellPriority As UInt32                                 ' 135      m_spellPriority     
     Dim SpellName As UInt32 ' 136-151  m_name_lang
+    Dim SpellName_String As String
     Dim SpellNameFlag As UInt32                                ' 152 
     Dim Rank As UInt32 ' 153-168  m_nameSubtext_lang
+    Dim Rank_String As String
     Dim RankFlags As UInt32                                  ' 169 
     Dim Description As UInt32 ' 170-185  m_description_lang 
+    Dim Description_String As String
     Dim DescriptionFlags As UInt32                              ' 186 
     Dim ToolTip As UInt32 ' 187-202  m_auraDescription_lang 
+    Dim ToolTip_String As String
     Dim ToolTipFlags As UInt32                               ' 203 
     Dim ManaCostPercentage As UInt32                            ' 204      m_manaCostPct
     Dim StartRecoveryCategory As UInt32                        ' 205      m_startRecoveryCategory
