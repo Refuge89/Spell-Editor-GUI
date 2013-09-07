@@ -31,13 +31,9 @@ Public Class Form1
             DBC.CloseDBC()
             prog.Close()
 
-            mydb.executeSQL("SELECT Id FROM dbc_spell", dt)
+            DBC.UpdateListBox()
 
-            Dim i As Integer
-            For i = 0 To dt.Rows.Count - 1
-                ListBox1.Items.Add(dt.Rows.Item(i).Item(0).ToString())
-            Next i
-            ListBox1.Update()
+            DBC.DumpRecordsDebug()
 
             ToggleButtons(False)
 

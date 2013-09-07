@@ -41,6 +41,14 @@ Public Class DBC
         Return SpellDBC.Header.record_count
     End Function
 
+    Public Sub UpdateListBox()
+        Dim i As Integer
+        For i = 0 To SpellDBC.Header.record_count - 1
+            Form1.ListBox1.Items.Add(SpellDBC.records(i).Id.ToString())
+        Next i
+        Form1.ListBox1.Update()
+    End Sub
+
     Public Sub ReadHeader()
         Dim Header As New DBC_Header
 
@@ -48,7 +56,6 @@ Public Class DBC
         numBytesToRead = (numBytesToRead - n)
 
         Dim temp As UInt64
-
         sizeofUint32 = Marshal.SizeOf(Header.magic)
         sizeofUint64 = Marshal.SizeOf(temp)
 
@@ -75,7 +82,7 @@ Public Class DBC
 
             Dim Spell As New SpellRecord
 
-            Dim n As UInt32 = fsSource.Read(bytes, numBytesRead, Marshal.SizeOf(Spell))
+            Dim n As UInt32 = fsSource.Read(bytes, numBytesRead, SpellDBC.Header.record_size)
             numBytesToRead = (numBytesToRead - n)
 
             ReadRecord(Spell, i)
@@ -364,20 +371,20 @@ Public Class DBC
             numBytesRead = numBytesRead + sizeofUint32
             Spell.spellPriority = BitConverter.ToUInt32(bytes, numBytesRead)
             numBytesRead = numBytesRead + sizeofUint32
-            Spell.SpellName = BitConverter.ToString(bytes, numBytesRead, 16)
-            numBytesRead = numBytesRead + 16
+            Spell.SpellName = BitConverter.ToUInt32(bytes, numBytesRead)
+            numBytesRead = numBytesRead + 4 * 16
             Spell.SpellNameFlag = BitConverter.ToUInt32(bytes, numBytesRead)
             numBytesRead = numBytesRead + sizeofUint32
-            Spell.Rank = BitConverter.ToString(bytes, numBytesRead, 16)
-            numBytesRead = numBytesRead + 16
+            Spell.Rank = BitConverter.ToUInt32(bytes, numBytesRead)
+            numBytesRead = numBytesRead + 4 * 16
             Spell.RankFlags = BitConverter.ToUInt32(bytes, numBytesRead)
             numBytesRead = numBytesRead + sizeofUint32
-            Spell.Description = BitConverter.ToString(bytes, numBytesRead, 16)
-            numBytesRead = numBytesRead + 16
+            Spell.Description = BitConverter.ToUInt32(bytes, numBytesRead)
+            numBytesRead = numBytesRead + 4 * 16
             Spell.DescriptionFlags = BitConverter.ToUInt32(bytes, numBytesRead)
             numBytesRead = numBytesRead + sizeofUint32
-            Spell.ToolTip = BitConverter.ToString(bytes, numBytesRead, 16)
-            numBytesRead = numBytesRead + 16
+            Spell.ToolTip = BitConverter.ToUInt32(bytes, numBytesRead)
+            numBytesRead = numBytesRead + 4 * 16
             Spell.ToolTipFlags = BitConverter.ToUInt32(bytes, numBytesRead)
             numBytesRead = numBytesRead + sizeofUint32
             Spell.ManaCostPercentage = BitConverter.ToUInt32(bytes, numBytesRead)
@@ -439,11 +446,216 @@ Public Class DBC
             Spell.SpellDifficultyId = BitConverter.ToUInt32(bytes, numBytesRead)
             numBytesRead = numBytesRead + sizeofUint32
         Catch ex As Exception
-            Dim f As New StreamWriter("log.txt", True)
+            Dim f As New StreamWriter("error_log.txt", True)
             Dim out As String = "Record ID Failed To Read: " & i.ToString() & ": " & ex.Message.ToString() & vbNewLine
             f.Write(out)
             f.Close()
         End Try
+    End Sub
+
+    Public Sub DumpRecordsDebug()
+        Dim index As UInt32 = 0
+        Dim writer As New BinaryWriter(File.Open("new_Spell.dbc", FileMode.Create))
+        writer.Write(SpellDBC.Header.magic)
+        writer.Write(SpellDBC.Header.record_count)
+        writer.Write(SpellDBC.Header.field_count)
+        writer.Write(SpellDBC.Header.record_size)
+        writer.Write(SpellDBC.Header.string_block_size)
+        Dim i As Integer = 0
+        For i = 0 To 0 ' SpellDBC.records.Count - 1
+            DumpRecord(SpellDBC.records(i), writer)
+        Next i
+        writer.Close()
+    End Sub
+
+    Private Sub DumpRecord(ByRef spell As SpellRecord, ByRef writer As BinaryWriter)
+        Dim i As UInt32
+        Dim k As UInt32 = 0
+        writer.Write(spell.Id)
+        writer.Write(spell.Category)
+        writer.Write(spell.Dispel)
+        writer.Write(spell.Mechanic)
+        writer.Write(spell.Attributes)
+        writer.Write(spell.AttributesEx)
+        writer.Write(spell.AttributesEx2)
+        writer.Write(spell.AttributesEx3)
+        writer.Write(spell.AttributesEx4)
+        writer.Write(spell.AttributesEx5)
+        writer.Write(spell.AttributesEx6)
+        writer.Write(spell.AttributesEx7)
+        writer.Write(spell.Stances)
+        writer.Write(spell.unk_320_2)
+        writer.Write(spell.StancesNot)
+        writer.Write(spell.unk_320_3)
+        writer.Write(spell.Targets)
+        writer.Write(spell.TargetCreatureType)
+        writer.Write(spell.RequiresSpellFocus)
+        writer.Write(spell.FacingCasterFlags)
+        writer.Write(spell.CasterAuraState)
+        writer.Write(spell.TargetAuraState)
+        writer.Write(spell.CasterAuraStateNot)
+        writer.Write(spell.TargetAuraStateNot)
+        writer.Write(spell.casterAuraSpell)
+        writer.Write(spell.targetAuraSpell)
+        writer.Write(spell.excludeCasterAuraSpell)
+        writer.Write(spell.excludeTargetAuraSpell)
+        writer.Write(spell.CastingTimeIndex)
+        writer.Write(spell.RecoveryTime)
+        writer.Write(spell.CategoryRecoveryTime)
+        writer.Write(spell.InterruptFlags)
+        writer.Write(spell.AuraInterruptFlags)
+        writer.Write(spell.ChannelInterruptFlags)
+        writer.Write(spell.procFlags)
+        writer.Write(spell.procChance)
+        writer.Write(spell.procCharges)
+        writer.Write(spell.maxLevel)
+        writer.Write(spell.baseLevel)
+        writer.Write(spell.spellLevel)
+        writer.Write(spell.DurationIndex)
+        writer.Write(spell.powerType)
+        writer.Write(spell.manaCost)
+        writer.Write(spell.manaCostPerlevel)
+        writer.Write(spell.manaPerSecond)
+        writer.Write(spell.manaPerSecondPerLevel)
+        writer.Write(spell.rangeIndex)
+        writer.Write(spell.speed)
+        writer.Write(spell.modalNextSpell)
+        writer.Write(spell.StackAmount)
+        writer.Write(spell.Totem1)
+        writer.Write(spell.Totem2)
+        writer.Write(spell.Reagent1)
+        writer.Write(spell.Reagent2)
+        writer.Write(spell.Reagent3)
+        writer.Write(spell.Reagent4)
+        writer.Write(spell.Reagent5)
+        writer.Write(spell.Reagent6)
+        writer.Write(spell.Reagent7)
+        writer.Write(spell.Reagent8)
+        writer.Write(spell.ReagentCount1)
+        writer.Write(spell.ReagentCount2)
+        writer.Write(spell.ReagentCount3)
+        writer.Write(spell.ReagentCount4)
+        writer.Write(spell.ReagentCount5)
+        writer.Write(spell.ReagentCount6)
+        writer.Write(spell.ReagentCount7)
+        writer.Write(spell.ReagentCount8)
+        writer.Write(spell.EquippedItemClass)
+        writer.Write(spell.EquippedItemSubClassMask)
+        writer.Write(spell.EquippedItemInventoryTypeMask)
+        writer.Write(spell.Effect1)
+        writer.Write(spell.Effect2)
+        writer.Write(spell.Effect3)
+        writer.Write(spell.EffectDieSides1)
+        writer.Write(spell.EffectDieSides2)
+        writer.Write(spell.EffectDieSides3)
+        writer.Write(spell.EffectRealPointsPerLevel1)
+        writer.Write(spell.EffectRealPointsPerLevel2)
+        writer.Write(spell.EffectRealPointsPerLevel3)
+        writer.Write(spell.EffectBasePoints1)
+        writer.Write(spell.EffectBasePoints2)
+        writer.Write(spell.EffectBasePoints3)
+        writer.Write(spell.EffectMechanic1)
+        writer.Write(spell.EffectMechanic2)
+        writer.Write(spell.EffectMechanic3)
+        writer.Write(spell.EffectImplicitTargetA1)
+        writer.Write(spell.EffectImplicitTargetA2)
+        writer.Write(spell.EffectImplicitTargetA3)
+        writer.Write(spell.EffectImplicitTargetB1)
+        writer.Write(spell.EffectImplicitTargetB2)
+        writer.Write(spell.EffectImplicitTargetB3)
+        writer.Write(spell.EffectRadiusIndex1)
+        writer.Write(spell.EffectRadiusIndex2)
+        writer.Write(spell.EffectRadiusIndex3)
+        writer.Write(spell.EffectApplyAuraName1)
+        writer.Write(spell.EffectApplyAuraName2)
+        writer.Write(spell.EffectApplyAuraName3)
+        writer.Write(spell.EffectAmplitude1)
+        writer.Write(spell.EffectAmplitude2)
+        writer.Write(spell.EffectAmplitude3)
+        writer.Write(spell.EffectMultipleValue1)
+        writer.Write(spell.EffectMultipleValue2)
+        writer.Write(spell.EffectMultipleValue3)
+        writer.Write(spell.EffectChainTarget1)
+        writer.Write(spell.EffectChainTarget2)
+        writer.Write(spell.EffectChainTarget3)
+        writer.Write(spell.EffectItemType1)
+        writer.Write(spell.EffectItemType2)
+        writer.Write(spell.EffectItemType3)
+        writer.Write(spell.EffectMiscValue1)
+        writer.Write(spell.EffectMiscValue2)
+        writer.Write(spell.EffectMiscValue3)
+        writer.Write(spell.EffectMiscValueB1)
+        writer.Write(spell.EffectMiscValueB2)
+        writer.Write(spell.EffectMiscValueB3)
+        writer.Write(spell.EffectTriggerSpell1)
+        writer.Write(spell.EffectTriggerSpell2)
+        writer.Write(spell.EffectTriggerSpell3)
+        writer.Write(spell.EffectPointsPerComboPoint1)
+        writer.Write(spell.EffectPointsPerComboPoint2)
+        writer.Write(spell.EffectPointsPerComboPoint3)
+        writer.Write(spell.EffectSpellClassMaskA1)
+        writer.Write(spell.EffectSpellClassMaskA2)
+        writer.Write(spell.EffectSpellClassMaskA3)
+        writer.Write(spell.EffectSpellClassMaskB1)
+        writer.Write(spell.EffectSpellClassMaskB2)
+        writer.Write(spell.EffectSpellClassMaskB3)
+        writer.Write(spell.EffectSpellClassMaskC1)
+        writer.Write(spell.EffectSpellClassMaskC2)
+        writer.Write(spell.EffectSpellClassMaskC3)
+        writer.Write(spell.SpellVisual1)
+        writer.Write(spell.SpellVisual2)
+        writer.Write(spell.SpellIconID)
+        writer.Write(spell.activeIconID)
+        writer.Write(spell.spellPriority)
+        writer.Write(spell.SpellName)
+        For i = 1 To 15
+            writer.Write(k)
+        Next
+        writer.Write(spell.SpellNameFlag)
+        writer.Write(spell.Rank)
+        For i = 1 To 15
+            writer.Write(k)
+        Next
+        writer.Write(spell.RankFlags)
+        writer.Write(spell.Description)
+        For i = 1 To 15
+            writer.Write(k)
+        Next
+        writer.Write(spell.DescriptionFlags)
+        writer.Write(spell.ToolTip)
+        For i = 1 To 15
+            writer.Write(k)
+        Next
+        writer.Write(spell.ToolTipFlags)
+        writer.Write(spell.ManaCostPercentage)
+        writer.Write(spell.StartRecoveryCategory)
+        writer.Write(spell.StartRecoveryTime)
+        writer.Write(spell.MaxTargetLevel)
+        writer.Write(spell.SpellFamilyName)
+        writer.Write(spell.SpellFamilyFlags)
+        writer.Write(spell.SpellFamilyFlags2)
+        writer.Write(spell.MaxAffectedTargets)
+        writer.Write(spell.DmgClass)
+        writer.Write(spell.PreventionType)
+        writer.Write(spell.StanceBarOrder)
+        writer.Write(spell.DmgMultiplier1)
+        writer.Write(spell.DmgMultiplier2)
+        writer.Write(spell.DmgMultiplier3)
+        writer.Write(spell.MinFactionId)
+        writer.Write(spell.MinReputation)
+        writer.Write(spell.RequiredAuraVision)
+        writer.Write(spell.TotemCategory1)
+        writer.Write(spell.TotemCategory2)
+        writer.Write(spell.AreaGroupId)
+        writer.Write(spell.SchoolMask)
+        writer.Write(spell.runeCostID)
+        writer.Write(spell.spellMissileID)
+        writer.Write(spell.PowerDisplayId)
+        writer.Write(spell.EffectBonusMultiplier1)
+        writer.Write(spell.EffectBonusMultiplier2)
+        writer.Write(spell.EffectBonusMultiplier3)
+        writer.Write(spell.spellDescriptionVariableID)
+        writer.Write(spell.SpellDifficultyId)
     End Sub
 End Class
 
@@ -584,13 +796,13 @@ Structure SpellRecord
     Dim SpellIconID As UInt32                                   ' 133      m_spellIconID
     Dim activeIconID As UInt32                                  ' 134      m_activeIconID
     Dim spellPriority As UInt32                                 ' 135      m_spellPriority     
-    <VBFixedString(16)> Dim SpellName As String                                  ' 136-151  m_name_lang
+    Dim SpellName As UInt32 ' 136-151  m_name_lang
     Dim SpellNameFlag As UInt32                                ' 152 
-    <VBFixedString(16)> Dim Rank As String                                       ' 153-168  m_nameSubtext_lang
+    Dim Rank As UInt32 ' 153-168  m_nameSubtext_lang
     Dim RankFlags As UInt32                                  ' 169 
-    <VBFixedString(16)> Dim Description As String                            ' 170-185  m_description_lang 
+    Dim Description As UInt32 ' 170-185  m_description_lang 
     Dim DescriptionFlags As UInt32                              ' 186 
-    <VBFixedString(16)> Dim ToolTip As String                               ' 187-202  m_auraDescription_lang 
+    Dim ToolTip As UInt32 ' 187-202  m_auraDescription_lang 
     Dim ToolTipFlags As UInt32                               ' 203 
     Dim ManaCostPercentage As UInt32                            ' 204      m_manaCostPct
     Dim StartRecoveryCategory As UInt32                        ' 205      m_startRecoveryCategory
