@@ -98,21 +98,24 @@ Public Class DBC
         Application.DoEvents()
         ' Load string block
         fsSource.Read(bytes, numBytesRead, SpellDBC.Header.string_block_size)
-        i = 1
         numBytesRead = numBytesRead + 1 ' Skip over the first null character
+        i = 1
+        Dim offset As Integer = 0
         While numBytesRead < numBytesToRead
             Dim cha As Char = " "
             Dim str As String = ""
             cha = Convert.ToChar(bytes(numBytesRead))
             numBytesRead = numBytesRead + 1
+            offset = offset + 1
+            i = offset
             While cha <> Chr(0)
                 str = str & cha
                 cha = Convert.ToChar(bytes(numBytesRead))
                 numBytesRead = numBytesRead + 1
+                offset = offset + 1
             End While
             str = str & cha
             dict.Add(i, str)
-            i = i + 1
         End While
         bytes = {} ' Remove ~50MB from memory
         ' Now to convert the existing spells into strings where needed
