@@ -78,6 +78,13 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="progress.Designer.vb">
+      <DependentUpon>progress.vb</DependentUpon>
+    </Compile>
+    <Compile Include="progress.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DBC.vb" />
     <Compile Include="Form7.Designer.vb">
       <DependentUpon>Form7.vb</DependentUpon>
     </Compile>
@@ -140,6 +147,9 @@
     <Compile Include="SpellAttributes.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="progress.resx">
+      <DependentUpon>progress.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form7.resx">
       <DependentUpon>Form7.vb</DependentUpon>
     </EmbeddedResource>

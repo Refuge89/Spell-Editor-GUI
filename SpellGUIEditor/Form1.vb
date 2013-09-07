@@ -8,6 +8,8 @@ Public Class Form1
     Public Shared f4 As Form5 = New Form5
     Public Shared f5 As Form6 = New Form6
     Public Shared f6 As Form7 = New Form7
+    Public Shared prog As progress = New progress
+    Private Shared DBC As New DBC
     Public Shared dt As DataTable
     Private rangedindexes() As Integer = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 34, 35, 36, 37, 38, 54, 74, 94, 95, 96, 114, 134, 135, 136, 137, 139, 140, 141, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 176, 177, 179, 180, 181, 184, 187}
     Private castindexes() As Integer = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 50, 70, 90, 91, 110, 130, 150, 151, 152, 153, 170, 171, 190, 191, 192, 193, 194, 195, 196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209}
@@ -16,8 +18,18 @@ Public Class Form1
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         Try
+            prog.Show()
+
             mydb.LoadVars()
             f.iconFile = mydb.iconfilepath
+
+            DBC.OpenDBC("spell.DBC")
+            DBC.ReadHeader()
+            prog.bar.Step = 100
+            prog.bar.Maximum = DBC.GetRecordCount()
+            DBC.ReadBody()
+            DBC.CloseDBC()
+            prog.Close()
 
             mydb.executeSQL("SELECT Id FROM dbc_spell", dt)
 
