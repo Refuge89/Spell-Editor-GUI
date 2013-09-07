@@ -36,9 +36,18 @@ Public Class Form4
         ComboBox2.SelectedIndex = Form1.dt.Rows(0).Item(index + 12)
         ComboBox11.SelectedIndex = Form1.dt.Rows(0).Item(index + 13)
         ComboBox17.SelectedIndex = Form1.dt.Rows(0).Item(index + 14)
-        ComboBox3.SelectedIndex = Form1.dt.Rows(0).Item(index + 15)
-        ComboBox10.SelectedIndex = Form1.dt.Rows(0).Item(index + 16)
-        ComboBox16.SelectedIndex = Form1.dt.Rows(0).Item(index + 17)
+        Dim id As UInt32 = Form1.dt.Rows(0).Item(index + 15)
+        If id < ComboBox3.Items.Count - 1 Then
+            ComboBox3.SelectedIndex = id
+        End If
+        id = Form1.dt.Rows(0).Item(index + 16)
+        If id < ComboBox10.Items.Count - 1 Then
+            ComboBox10.SelectedIndex = id
+        End If
+        id = Form1.dt.Rows(0).Item(index + 17)
+        If id < ComboBox16.Items.Count - 1 Then
+            ComboBox16.SelectedIndex = id
+        End If
         ComboBox4.SelectedIndex = Form1.dt.Rows(0).Item(index + 18)
         ComboBox9.SelectedIndex = Form1.dt.Rows(0).Item(index + 19)
         ComboBox15.SelectedIndex = Form1.dt.Rows(0).Item(index + 20)
