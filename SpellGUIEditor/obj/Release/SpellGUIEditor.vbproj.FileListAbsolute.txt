@@ -1,0 +1,17 @@
+C:\Users\Harry_\Desktop\Spell-Editor-GUI\SpellGUIEditor\bin\Release\Spell GUI Editor.exe.config
+C:\Users\Harry_\Desktop\Spell-Editor-GUI\SpellGUIEditor\bin\Release\Spell GUI Editor.exe
+C:\Users\Harry_\Desktop\Spell-Editor-GUI\SpellGUIEditor\bin\Release\Spell GUI Editor.pdb
+C:\Users\Harry_\Desktop\Spell-Editor-GUI\SpellGUIEditor\bin\Release\Spell GUI Editor.xml
+C:\Users\Harry_\Desktop\Spell-Editor-GUI\SpellGUIEditor\obj\Release\SpellGUIEditor.progress.resources
+C:\Users\Harry_\Desktop\Spell-Editor-GUI\SpellGUIEditor\obj\Release\SpellGUIEditor.Form7.resources
+C:\Users\Harry_\Desktop\Spell-Editor-GUI\SpellGUIEditor\obj\Release\SpellGUIEditor.Form6.resources
+C:\Users\Harry_\Desktop\Spell-Editor-GUI\SpellGUIEditor\obj\Release\SpellGUIEditor.Form5.resources
+C:\Users\Harry_\Desktop\Spell-Editor-GUI\SpellGUIEditor\obj\Release\SpellGUIEditor.Form4.resources
+C:\Users\Harry_\Desktop\Spell-Editor-GUI\SpellGUIEditor\obj\Release\SpellGUIEditor.Form3.resources
+C:\Users\Harry_\Desktop\Spell-Editor-GUI\SpellGUIEditor\obj\Release\SpellGUIEditor.Form1.resources
+C:\Users\Harry_\Desktop\Spell-Editor-GUI\SpellGUIEditor\obj\Release\SpellGUIEditor.Form2.resources
+C:\Users\Harry_\Desktop\Spell-Editor-GUI\SpellGUIEditor\obj\Release\SpellGUIEditor.Resources.resources
+C:\Users\Harry_\Desktop\Spell-Editor-GUI\SpellGUIEditor\obj\Release\SpellGUIEditor.vbproj.GenerateResource.Cache
+C:\Users\Harry_\Desktop\Spell-Editor-GUI\SpellGUIEditor\obj\Release\Spell GUI Editor.exe
+C:\Users\Harry_\Desktop\Spell-Editor-GUI\SpellGUIEditor\obj\Release\Spell GUI Editor.xml
+C:\Users\Harry_\Desktop\Spell-Editor-GUI\SpellGUIEditor\obj\Release\Spell GUI Editor.pdb
