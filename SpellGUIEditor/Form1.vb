@@ -231,19 +231,19 @@ Public Class Form1
 
     Private Sub Button2_Click(sender As Object, e As EventArgs)
 
-        Try
-            If Not mydb.UpdateSQL("DELETE FROM dbc_spell WHERE Id = '" & ListBox1.Items.Item(ListBox1.SelectedIndex).ToString() & "'") Then
-                MessageBox.Show("Deletion failed.")
-                Return
-            End If
+        'Try
+        '    If Not mydb.UpdateSQL("DELETE FROM dbc_spell WHERE Id = '" & ListBox1.Items.Item(ListBox1.SelectedIndex).ToString() & "'") Then
+        '        MessageBox.Show("Deletion failed.")
+        '        Return
+        '    End If
 
-            ToggleButtons(False)
+        '    ToggleButtons(False)
 
-        Catch ex As Exception
+        'Catch ex As Exception
 
-            MessageBox.Show(ex.Message.ToString())
+        '    MessageBox.Show(ex.Message.ToString())
 
-        End Try
+        'End Try
 
     End Sub
 
