@@ -26,13 +26,16 @@ Public Class DBC
     Private sizeofUint32 As UInt32
     Private sizeofUint64 As UInt32
 
-    Public dict As Dictionary(Of Integer, String)
+    Private dict As Dictionary(Of Integer, String)
+    Private dict2 As Dictionary(Of String, UInt32)
+    Private StringBlockIndex As UInt32
 
     Public Sub OpenDBC(ByVal path As String)
         fsSource = New FileStream(path, FileMode.Open, FileAccess.Read)
         bytes = New Byte((fsSource.Length) - 1) {}
         numBytesToRead = CType(fsSource.Length, Integer)
         numBytesRead = 0
+        StringBlockIndex = 1
         dict = New Dictionary(Of Integer, String)
     End Sub
 
@@ -157,6 +160,53 @@ Public Class DBC
 
     Public Sub SaveCurrentSpell(ByVal index As Integer)
 
+    End Sub
+
+    Private Sub GenerateStringBlock(ByRef Spell As SpellRecord, ByRef writer As BinaryWriter)
+        If (Spell.SpellName_String.Length <> 0) Then
+            If dict2.ContainsKey(Spell.SpellName_String) Then
+                Spell.SpellName_String = dict2.Item(Spell.SpellName_String)
+            Else
+                Dim l As UInt32 = Spell.SpellName_String.Length
+                writer.Write(Spell.SpellName_String.ToCharArray())
+                dict2.Add(Spell.SpellName_String, StringBlockIndex)
+                Spell.SpellName_String = StringBlockIndex
+                StringBlockIndex = StringBlockIndex + l
+            End If
+        End If
+        If (Spell.Rank_String.Length <> 0) Then
+            If dict2.ContainsKey(Spell.Rank_String) Then
+                Spell.Rank_String = dict2.Item(Spell.Rank_String)
+            Else
+                Dim l As UInt32 = Spell.Rank_String.Length
+                writer.Write(Spell.Rank_String.ToCharArray())
+                dict2.Add(Spell.Rank_String, StringBlockIndex)
+                Spell.Rank_String = StringBlockIndex
+                StringBlockIndex = StringBlockIndex + l
+            End If
+        End If
+        If (Spell.Description_String.Length <> 0) Then
+            If dict2.ContainsKey(Spell.Description_String) Then
+                Spell.Description_String = dict2.Item(Spell.Description_String)
+            Else
+                Dim l As UInt32 = Spell.Description_String.Length
+                writer.Write(Spell.Description_String.ToCharArray())
+                dict2.Add(Spell.Description_String, StringBlockIndex)
+                Spell.Description_String = StringBlockIndex
+                StringBlockIndex = StringBlockIndex + l
+            End If
+        End If
+        If (Spell.ToolTip_String.Length <> 0) Then
+            If dict2.ContainsKey(Spell.ToolTip_String) Then
+                Spell.ToolTip_String = dict2.Item(Spell.ToolTip_String)
+            Else
+                Dim l As UInt32 = Spell.ToolTip_String.Length
+                writer.Write(Spell.ToolTip_String.ToCharArray())
+                dict2.Add(Spell.ToolTip_String, StringBlockIndex)
+                Spell.ToolTip_String = StringBlockIndex
+                StringBlockIndex = StringBlockIndex + l
+            End If
+        End If
     End Sub
 
     Private Sub ReadRecord(ByRef Spell As SpellRecord, ByRef i As UInt32)
@@ -507,6 +557,10 @@ Public Class DBC
             numBytesRead = numBytesRead + sizeofUint32
             Spell.SpellDifficultyId = BitConverter.ToUInt32(bytes, numBytesRead)
             numBytesRead = numBytesRead + sizeofUint32
+            Spell.SpellName_String = ""
+            Spell.Rank_String = ""
+            Spell.ToolTip_String = ""
+            Spell.Description_String = ""
         Catch ex As Exception
             Dim f As New StreamWriter("error_log.txt", True)
             Dim out As String = "Record ID Failed To Read: " & i.ToString() & ": " & ex.Message.ToString() & vbNewLine
@@ -516,18 +570,41 @@ Public Class DBC
     End Sub
 
     Public Sub DumpRecordsDebug()
+        dict2 = New Dictionary(Of String, UInt32)
+        Form1.prog = New progress
+        Form1.prog.bar.Maximum = SpellDBC.Header.record_count - 1
+        Form1.prog.bar.Step = 100
+        Form1.prog.Show()
+        Dim writer As New BinaryWriter(File.Open("string_block.temp", FileMode.Create))
+        Dim i As UInt32 = 0
+        For i = 0 To SpellDBC.Header.record_count - 1
+            GenerateStringBlock(SpellDBC.records(i), writer)
+            If i Mod 100 = 0 Then
+                Form1.prog.bar.PerformStep()
+                Application.DoEvents()
+            End If
+        Next i
         Dim index As UInt32 = 0
-        Dim writer As New BinaryWriter(File.Open("new_Spell.dbc", FileMode.Create))
+        writer.Close()
+        OpenDBC("string_block.temp")
+        SpellDBC.Header.string_block_size = fsSource.Length
+        bytes = New Byte((fsSource.Length) - 1) {}
+        fsSource.Read(bytes, 0, fsSource.Length)
+        CloseDBC()
+        writer = New BinaryWriter(File.Open("new_Spell.dbc", FileMode.Create))
         writer.Write(SpellDBC.Header.magic)
         writer.Write(SpellDBC.Header.record_count)
         writer.Write(SpellDBC.Header.field_count)
         writer.Write(SpellDBC.Header.record_size)
         writer.Write(SpellDBC.Header.string_block_size)
-        Dim i As Integer = 0
         For i = 0 To SpellDBC.Header.record_count - 1
             DumpRecord(SpellDBC.records(i), writer)
         Next i
+        writer.Write(bytes) ' string block
         writer.Close()
+        bytes = {}
+        Form1.prog.Close()
+        File.Delete("string_block.temp")
     End Sub
 
     Private Sub DumpRecord(ByRef spell As SpellRecord, ByRef writer As BinaryWriter)
@@ -669,22 +746,22 @@ Public Class DBC
         writer.Write(spell.SpellIconID)
         writer.Write(spell.activeIconID)
         writer.Write(spell.spellPriority)
-        writer.Write(spell.SpellName)
+        writer.Write(spell.SpellName_String)
         For i = 1 To 15
             writer.Write(k)
         Next
         writer.Write(spell.SpellNameFlag)
-        writer.Write(spell.Rank)
+        writer.Write(spell.Rank_String)
         For i = 1 To 15
             writer.Write(k)
         Next
         writer.Write(spell.RankFlags)
-        writer.Write(spell.Description)
+        writer.Write(spell.Description_String)
         For i = 1 To 15
             writer.Write(k)
         Next
         writer.Write(spell.DescriptionFlags)
-        writer.Write(spell.ToolTip)
+        writer.Write(spell.ToolTip_String)
         For i = 1 To 15
             writer.Write(k)
         Next
