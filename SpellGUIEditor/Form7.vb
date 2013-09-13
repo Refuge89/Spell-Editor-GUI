@@ -41,7 +41,7 @@ Public Class Form7
         values(0) = 0
         Dim i As Integer
         For i = 0 To CheckedListBox1.Items.Count - 1
-            If CheckedListBox1.GetItemChecked(i) Or i = e.Index Then
+            If CheckedListBox1.GetItemChecked(i) Or (i = e.Index And e.NewValue = CheckState.Checked) Then
                 values(0) = values(0) + vars.Attributes0(i)
             End If
         Next i

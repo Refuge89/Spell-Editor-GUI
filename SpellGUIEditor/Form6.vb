@@ -53,7 +53,7 @@ Public Class Form6
         interrupts(0) = 0
         Dim i As Integer
         For i = 0 To CheckedListBox1.Items.Count - 1
-            If CheckedListBox1.GetItemChecked(i) Or i = e.Index Then
+            If CheckedListBox1.GetItemChecked(i) Or (i = e.Index And e.NewValue = CheckState.Checked) Then
                 interrupts(0) = interrupts(0) + vars.Attributes0(i)
             End If
         Next i
@@ -66,7 +66,7 @@ Public Class Form6
         interrupts(1) = 0
         Dim i As Integer
         For i = 0 To CheckedListBox2.Items.Count - 1
-            If CheckedListBox2.GetItemChecked(i) Or i = e.Index Then
+            If CheckedListBox2.GetItemChecked(i) Or (i = e.Index And e.NewValue = CheckState.Checked) Then
                 interrupts(1) = interrupts(1) + vars.Attributes0(i)
             End If
         Next i
@@ -79,7 +79,7 @@ Public Class Form6
         interrupts(2) = 0
         Dim i As Integer
         For i = 0 To CheckedListBox3.Items.Count - 1
-            If CheckedListBox3.GetItemChecked(i) Or i = e.Index Then
+            If CheckedListBox3.GetItemChecked(i) Or (i = e.Index And e.NewValue = CheckState.Checked) Then
                 interrupts(2) = interrupts(2) + vars.Attributes0(i)
             End If
         Next i

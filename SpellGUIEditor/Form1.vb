@@ -465,7 +465,7 @@ Public Class Form1
             dt.Rows.Item(0).Item(165) = 0
             Dim i As Integer
             For i = 0 To CheckedListBox1.Items.Count - 1
-                If CheckedListBox1.GetItemChecked(i) Or i = e.Index Then
+                If CheckedListBox1.GetItemChecked(i) Or (i = e.Index And e.NewValue = CheckState.Checked) Then
                     dt.Rows.Item(0).Item(165) = dt.Rows.Item(0).Item(165) + f5.vars.Attributes0(i)
                 End If
             Next i

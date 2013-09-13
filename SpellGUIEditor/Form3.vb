@@ -89,7 +89,7 @@ Public Class Form3
         setAttributes(0) = 0
         Dim i As Integer
         For i = 0 To CheckedListBox1.Items.Count - 1
-            If CheckedListBox1.GetItemChecked(i) Or i = e.Index Then
+            If CheckedListBox1.GetItemChecked(i) Or (i = e.Index And e.NewValue = CheckState.Checked) Then
                 setAttributes(0) = setAttributes(0) + vars.Attributes0(i)
             End If
         Next i
@@ -102,7 +102,7 @@ Public Class Form3
         setAttributes(1) = 0
         Dim i As Integer
         For i = 0 To CheckedListBox2.Items.Count - 1
-            If CheckedListBox2.GetItemChecked(i) Or i = e.Index Then
+            If CheckedListBox2.GetItemChecked(i) Or (i = e.Index And e.NewValue = CheckState.Checked) Then
                 setAttributes(1) = setAttributes(1) + vars.Attributes0(i)
             End If
         Next i
@@ -115,7 +115,7 @@ Public Class Form3
         setAttributes(2) = 0
         Dim i As Integer
         For i = 0 To CheckedListBox3.Items.Count - 1
-            If CheckedListBox3.GetItemChecked(i) Or i = e.Index Then
+            If CheckedListBox3.GetItemChecked(i) Or (i = e.Index And e.NewValue = CheckState.Checked) Then
                 setAttributes(2) = setAttributes(2) + vars.Attributes0(i)
             End If
         Next i
@@ -128,7 +128,7 @@ Public Class Form3
         setAttributes(3) = 0
         Dim i As Integer
         For i = 0 To CheckedListBox4.Items.Count - 1
-            If CheckedListBox4.GetItemChecked(i) Or i = e.Index Then
+            If CheckedListBox4.GetItemChecked(i) Or (i = e.Index And e.NewValue = CheckState.Checked) Then
                 setAttributes(3) = setAttributes(3) + vars.Attributes0(i)
             End If
         Next i
@@ -141,7 +141,7 @@ Public Class Form3
         setAttributes(4) = 0
         Dim i As Integer
         For i = 0 To CheckedListBox5.Items.Count - 1
-            If CheckedListBox5.GetItemChecked(i) Or i = e.Index Then
+            If CheckedListBox5.GetItemChecked(i) Or (i = e.Index And e.NewValue = CheckState.Checked) Then
                 setAttributes(4) = setAttributes(4) + vars.Attributes0(i)
             End If
         Next i
@@ -154,7 +154,7 @@ Public Class Form3
         setAttributes(5) = 0
         Dim i As Integer
         For i = 0 To CheckedListBox6.Items.Count - 1
-            If CheckedListBox6.GetItemChecked(i) Or i = e.Index Then
+            If CheckedListBox6.GetItemChecked(i) Or (i = e.Index And e.NewValue = CheckState.Checked) Then
                 setAttributes(5) = setAttributes(5) + vars.Attributes0(i)
             End If
         Next i
@@ -167,7 +167,7 @@ Public Class Form3
         setAttributes(6) = 0
         Dim i As Integer
         For i = 0 To CheckedListBox7.Items.Count - 1
-            If CheckedListBox7.GetItemChecked(i) Or i = e.Index Then
+            If CheckedListBox7.GetItemChecked(i) Or (i = e.Index And e.NewValue = CheckState.Checked) Then
                 setAttributes(6) = setAttributes(6) + vars.Attributes0(i)
             End If
         Next i
@@ -180,7 +180,7 @@ Public Class Form3
         setAttributes(7) = 0
         Dim i As Integer
         For i = 0 To CheckedListBox8.Items.Count - 1
-            If CheckedListBox8.GetItemChecked(i) Or i = e.Index Then
+            If CheckedListBox8.GetItemChecked(i) Or (i = e.Index And e.NewValue = CheckState.Checked) Then
                 setAttributes(7) = setAttributes(7) + vars.Attributes0(i)
             End If
         Next i
