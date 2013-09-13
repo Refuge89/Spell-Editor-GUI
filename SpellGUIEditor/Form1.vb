@@ -1,7 +1,7 @@
 ﻿
 Public Class Form1
 
-    Public Shared mydb As mysqldb = New mysqldb
+    Public Shared config As XMLConfig = New XMLConfig
     Public Shared f As Form2 = New Form2
     Public Shared f2 As Form3 = New Form3
     Public Shared f3 As Form4 = New Form4
@@ -16,12 +16,11 @@ Public Class Form1
     Private durationindexes() As Integer = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 35, 36, 37, 38, 39, 40, 41, 42, 62, 63, 64, 65, 66, 85, 86, 105, 106, 125, 145, 165, 185, 186, 187, 205, 225, 245, 265, 285, 305, 325, 326, 327, 328, 347, 367, 387, 407, 427, 447, 467, 468, 487, 507, 508, 527, 547, 548, 549, 550, 551, 552, 553, 554, 555, 556, 557, 558, 559, 560, 561, 562, 563, 564, 565, 566, 567, 568, 569, 570, 571, 572, 573, 574, 575, 576, 577, 578, 579, 580, 581, 582, 583, 584, 585, 586, 587, 588, 589, 590, 591, 592, 593, 594, 596, 597, 598, 600, 602}
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
         Try
             prog.Show()
 
-            mydb.LoadVars()
-            f.iconFile = mydb.iconfilepath
+            config.LoadVars()
+            f.iconFile = config.iconfilepath
 
             DBC.OpenDBC("spell.DBC")
             DBC.ReadHeader()
@@ -82,17 +81,12 @@ Public Class Form1
                 MessageBox.Show(ex.Message)
                 Return
             End Try
-
         Catch ex As Exception
-
             MessageBox.Show(ex.Message.ToString())
-
         End Try
-
     End Sub
 
     Private Sub ListBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBox1.SelectedIndexChanged
-
         Try
             f.Hide()
             f2.Hide()
@@ -100,13 +94,6 @@ Public Class Form1
             f4.Hide()
             ToggleButtons(False)
             Tabs.SelectedIndex = 0
-
-            'mydb.executeSQL("SELECT * FROM dbc_spell WHERE Id = '" & ListBox1.Items.Item(ListBox1.SelectedIndex).ToString() & "'", dt)
-
-            'If dt.Rows.Count <> 1 Then
-            '    MessageBox.Show("Spell does not exist!")
-            '    Return
-            'End If
 
             DBC.GenerateDataTable(ListBox1.SelectedItem)
 
@@ -201,13 +188,45 @@ Public Class Form1
 
             updateCurrentImage()
 
+            ' LOCALISATION
+            TextBox14.Text = dt.Rows.Item(0).Item(173)
+            RichTextBox2.Text = dt.Rows.Item(0).Item(174)
+            RichTextBox3.Text = dt.Rows.Item(0).Item(175)
+            TextBox15.Text = dt.Rows.Item(0).Item(176)
+            TextBox16.Text = dt.Rows.Item(0).Item(177)
+            RichTextBox4.Text = dt.Rows.Item(0).Item(178)
+            RichTextBox5.Text = dt.Rows.Item(0).Item(179)
+            TextBox17.Text = dt.Rows.Item(0).Item(180)
+            TextBox18.Text = dt.Rows.Item(0).Item(181)
+            RichTextBox6.Text = dt.Rows.Item(0).Item(182)
+            RichTextBox7.Text = dt.Rows.Item(0).Item(183)
+            TextBox19.Text = dt.Rows.Item(0).Item(184)
+            TextBox20.Text = dt.Rows.Item(0).Item(185)
+            RichTextBox8.Text = dt.Rows.Item(0).Item(186)
+            RichTextBox9.Text = dt.Rows.Item(0).Item(187)
+            TextBox21.Text = dt.Rows.Item(0).Item(188)
+            TextBox22.Text = dt.Rows.Item(0).Item(189)
+            RichTextBox10.Text = dt.Rows.Item(0).Item(190)
+            RichTextBox11.Text = dt.Rows.Item(0).Item(191)
+            TextBox23.Text = dt.Rows.Item(0).Item(192)
+            TextBox24.Text = dt.Rows.Item(0).Item(193)
+            RichTextBox12.Text = dt.Rows.Item(0).Item(194)
+            RichTextBox13.Text = dt.Rows.Item(0).Item(195)
+            TextBox25.Text = dt.Rows.Item(0).Item(196)
+            TextBox26.Text = dt.Rows.Item(0).Item(197)
+            RichTextBox14.Text = dt.Rows.Item(0).Item(198)
+            RichTextBox15.Text = dt.Rows.Item(0).Item(199)
+            TextBox27.Text = dt.Rows.Item(0).Item(200)
+            TextBox28.Text = dt.Rows.Item(0).Item(201)
+            RichTextBox16.Text = dt.Rows.Item(0).Item(202)
+            RichTextBox17.Text = dt.Rows.Item(0).Item(203)
+            TextBox29.Text = dt.Rows.Item(0).Item(204)
+
             ToggleButtons(True)
 
         Catch ex As Exception
-
             MessageBox.Show(ex.Message.ToString())
             ToggleButtons(False)
-
         End Try
 
     End Sub
@@ -229,34 +248,8 @@ Public Class Form1
         End Try
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs)
-
-        'Try
-        '    If Not mydb.UpdateSQL("DELETE FROM dbc_spell WHERE Id = '" & ListBox1.Items.Item(ListBox1.SelectedIndex).ToString() & "'") Then
-        '        MessageBox.Show("Deletion failed.")
-        '        Return
-        '    End If
-
-        '    ToggleButtons(False)
-
-        'Catch ex As Exception
-
-        '    MessageBox.Show(ex.Message.ToString())
-
-        'End Try
-
-    End Sub
-
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-
         Try
-
-            'Dim row As Integer = Integer.Parse(ListBox1.Items.Item(ListBox1.SelectedIndex))
-
-            'If Not mydb.UpdateSQL("DELETE FROM dbc_spell WHERE Id = '" & row.ToString() & "'") Then
-            '    MessageBox.Show("Preparing to insert failed because old record deleted badly. If no other error shows, then inserted correctly anyway.")
-            'End If
-
             If f.iconID.Length <> 0 Then
                 dt.Rows.Item(0).Item(133) = f.iconID
                 f.iconID = ""
@@ -275,30 +268,46 @@ Public Class Form1
                 dt.Rows.Item(0).Item(4 + i) = f2.setAttributes(i)
             Next i
 
-            'Dim insertstring As String = "INSERT INTO dbc_spell VALUES ("
+            dt.Rows.Item(0).Item(173) = TextBox14.Text
+            dt.Rows.Item(0).Item(174) = RichTextBox2.Text
+            dt.Rows.Item(0).Item(175) = RichTextBox3.Text
+            dt.Rows.Item(0).Item(176) = TextBox15.Text
+            dt.Rows.Item(0).Item(177) = TextBox16.Text
+            dt.Rows.Item(0).Item(178) = RichTextBox4.Text
+            dt.Rows.Item(0).Item(179) = RichTextBox5.Text
+            dt.Rows.Item(0).Item(180) = TextBox17.Text
+            dt.Rows.Item(0).Item(181) = TextBox18.Text
+            dt.Rows.Item(0).Item(182) = RichTextBox6.Text
+            dt.Rows.Item(0).Item(183) = RichTextBox7.Text
+            dt.Rows.Item(0).Item(184) = TextBox19.Text
+            dt.Rows.Item(0).Item(185) = TextBox20.Text
+            dt.Rows.Item(0).Item(186) = RichTextBox8.Text
+            dt.Rows.Item(0).Item(187) = RichTextBox9.Text
+            dt.Rows.Item(0).Item(188) = TextBox21.Text
+            dt.Rows.Item(0).Item(189) = TextBox22.Text
+            dt.Rows.Item(0).Item(190) = RichTextBox10.Text
+            dt.Rows.Item(0).Item(191) = RichTextBox11.Text
+            dt.Rows.Item(0).Item(192) = TextBox23.Text
+            dt.Rows.Item(0).Item(193) = TextBox24.Text
+            dt.Rows.Item(0).Item(194) = RichTextBox12.Text
+            dt.Rows.Item(0).Item(195) = RichTextBox13.Text
+            dt.Rows.Item(0).Item(196) = TextBox25.Text
+            dt.Rows.Item(0).Item(197) = TextBox26.Text
+            dt.Rows.Item(0).Item(198) = RichTextBox14.Text
+            dt.Rows.Item(0).Item(199) = RichTextBox15.Text
+            dt.Rows.Item(0).Item(200) = TextBox27.Text
+            dt.Rows.Item(0).Item(201) = TextBox28.Text
+            dt.Rows.Item(0).Item(202) = RichTextBox16.Text
+            dt.Rows.Item(0).Item(203) = RichTextBox17.Text
+            dt.Rows.Item(0).Item(204) = TextBox29.Text
 
-            'For i = 0 To 173
-            '    insertstring = insertstring & "'" & dt.Rows.Item(0).Item(i).ToString & "',"
-            'Next i
-
-            'Dim temp() As Char = insertstring.ToCharArray()
-            'Dim t As Char = ")"
-            'temp(temp.Length - 1) = t
-            'insertstring = New String(temp)
-
-            'If Not mydb.UpdateSQL(insertstring) Then
-            '    MessageBox.Show("Saving failed.")
-            'End If
             DBC.SaveCurrentSpell(dt.Rows.Item(0).Item(0))
 
             ListBox1_SelectedIndexChanged(sender, e)
 
         Catch ex As Exception
-
             MessageBox.Show(ex.Message.ToString())
-
         End Try
-
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
@@ -478,6 +487,6 @@ Public Class Form1
 
     Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles Button2.Click
         DBC.DumpRecordsDebug()
-        MessageBox.Show("Created new DBC file!")
+        MessageBox.Show("Created new_Spell.dbc!")
     End Sub
 End Class

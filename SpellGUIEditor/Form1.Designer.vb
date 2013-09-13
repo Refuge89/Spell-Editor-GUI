@@ -114,13 +114,85 @@ Partial Class Form1
         Me.Label25 = New System.Windows.Forms.Label()
         Me.Label26 = New System.Windows.Forms.Label()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.TabPage4 = New System.Windows.Forms.TabPage()
         Me.Label23 = New System.Windows.Forms.Label()
         Me.Button2 = New System.Windows.Forms.Button()
+        Me.RichTextBox2 = New System.Windows.Forms.RichTextBox()
+        Me.TextBox14 = New System.Windows.Forms.TextBox()
+        Me.RichTextBox3 = New System.Windows.Forms.RichTextBox()
+        Me.TextBox15 = New System.Windows.Forms.TextBox()
+        Me.Label39 = New System.Windows.Forms.Label()
+        Me.Label40 = New System.Windows.Forms.Label()
+        Me.Label41 = New System.Windows.Forms.Label()
+        Me.Label42 = New System.Windows.Forms.Label()
+        Me.RichTextBox4 = New System.Windows.Forms.RichTextBox()
+        Me.TextBox16 = New System.Windows.Forms.TextBox()
+        Me.RichTextBox5 = New System.Windows.Forms.RichTextBox()
+        Me.TextBox17 = New System.Windows.Forms.TextBox()
+        Me.Label43 = New System.Windows.Forms.Label()
+        Me.Label44 = New System.Windows.Forms.Label()
+        Me.Label45 = New System.Windows.Forms.Label()
+        Me.Label46 = New System.Windows.Forms.Label()
+        Me.TabPage5 = New System.Windows.Forms.TabPage()
+        Me.TabPage6 = New System.Windows.Forms.TabPage()
+        Me.TabPage7 = New System.Windows.Forms.TabPage()
+        Me.RichTextBox6 = New System.Windows.Forms.RichTextBox()
+        Me.TextBox18 = New System.Windows.Forms.TextBox()
+        Me.RichTextBox7 = New System.Windows.Forms.RichTextBox()
+        Me.TextBox19 = New System.Windows.Forms.TextBox()
+        Me.Label47 = New System.Windows.Forms.Label()
+        Me.Label48 = New System.Windows.Forms.Label()
+        Me.Label49 = New System.Windows.Forms.Label()
+        Me.Label50 = New System.Windows.Forms.Label()
+        Me.RichTextBox8 = New System.Windows.Forms.RichTextBox()
+        Me.TextBox20 = New System.Windows.Forms.TextBox()
+        Me.RichTextBox9 = New System.Windows.Forms.RichTextBox()
+        Me.TextBox21 = New System.Windows.Forms.TextBox()
+        Me.Label51 = New System.Windows.Forms.Label()
+        Me.Label52 = New System.Windows.Forms.Label()
+        Me.Label53 = New System.Windows.Forms.Label()
+        Me.Label54 = New System.Windows.Forms.Label()
+        Me.RichTextBox10 = New System.Windows.Forms.RichTextBox()
+        Me.TextBox22 = New System.Windows.Forms.TextBox()
+        Me.RichTextBox11 = New System.Windows.Forms.RichTextBox()
+        Me.TextBox23 = New System.Windows.Forms.TextBox()
+        Me.Label55 = New System.Windows.Forms.Label()
+        Me.Label56 = New System.Windows.Forms.Label()
+        Me.Label57 = New System.Windows.Forms.Label()
+        Me.Label58 = New System.Windows.Forms.Label()
+        Me.RichTextBox12 = New System.Windows.Forms.RichTextBox()
+        Me.TextBox24 = New System.Windows.Forms.TextBox()
+        Me.RichTextBox13 = New System.Windows.Forms.RichTextBox()
+        Me.TextBox25 = New System.Windows.Forms.TextBox()
+        Me.Label59 = New System.Windows.Forms.Label()
+        Me.Label60 = New System.Windows.Forms.Label()
+        Me.Label61 = New System.Windows.Forms.Label()
+        Me.Label62 = New System.Windows.Forms.Label()
+        Me.RichTextBox14 = New System.Windows.Forms.RichTextBox()
+        Me.TextBox26 = New System.Windows.Forms.TextBox()
+        Me.RichTextBox15 = New System.Windows.Forms.RichTextBox()
+        Me.TextBox27 = New System.Windows.Forms.TextBox()
+        Me.Label63 = New System.Windows.Forms.Label()
+        Me.Label64 = New System.Windows.Forms.Label()
+        Me.Label65 = New System.Windows.Forms.Label()
+        Me.Label66 = New System.Windows.Forms.Label()
+        Me.RichTextBox16 = New System.Windows.Forms.RichTextBox()
+        Me.TextBox28 = New System.Windows.Forms.TextBox()
+        Me.RichTextBox17 = New System.Windows.Forms.RichTextBox()
+        Me.TextBox29 = New System.Windows.Forms.TextBox()
+        Me.Label67 = New System.Windows.Forms.Label()
+        Me.Label68 = New System.Windows.Forms.Label()
+        Me.Label69 = New System.Windows.Forms.Label()
+        Me.Label70 = New System.Windows.Forms.Label()
         Me.Tabs.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         CType(Me.currentbox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage2.SuspendLayout()
         Me.TabPage3.SuspendLayout()
+        Me.TabPage4.SuspendLayout()
+        Me.TabPage5.SuspendLayout()
+        Me.TabPage6.SuspendLayout()
+        Me.TabPage7.SuspendLayout()
         Me.SuspendLayout()
         '
         'ListBox1
@@ -167,36 +239,36 @@ Partial Class Form1
         Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(6, 12)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(45, 17)
+        Me.Label1.Size = New System.Drawing.Size(124, 17)
         Me.Label1.TabIndex = 5
-        Me.Label1.Text = "Name"
+        Me.Label1.Text = "enGB/enUS Name"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(6, 60)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(79, 17)
+        Me.Label2.Size = New System.Drawing.Size(158, 17)
         Me.Label2.TabIndex = 6
-        Me.Label2.Text = "Description"
+        Me.Label2.Text = "enGB/enUS Description"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.Location = New System.Drawing.Point(6, 184)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(108, 17)
+        Me.Label3.Size = New System.Drawing.Size(187, 17)
         Me.Label3.TabIndex = 7
-        Me.Label3.Text = "Buff Description"
+        Me.Label3.Text = "enGB/enUS Buff Description"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
         Me.Label4.Location = New System.Drawing.Point(6, 264)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(41, 17)
+        Me.Label4.Size = New System.Drawing.Size(120, 17)
         Me.Label4.TabIndex = 8
-        Me.Label4.Text = "Rank"
+        Me.Label4.Text = "enGB/enUS Rank"
         '
         'Button1
         '
@@ -588,6 +660,10 @@ Partial Class Form1
         Me.Tabs.Controls.Add(Me.TabPage1)
         Me.Tabs.Controls.Add(Me.TabPage2)
         Me.Tabs.Controls.Add(Me.TabPage3)
+        Me.Tabs.Controls.Add(Me.TabPage4)
+        Me.Tabs.Controls.Add(Me.TabPage5)
+        Me.Tabs.Controls.Add(Me.TabPage6)
+        Me.Tabs.Controls.Add(Me.TabPage7)
         Me.Tabs.Location = New System.Drawing.Point(91, 12)
         Me.Tabs.Name = "Tabs"
         Me.Tabs.SelectedIndex = 0
@@ -989,6 +1065,31 @@ Partial Class Form1
         Me.TextBox3.Size = New System.Drawing.Size(233, 22)
         Me.TextBox3.TabIndex = 21
         '
+        'TabPage4
+        '
+        Me.TabPage4.BackColor = System.Drawing.Color.LightGray
+        Me.TabPage4.Controls.Add(Me.RichTextBox4)
+        Me.TabPage4.Controls.Add(Me.TextBox16)
+        Me.TabPage4.Controls.Add(Me.RichTextBox5)
+        Me.TabPage4.Controls.Add(Me.TextBox17)
+        Me.TabPage4.Controls.Add(Me.Label43)
+        Me.TabPage4.Controls.Add(Me.Label44)
+        Me.TabPage4.Controls.Add(Me.Label45)
+        Me.TabPage4.Controls.Add(Me.Label46)
+        Me.TabPage4.Controls.Add(Me.RichTextBox2)
+        Me.TabPage4.Controls.Add(Me.TextBox14)
+        Me.TabPage4.Controls.Add(Me.RichTextBox3)
+        Me.TabPage4.Controls.Add(Me.TextBox15)
+        Me.TabPage4.Controls.Add(Me.Label39)
+        Me.TabPage4.Controls.Add(Me.Label40)
+        Me.TabPage4.Controls.Add(Me.Label41)
+        Me.TabPage4.Controls.Add(Me.Label42)
+        Me.TabPage4.Location = New System.Drawing.Point(4, 25)
+        Me.TabPage4.Name = "TabPage4"
+        Me.TabPage4.Size = New System.Drawing.Size(503, 471)
+        Me.TabPage4.TabIndex = 3
+        Me.TabPage4.Text = "Locale 1"
+        '
         'Label23
         '
         Me.Label23.AutoSize = True
@@ -1006,6 +1107,609 @@ Partial Class Form1
         Me.Button2.TabIndex = 61
         Me.Button2.Text = "Save Data To DBC"
         Me.Button2.UseVisualStyleBackColor = True
+        '
+        'RichTextBox2
+        '
+        Me.RichTextBox2.Location = New System.Drawing.Point(3, 68)
+        Me.RichTextBox2.Name = "RichTextBox2"
+        Me.RichTextBox2.Size = New System.Drawing.Size(233, 101)
+        Me.RichTextBox2.TabIndex = 10
+        Me.RichTextBox2.Text = ""
+        '
+        'TextBox14
+        '
+        Me.TextBox14.Location = New System.Drawing.Point(3, 23)
+        Me.TextBox14.Name = "TextBox14"
+        Me.TextBox14.Size = New System.Drawing.Size(233, 22)
+        Me.TextBox14.TabIndex = 9
+        '
+        'RichTextBox3
+        '
+        Me.RichTextBox3.Location = New System.Drawing.Point(3, 192)
+        Me.RichTextBox3.Name = "RichTextBox3"
+        Me.RichTextBox3.Size = New System.Drawing.Size(233, 57)
+        Me.RichTextBox3.TabIndex = 11
+        Me.RichTextBox3.Text = ""
+        '
+        'TextBox15
+        '
+        Me.TextBox15.Location = New System.Drawing.Point(3, 272)
+        Me.TextBox15.Name = "TextBox15"
+        Me.TextBox15.Size = New System.Drawing.Size(233, 22)
+        Me.TextBox15.TabIndex = 12
+        '
+        'Label39
+        '
+        Me.Label39.AutoSize = True
+        Me.Label39.Location = New System.Drawing.Point(3, 0)
+        Me.Label39.Name = "Label39"
+        Me.Label39.Size = New System.Drawing.Size(95, 17)
+        Me.Label39.TabIndex = 13
+        Me.Label39.Text = "Korean Name"
+        '
+        'Label40
+        '
+        Me.Label40.AutoSize = True
+        Me.Label40.Location = New System.Drawing.Point(3, 48)
+        Me.Label40.Name = "Label40"
+        Me.Label40.Size = New System.Drawing.Size(129, 17)
+        Me.Label40.TabIndex = 14
+        Me.Label40.Text = "Korean Description"
+        '
+        'Label41
+        '
+        Me.Label41.AutoSize = True
+        Me.Label41.Location = New System.Drawing.Point(3, 172)
+        Me.Label41.Name = "Label41"
+        Me.Label41.Size = New System.Drawing.Size(158, 17)
+        Me.Label41.TabIndex = 15
+        Me.Label41.Text = "Korean Buff Description"
+        '
+        'Label42
+        '
+        Me.Label42.AutoSize = True
+        Me.Label42.Location = New System.Drawing.Point(3, 252)
+        Me.Label42.Name = "Label42"
+        Me.Label42.Size = New System.Drawing.Size(91, 17)
+        Me.Label42.TabIndex = 16
+        Me.Label42.Text = "Korean Rank"
+        '
+        'RichTextBox4
+        '
+        Me.RichTextBox4.Location = New System.Drawing.Point(267, 68)
+        Me.RichTextBox4.Name = "RichTextBox4"
+        Me.RichTextBox4.Size = New System.Drawing.Size(233, 101)
+        Me.RichTextBox4.TabIndex = 18
+        Me.RichTextBox4.Text = ""
+        '
+        'TextBox16
+        '
+        Me.TextBox16.Location = New System.Drawing.Point(267, 23)
+        Me.TextBox16.Name = "TextBox16"
+        Me.TextBox16.Size = New System.Drawing.Size(233, 22)
+        Me.TextBox16.TabIndex = 17
+        '
+        'RichTextBox5
+        '
+        Me.RichTextBox5.Location = New System.Drawing.Point(267, 192)
+        Me.RichTextBox5.Name = "RichTextBox5"
+        Me.RichTextBox5.Size = New System.Drawing.Size(233, 57)
+        Me.RichTextBox5.TabIndex = 19
+        Me.RichTextBox5.Text = ""
+        '
+        'TextBox17
+        '
+        Me.TextBox17.Location = New System.Drawing.Point(267, 272)
+        Me.TextBox17.Name = "TextBox17"
+        Me.TextBox17.Size = New System.Drawing.Size(233, 22)
+        Me.TextBox17.TabIndex = 20
+        '
+        'Label43
+        '
+        Me.Label43.AutoSize = True
+        Me.Label43.Location = New System.Drawing.Point(267, 0)
+        Me.Label43.Name = "Label43"
+        Me.Label43.Size = New System.Drawing.Size(93, 17)
+        Me.Label43.TabIndex = 21
+        Me.Label43.Text = "French Name"
+        '
+        'Label44
+        '
+        Me.Label44.AutoSize = True
+        Me.Label44.Location = New System.Drawing.Point(267, 48)
+        Me.Label44.Name = "Label44"
+        Me.Label44.Size = New System.Drawing.Size(127, 17)
+        Me.Label44.TabIndex = 22
+        Me.Label44.Text = "French Description"
+        '
+        'Label45
+        '
+        Me.Label45.AutoSize = True
+        Me.Label45.Location = New System.Drawing.Point(267, 172)
+        Me.Label45.Name = "Label45"
+        Me.Label45.Size = New System.Drawing.Size(156, 17)
+        Me.Label45.TabIndex = 23
+        Me.Label45.Text = "French Buff Description"
+        '
+        'Label46
+        '
+        Me.Label46.AutoSize = True
+        Me.Label46.Location = New System.Drawing.Point(267, 252)
+        Me.Label46.Name = "Label46"
+        Me.Label46.Size = New System.Drawing.Size(89, 17)
+        Me.Label46.TabIndex = 24
+        Me.Label46.Text = "French Rank"
+        '
+        'TabPage5
+        '
+        Me.TabPage5.BackColor = System.Drawing.Color.LightGray
+        Me.TabPage5.Controls.Add(Me.RichTextBox6)
+        Me.TabPage5.Controls.Add(Me.TextBox18)
+        Me.TabPage5.Controls.Add(Me.RichTextBox7)
+        Me.TabPage5.Controls.Add(Me.TextBox19)
+        Me.TabPage5.Controls.Add(Me.Label47)
+        Me.TabPage5.Controls.Add(Me.Label48)
+        Me.TabPage5.Controls.Add(Me.Label49)
+        Me.TabPage5.Controls.Add(Me.Label50)
+        Me.TabPage5.Controls.Add(Me.RichTextBox8)
+        Me.TabPage5.Controls.Add(Me.TextBox20)
+        Me.TabPage5.Controls.Add(Me.RichTextBox9)
+        Me.TabPage5.Controls.Add(Me.TextBox21)
+        Me.TabPage5.Controls.Add(Me.Label51)
+        Me.TabPage5.Controls.Add(Me.Label52)
+        Me.TabPage5.Controls.Add(Me.Label53)
+        Me.TabPage5.Controls.Add(Me.Label54)
+        Me.TabPage5.Location = New System.Drawing.Point(4, 25)
+        Me.TabPage5.Name = "TabPage5"
+        Me.TabPage5.Size = New System.Drawing.Size(503, 471)
+        Me.TabPage5.TabIndex = 4
+        Me.TabPage5.Text = "Locale 2"
+        '
+        'TabPage6
+        '
+        Me.TabPage6.BackColor = System.Drawing.Color.LightGray
+        Me.TabPage6.Controls.Add(Me.RichTextBox10)
+        Me.TabPage6.Controls.Add(Me.TextBox22)
+        Me.TabPage6.Controls.Add(Me.RichTextBox11)
+        Me.TabPage6.Controls.Add(Me.TextBox23)
+        Me.TabPage6.Controls.Add(Me.Label55)
+        Me.TabPage6.Controls.Add(Me.Label56)
+        Me.TabPage6.Controls.Add(Me.Label57)
+        Me.TabPage6.Controls.Add(Me.Label58)
+        Me.TabPage6.Controls.Add(Me.RichTextBox12)
+        Me.TabPage6.Controls.Add(Me.TextBox24)
+        Me.TabPage6.Controls.Add(Me.RichTextBox13)
+        Me.TabPage6.Controls.Add(Me.TextBox25)
+        Me.TabPage6.Controls.Add(Me.Label59)
+        Me.TabPage6.Controls.Add(Me.Label60)
+        Me.TabPage6.Controls.Add(Me.Label61)
+        Me.TabPage6.Controls.Add(Me.Label62)
+        Me.TabPage6.Location = New System.Drawing.Point(4, 25)
+        Me.TabPage6.Name = "TabPage6"
+        Me.TabPage6.Size = New System.Drawing.Size(503, 471)
+        Me.TabPage6.TabIndex = 5
+        Me.TabPage6.Text = "Locale 3"
+        '
+        'TabPage7
+        '
+        Me.TabPage7.BackColor = System.Drawing.Color.LightGray
+        Me.TabPage7.Controls.Add(Me.RichTextBox14)
+        Me.TabPage7.Controls.Add(Me.TextBox26)
+        Me.TabPage7.Controls.Add(Me.RichTextBox15)
+        Me.TabPage7.Controls.Add(Me.TextBox27)
+        Me.TabPage7.Controls.Add(Me.Label63)
+        Me.TabPage7.Controls.Add(Me.Label64)
+        Me.TabPage7.Controls.Add(Me.Label65)
+        Me.TabPage7.Controls.Add(Me.Label66)
+        Me.TabPage7.Controls.Add(Me.RichTextBox16)
+        Me.TabPage7.Controls.Add(Me.TextBox28)
+        Me.TabPage7.Controls.Add(Me.RichTextBox17)
+        Me.TabPage7.Controls.Add(Me.TextBox29)
+        Me.TabPage7.Controls.Add(Me.Label67)
+        Me.TabPage7.Controls.Add(Me.Label68)
+        Me.TabPage7.Controls.Add(Me.Label69)
+        Me.TabPage7.Controls.Add(Me.Label70)
+        Me.TabPage7.Location = New System.Drawing.Point(4, 25)
+        Me.TabPage7.Name = "TabPage7"
+        Me.TabPage7.Size = New System.Drawing.Size(503, 471)
+        Me.TabPage7.TabIndex = 6
+        Me.TabPage7.Text = "Locale 4"
+        '
+        'RichTextBox6
+        '
+        Me.RichTextBox6.Location = New System.Drawing.Point(267, 68)
+        Me.RichTextBox6.Name = "RichTextBox6"
+        Me.RichTextBox6.Size = New System.Drawing.Size(233, 101)
+        Me.RichTextBox6.TabIndex = 34
+        Me.RichTextBox6.Text = ""
+        '
+        'TextBox18
+        '
+        Me.TextBox18.Location = New System.Drawing.Point(267, 23)
+        Me.TextBox18.Name = "TextBox18"
+        Me.TextBox18.Size = New System.Drawing.Size(233, 22)
+        Me.TextBox18.TabIndex = 33
+        '
+        'RichTextBox7
+        '
+        Me.RichTextBox7.Location = New System.Drawing.Point(267, 192)
+        Me.RichTextBox7.Name = "RichTextBox7"
+        Me.RichTextBox7.Size = New System.Drawing.Size(233, 57)
+        Me.RichTextBox7.TabIndex = 35
+        Me.RichTextBox7.Text = ""
+        '
+        'TextBox19
+        '
+        Me.TextBox19.Location = New System.Drawing.Point(267, 272)
+        Me.TextBox19.Name = "TextBox19"
+        Me.TextBox19.Size = New System.Drawing.Size(233, 22)
+        Me.TextBox19.TabIndex = 36
+        '
+        'Label47
+        '
+        Me.Label47.AutoSize = True
+        Me.Label47.Location = New System.Drawing.Point(267, 0)
+        Me.Label47.Name = "Label47"
+        Me.Label47.Size = New System.Drawing.Size(100, 17)
+        Me.Label47.TabIndex = 37
+        Me.Label47.Text = "Chinese Name"
+        '
+        'Label48
+        '
+        Me.Label48.AutoSize = True
+        Me.Label48.Location = New System.Drawing.Point(267, 48)
+        Me.Label48.Name = "Label48"
+        Me.Label48.Size = New System.Drawing.Size(134, 17)
+        Me.Label48.TabIndex = 38
+        Me.Label48.Text = "Chinese Description"
+        '
+        'Label49
+        '
+        Me.Label49.AutoSize = True
+        Me.Label49.Location = New System.Drawing.Point(267, 172)
+        Me.Label49.Name = "Label49"
+        Me.Label49.Size = New System.Drawing.Size(134, 17)
+        Me.Label49.TabIndex = 39
+        Me.Label49.Text = "Chinese Description"
+        '
+        'Label50
+        '
+        Me.Label50.AutoSize = True
+        Me.Label50.Location = New System.Drawing.Point(267, 252)
+        Me.Label50.Name = "Label50"
+        Me.Label50.Size = New System.Drawing.Size(96, 17)
+        Me.Label50.TabIndex = 40
+        Me.Label50.Text = "Chinese Rank"
+        '
+        'RichTextBox8
+        '
+        Me.RichTextBox8.Location = New System.Drawing.Point(3, 68)
+        Me.RichTextBox8.Name = "RichTextBox8"
+        Me.RichTextBox8.Size = New System.Drawing.Size(233, 101)
+        Me.RichTextBox8.TabIndex = 26
+        Me.RichTextBox8.Text = ""
+        '
+        'TextBox20
+        '
+        Me.TextBox20.Location = New System.Drawing.Point(3, 23)
+        Me.TextBox20.Name = "TextBox20"
+        Me.TextBox20.Size = New System.Drawing.Size(233, 22)
+        Me.TextBox20.TabIndex = 25
+        '
+        'RichTextBox9
+        '
+        Me.RichTextBox9.Location = New System.Drawing.Point(3, 192)
+        Me.RichTextBox9.Name = "RichTextBox9"
+        Me.RichTextBox9.Size = New System.Drawing.Size(233, 57)
+        Me.RichTextBox9.TabIndex = 27
+        Me.RichTextBox9.Text = ""
+        '
+        'TextBox21
+        '
+        Me.TextBox21.Location = New System.Drawing.Point(3, 272)
+        Me.TextBox21.Name = "TextBox21"
+        Me.TextBox21.Size = New System.Drawing.Size(233, 22)
+        Me.TextBox21.TabIndex = 28
+        '
+        'Label51
+        '
+        Me.Label51.AutoSize = True
+        Me.Label51.Location = New System.Drawing.Point(3, 0)
+        Me.Label51.Name = "Label51"
+        Me.Label51.Size = New System.Drawing.Size(100, 17)
+        Me.Label51.TabIndex = 29
+        Me.Label51.Text = "German Name"
+        '
+        'Label52
+        '
+        Me.Label52.AutoSize = True
+        Me.Label52.Location = New System.Drawing.Point(3, 48)
+        Me.Label52.Name = "Label52"
+        Me.Label52.Size = New System.Drawing.Size(134, 17)
+        Me.Label52.TabIndex = 30
+        Me.Label52.Text = "German Description"
+        '
+        'Label53
+        '
+        Me.Label53.AutoSize = True
+        Me.Label53.Location = New System.Drawing.Point(3, 172)
+        Me.Label53.Name = "Label53"
+        Me.Label53.Size = New System.Drawing.Size(163, 17)
+        Me.Label53.TabIndex = 31
+        Me.Label53.Text = "German Buff Description"
+        '
+        'Label54
+        '
+        Me.Label54.AutoSize = True
+        Me.Label54.Location = New System.Drawing.Point(3, 252)
+        Me.Label54.Name = "Label54"
+        Me.Label54.Size = New System.Drawing.Size(96, 17)
+        Me.Label54.TabIndex = 32
+        Me.Label54.Text = "German Rank"
+        '
+        'RichTextBox10
+        '
+        Me.RichTextBox10.Location = New System.Drawing.Point(267, 68)
+        Me.RichTextBox10.Name = "RichTextBox10"
+        Me.RichTextBox10.Size = New System.Drawing.Size(233, 101)
+        Me.RichTextBox10.TabIndex = 34
+        Me.RichTextBox10.Text = ""
+        '
+        'TextBox22
+        '
+        Me.TextBox22.Location = New System.Drawing.Point(267, 23)
+        Me.TextBox22.Name = "TextBox22"
+        Me.TextBox22.Size = New System.Drawing.Size(233, 22)
+        Me.TextBox22.TabIndex = 33
+        '
+        'RichTextBox11
+        '
+        Me.RichTextBox11.Location = New System.Drawing.Point(267, 192)
+        Me.RichTextBox11.Name = "RichTextBox11"
+        Me.RichTextBox11.Size = New System.Drawing.Size(233, 57)
+        Me.RichTextBox11.TabIndex = 35
+        Me.RichTextBox11.Text = ""
+        '
+        'TextBox23
+        '
+        Me.TextBox23.Location = New System.Drawing.Point(267, 272)
+        Me.TextBox23.Name = "TextBox23"
+        Me.TextBox23.Size = New System.Drawing.Size(233, 22)
+        Me.TextBox23.TabIndex = 36
+        '
+        'Label55
+        '
+        Me.Label55.AutoSize = True
+        Me.Label55.Location = New System.Drawing.Point(267, 0)
+        Me.Label55.Name = "Label55"
+        Me.Label55.Size = New System.Drawing.Size(100, 17)
+        Me.Label55.TabIndex = 37
+        Me.Label55.Text = "Spanish Name"
+        '
+        'Label56
+        '
+        Me.Label56.AutoSize = True
+        Me.Label56.Location = New System.Drawing.Point(267, 48)
+        Me.Label56.Name = "Label56"
+        Me.Label56.Size = New System.Drawing.Size(134, 17)
+        Me.Label56.TabIndex = 38
+        Me.Label56.Text = "Spanish Description"
+        '
+        'Label57
+        '
+        Me.Label57.AutoSize = True
+        Me.Label57.Location = New System.Drawing.Point(267, 172)
+        Me.Label57.Name = "Label57"
+        Me.Label57.Size = New System.Drawing.Size(163, 17)
+        Me.Label57.TabIndex = 39
+        Me.Label57.Text = "Spanish Buff Description"
+        '
+        'Label58
+        '
+        Me.Label58.AutoSize = True
+        Me.Label58.Location = New System.Drawing.Point(267, 252)
+        Me.Label58.Name = "Label58"
+        Me.Label58.Size = New System.Drawing.Size(96, 17)
+        Me.Label58.TabIndex = 40
+        Me.Label58.Text = "Spanish Rank"
+        '
+        'RichTextBox12
+        '
+        Me.RichTextBox12.Location = New System.Drawing.Point(3, 68)
+        Me.RichTextBox12.Name = "RichTextBox12"
+        Me.RichTextBox12.Size = New System.Drawing.Size(233, 101)
+        Me.RichTextBox12.TabIndex = 26
+        Me.RichTextBox12.Text = ""
+        '
+        'TextBox24
+        '
+        Me.TextBox24.Location = New System.Drawing.Point(3, 23)
+        Me.TextBox24.Name = "TextBox24"
+        Me.TextBox24.Size = New System.Drawing.Size(233, 22)
+        Me.TextBox24.TabIndex = 25
+        '
+        'RichTextBox13
+        '
+        Me.RichTextBox13.Location = New System.Drawing.Point(3, 192)
+        Me.RichTextBox13.Name = "RichTextBox13"
+        Me.RichTextBox13.Size = New System.Drawing.Size(233, 57)
+        Me.RichTextBox13.TabIndex = 27
+        Me.RichTextBox13.Text = ""
+        '
+        'TextBox25
+        '
+        Me.TextBox25.Location = New System.Drawing.Point(3, 272)
+        Me.TextBox25.Name = "TextBox25"
+        Me.TextBox25.Size = New System.Drawing.Size(233, 22)
+        Me.TextBox25.TabIndex = 28
+        '
+        'Label59
+        '
+        Me.Label59.AutoSize = True
+        Me.Label59.Location = New System.Drawing.Point(3, 0)
+        Me.Label59.Name = "Label59"
+        Me.Label59.Size = New System.Drawing.Size(94, 17)
+        Me.Label59.TabIndex = 29
+        Me.Label59.Text = "Taiwan Name"
+        '
+        'Label60
+        '
+        Me.Label60.AutoSize = True
+        Me.Label60.Location = New System.Drawing.Point(3, 48)
+        Me.Label60.Name = "Label60"
+        Me.Label60.Size = New System.Drawing.Size(128, 17)
+        Me.Label60.TabIndex = 30
+        Me.Label60.Text = "Taiwan Description"
+        '
+        'Label61
+        '
+        Me.Label61.AutoSize = True
+        Me.Label61.Location = New System.Drawing.Point(3, 172)
+        Me.Label61.Name = "Label61"
+        Me.Label61.Size = New System.Drawing.Size(157, 17)
+        Me.Label61.TabIndex = 31
+        Me.Label61.Text = "Taiwan Buff Description"
+        '
+        'Label62
+        '
+        Me.Label62.AutoSize = True
+        Me.Label62.Location = New System.Drawing.Point(3, 252)
+        Me.Label62.Name = "Label62"
+        Me.Label62.Size = New System.Drawing.Size(90, 17)
+        Me.Label62.TabIndex = 32
+        Me.Label62.Text = "Taiwan Rank"
+        '
+        'RichTextBox14
+        '
+        Me.RichTextBox14.Location = New System.Drawing.Point(267, 68)
+        Me.RichTextBox14.Name = "RichTextBox14"
+        Me.RichTextBox14.Size = New System.Drawing.Size(233, 101)
+        Me.RichTextBox14.TabIndex = 34
+        Me.RichTextBox14.Text = ""
+        '
+        'TextBox26
+        '
+        Me.TextBox26.Location = New System.Drawing.Point(267, 23)
+        Me.TextBox26.Name = "TextBox26"
+        Me.TextBox26.Size = New System.Drawing.Size(233, 22)
+        Me.TextBox26.TabIndex = 33
+        '
+        'RichTextBox15
+        '
+        Me.RichTextBox15.Location = New System.Drawing.Point(267, 192)
+        Me.RichTextBox15.Name = "RichTextBox15"
+        Me.RichTextBox15.Size = New System.Drawing.Size(233, 57)
+        Me.RichTextBox15.TabIndex = 35
+        Me.RichTextBox15.Text = ""
+        '
+        'TextBox27
+        '
+        Me.TextBox27.Location = New System.Drawing.Point(267, 272)
+        Me.TextBox27.Name = "TextBox27"
+        Me.TextBox27.Size = New System.Drawing.Size(233, 22)
+        Me.TextBox27.TabIndex = 36
+        '
+        'Label63
+        '
+        Me.Label63.AutoSize = True
+        Me.Label63.Location = New System.Drawing.Point(267, 0)
+        Me.Label63.Name = "Label63"
+        Me.Label63.Size = New System.Drawing.Size(100, 17)
+        Me.Label63.TabIndex = 37
+        Me.Label63.Text = "Russian Name"
+        '
+        'Label64
+        '
+        Me.Label64.AutoSize = True
+        Me.Label64.Location = New System.Drawing.Point(267, 48)
+        Me.Label64.Name = "Label64"
+        Me.Label64.Size = New System.Drawing.Size(134, 17)
+        Me.Label64.TabIndex = 38
+        Me.Label64.Text = "Russian Description"
+        '
+        'Label65
+        '
+        Me.Label65.AutoSize = True
+        Me.Label65.Location = New System.Drawing.Point(267, 172)
+        Me.Label65.Name = "Label65"
+        Me.Label65.Size = New System.Drawing.Size(163, 17)
+        Me.Label65.TabIndex = 39
+        Me.Label65.Text = "Russian Buff Description"
+        '
+        'Label66
+        '
+        Me.Label66.AutoSize = True
+        Me.Label66.Location = New System.Drawing.Point(267, 252)
+        Me.Label66.Name = "Label66"
+        Me.Label66.Size = New System.Drawing.Size(96, 17)
+        Me.Label66.TabIndex = 40
+        Me.Label66.Text = "Russian Rank"
+        '
+        'RichTextBox16
+        '
+        Me.RichTextBox16.Location = New System.Drawing.Point(3, 68)
+        Me.RichTextBox16.Name = "RichTextBox16"
+        Me.RichTextBox16.Size = New System.Drawing.Size(233, 101)
+        Me.RichTextBox16.TabIndex = 26
+        Me.RichTextBox16.Text = ""
+        '
+        'TextBox28
+        '
+        Me.TextBox28.Location = New System.Drawing.Point(3, 23)
+        Me.TextBox28.Name = "TextBox28"
+        Me.TextBox28.Size = New System.Drawing.Size(233, 22)
+        Me.TextBox28.TabIndex = 25
+        '
+        'RichTextBox17
+        '
+        Me.RichTextBox17.Location = New System.Drawing.Point(3, 192)
+        Me.RichTextBox17.Name = "RichTextBox17"
+        Me.RichTextBox17.Size = New System.Drawing.Size(233, 57)
+        Me.RichTextBox17.TabIndex = 27
+        Me.RichTextBox17.Text = ""
+        '
+        'TextBox29
+        '
+        Me.TextBox29.Location = New System.Drawing.Point(3, 272)
+        Me.TextBox29.Name = "TextBox29"
+        Me.TextBox29.Size = New System.Drawing.Size(233, 22)
+        Me.TextBox29.TabIndex = 28
+        '
+        'Label67
+        '
+        Me.Label67.AutoSize = True
+        Me.Label67.Location = New System.Drawing.Point(3, 0)
+        Me.Label67.Name = "Label67"
+        Me.Label67.Size = New System.Drawing.Size(73, 17)
+        Me.Label67.TabIndex = 29
+        Me.Label67.Text = "??? Name"
+        '
+        'Label68
+        '
+        Me.Label68.AutoSize = True
+        Me.Label68.Location = New System.Drawing.Point(3, 48)
+        Me.Label68.Name = "Label68"
+        Me.Label68.Size = New System.Drawing.Size(107, 17)
+        Me.Label68.TabIndex = 30
+        Me.Label68.Text = "??? Description"
+        '
+        'Label69
+        '
+        Me.Label69.AutoSize = True
+        Me.Label69.Location = New System.Drawing.Point(3, 172)
+        Me.Label69.Name = "Label69"
+        Me.Label69.Size = New System.Drawing.Size(136, 17)
+        Me.Label69.TabIndex = 31
+        Me.Label69.Text = "??? Buff Description"
+        '
+        'Label70
+        '
+        Me.Label70.AutoSize = True
+        Me.Label70.Location = New System.Drawing.Point(3, 252)
+        Me.Label70.Name = "Label70"
+        Me.Label70.Size = New System.Drawing.Size(69, 17)
+        Me.Label70.TabIndex = 32
+        Me.Label70.Text = "??? Rank"
         '
         'Form1
         '
@@ -1030,6 +1734,14 @@ Partial Class Form1
         Me.TabPage2.PerformLayout()
         Me.TabPage3.ResumeLayout(False)
         Me.TabPage3.PerformLayout()
+        Me.TabPage4.ResumeLayout(False)
+        Me.TabPage4.PerformLayout()
+        Me.TabPage5.ResumeLayout(False)
+        Me.TabPage5.PerformLayout()
+        Me.TabPage6.ResumeLayout(False)
+        Me.TabPage6.PerformLayout()
+        Me.TabPage7.ResumeLayout(False)
+        Me.TabPage7.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1127,5 +1839,73 @@ Partial Class Form1
     Friend WithEvents Label38 As System.Windows.Forms.Label
     Friend WithEvents TextBox13 As System.Windows.Forms.TextBox
     Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents TabPage4 As System.Windows.Forms.TabPage
+    Friend WithEvents RichTextBox4 As System.Windows.Forms.RichTextBox
+    Friend WithEvents TextBox16 As System.Windows.Forms.TextBox
+    Friend WithEvents RichTextBox5 As System.Windows.Forms.RichTextBox
+    Friend WithEvents TextBox17 As System.Windows.Forms.TextBox
+    Friend WithEvents Label43 As System.Windows.Forms.Label
+    Friend WithEvents Label44 As System.Windows.Forms.Label
+    Friend WithEvents Label45 As System.Windows.Forms.Label
+    Friend WithEvents Label46 As System.Windows.Forms.Label
+    Friend WithEvents RichTextBox2 As System.Windows.Forms.RichTextBox
+    Friend WithEvents TextBox14 As System.Windows.Forms.TextBox
+    Friend WithEvents RichTextBox3 As System.Windows.Forms.RichTextBox
+    Friend WithEvents TextBox15 As System.Windows.Forms.TextBox
+    Friend WithEvents Label39 As System.Windows.Forms.Label
+    Friend WithEvents Label40 As System.Windows.Forms.Label
+    Friend WithEvents Label41 As System.Windows.Forms.Label
+    Friend WithEvents Label42 As System.Windows.Forms.Label
+    Friend WithEvents TabPage5 As System.Windows.Forms.TabPage
+    Friend WithEvents TabPage6 As System.Windows.Forms.TabPage
+    Friend WithEvents TabPage7 As System.Windows.Forms.TabPage
+    Friend WithEvents RichTextBox6 As System.Windows.Forms.RichTextBox
+    Friend WithEvents TextBox18 As System.Windows.Forms.TextBox
+    Friend WithEvents RichTextBox7 As System.Windows.Forms.RichTextBox
+    Friend WithEvents TextBox19 As System.Windows.Forms.TextBox
+    Friend WithEvents Label47 As System.Windows.Forms.Label
+    Friend WithEvents Label48 As System.Windows.Forms.Label
+    Friend WithEvents Label49 As System.Windows.Forms.Label
+    Friend WithEvents Label50 As System.Windows.Forms.Label
+    Friend WithEvents RichTextBox8 As System.Windows.Forms.RichTextBox
+    Friend WithEvents TextBox20 As System.Windows.Forms.TextBox
+    Friend WithEvents RichTextBox9 As System.Windows.Forms.RichTextBox
+    Friend WithEvents TextBox21 As System.Windows.Forms.TextBox
+    Friend WithEvents Label51 As System.Windows.Forms.Label
+    Friend WithEvents Label52 As System.Windows.Forms.Label
+    Friend WithEvents Label53 As System.Windows.Forms.Label
+    Friend WithEvents Label54 As System.Windows.Forms.Label
+    Friend WithEvents RichTextBox10 As System.Windows.Forms.RichTextBox
+    Friend WithEvents TextBox22 As System.Windows.Forms.TextBox
+    Friend WithEvents RichTextBox11 As System.Windows.Forms.RichTextBox
+    Friend WithEvents TextBox23 As System.Windows.Forms.TextBox
+    Friend WithEvents Label55 As System.Windows.Forms.Label
+    Friend WithEvents Label56 As System.Windows.Forms.Label
+    Friend WithEvents Label57 As System.Windows.Forms.Label
+    Friend WithEvents Label58 As System.Windows.Forms.Label
+    Friend WithEvents RichTextBox12 As System.Windows.Forms.RichTextBox
+    Friend WithEvents TextBox24 As System.Windows.Forms.TextBox
+    Friend WithEvents RichTextBox13 As System.Windows.Forms.RichTextBox
+    Friend WithEvents TextBox25 As System.Windows.Forms.TextBox
+    Friend WithEvents Label59 As System.Windows.Forms.Label
+    Friend WithEvents Label60 As System.Windows.Forms.Label
+    Friend WithEvents Label61 As System.Windows.Forms.Label
+    Friend WithEvents Label62 As System.Windows.Forms.Label
+    Friend WithEvents RichTextBox14 As System.Windows.Forms.RichTextBox
+    Friend WithEvents TextBox26 As System.Windows.Forms.TextBox
+    Friend WithEvents RichTextBox15 As System.Windows.Forms.RichTextBox
+    Friend WithEvents TextBox27 As System.Windows.Forms.TextBox
+    Friend WithEvents Label63 As System.Windows.Forms.Label
+    Friend WithEvents Label64 As System.Windows.Forms.Label
+    Friend WithEvents Label65 As System.Windows.Forms.Label
+    Friend WithEvents Label66 As System.Windows.Forms.Label
+    Friend WithEvents RichTextBox16 As System.Windows.Forms.RichTextBox
+    Friend WithEvents TextBox28 As System.Windows.Forms.TextBox
+    Friend WithEvents RichTextBox17 As System.Windows.Forms.RichTextBox
+    Friend WithEvents TextBox29 As System.Windows.Forms.TextBox
+    Friend WithEvents Label67 As System.Windows.Forms.Label
+    Friend WithEvents Label68 As System.Windows.Forms.Label
+    Friend WithEvents Label69 As System.Windows.Forms.Label
+    Friend WithEvents Label70 As System.Windows.Forms.Label
 
 End Class

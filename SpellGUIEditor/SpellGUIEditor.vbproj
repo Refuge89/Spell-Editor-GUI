@@ -141,7 +141,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="mysqldb.vb" />
+    <Compile Include="XMLConfig.vb" />
     <Compile Include="SpellAttributes.vb" />
   </ItemGroup>
   <ItemGroup>

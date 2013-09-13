@@ -1,18 +1,29 @@
 ﻿Imports System.IO
 Imports System.Runtime.InteropServices
 
+' Localisation
+'0	 enUS / enGB	 English / Great British
+'1	 koKR	 Korean
+'2	 frFR	 French
+'3	 deDE	 German
+'4	 zhCN	 Chinese
+'5	 zhTW	 Taiwan
+'6	 esES / esMX	 Spanish / Mexican
+'7	 ?	 ?
+'8	 ruRU	 Russian
+
 Structure DBC_Header
     Dim magic As UInt32 ' always 'WDBC'
     Dim record_count As UInt32 ' records per file
     Dim field_count As UInt32 ' fields per record
-    Dim record_size As UInt32 ' sum (sizeof (field_type_i)) | 0 <= i < field_count. field_type_i is NOT defined in the files.
-    Dim string_block_size As UInt32
+    Dim record_size As UInt32 ' size of record
+    Dim string_block_size As UInt32 ' size of string block
 End Structure
 
 Structure DBC_Body
-    Dim Header As DBC_Header
-    Dim records() As SpellRecord
-    Dim string_block() As Char
+    Dim Header As DBC_Header ' Header structure
+    Dim records() As SpellRecord ' Array of spell records
+    Dim string_block() As Char ' string of the string block (null terminators throughout)
 End Structure
 
 Public Class DBC
@@ -125,32 +136,196 @@ Public Class DBC
         bytes = {} ' Remove ~50MB from memory
         ' Now to convert the existing spells into strings where needed
         For i = 0 To SpellDBC.Header.record_count - 1
-            If SpellDBC.records(i).SpellName <> 0 Then
-                If dict.ContainsKey(SpellDBC.records(i).SpellName) Then
-                    SpellDBC.records(i).SpellName_String = dict.Item(SpellDBC.records(i).SpellName)
-                End If
-            End If
-            If SpellDBC.records(i).Rank <> 0 Then
-                If dict.ContainsKey(SpellDBC.records(i).Rank) Then
-                    SpellDBC.records(i).Rank_String = dict.Item(SpellDBC.records(i).Rank)
-                End If
-            End If
-            If SpellDBC.records(i).Description <> 0 Then
-                If dict.ContainsKey(SpellDBC.records(i).Description) Then
-                    SpellDBC.records(i).Description_String = dict.Item(SpellDBC.records(i).Description)
-                End If
-            End If
-            If SpellDBC.records(i).ToolTip <> 0 Then
-                If dict.ContainsKey(SpellDBC.records(i).ToolTip) Then
-                    SpellDBC.records(i).ToolTip_String = dict.Item(SpellDBC.records(i).ToolTip)
-                End If
-            End If
+            LoadRecordStrings(SpellDBC.records(i))
         Next i
+    End Sub
+
+    Private Sub LoadRecordStrings(ByRef SpellDBC As SpellRecord)
+        If SpellDBC.SpellName <> 0 Then
+            If dict.ContainsKey(SpellDBC.SpellName) Then
+                SpellDBC.SpellName_String = dict.Item(SpellDBC.SpellName)
+            End If
+        End If
+        If SpellDBC.Rank <> 0 Then
+            If dict.ContainsKey(SpellDBC.Rank) Then
+                SpellDBC.Rank_String = dict.Item(SpellDBC.Rank)
+            End If
+        End If
+        If SpellDBC.Description <> 0 Then
+            If dict.ContainsKey(SpellDBC.Description) Then
+                SpellDBC.Description_String = dict.Item(SpellDBC.Description)
+            End If
+        End If
+        If SpellDBC.ToolTip <> 0 Then
+            If dict.ContainsKey(SpellDBC.ToolTip) Then
+                SpellDBC.ToolTip_String = dict.Item(SpellDBC.ToolTip)
+            End If
+        End If
+        If SpellDBC.Local1N <> 0 Then
+            If dict.ContainsKey(SpellDBC.Local1N) Then
+                SpellDBC.Local1N_String = dict.Item(SpellDBC.Local1N)
+            End If
+        End If
+        If SpellDBC.Local1R <> 0 Then
+            If dict.ContainsKey(SpellDBC.Local1R) Then
+                SpellDBC.Local1R_String = dict.Item(SpellDBC.Local1R)
+            End If
+        End If
+        If SpellDBC.Local1D <> 0 Then
+            If dict.ContainsKey(SpellDBC.Local1D) Then
+                SpellDBC.Local1D_String = dict.Item(SpellDBC.Local1D)
+            End If
+        End If
+        If SpellDBC.Local1T <> 0 Then
+            If dict.ContainsKey(SpellDBC.Local1T) Then
+                SpellDBC.Local1T_String = dict.Item(SpellDBC.Local1T)
+            End If
+        End If
+        If SpellDBC.Local2N <> 0 Then
+            If dict.ContainsKey(SpellDBC.Local2N) Then
+                SpellDBC.Local2N_String = dict.Item(SpellDBC.Local2N)
+            End If
+        End If
+        If SpellDBC.Local2R <> 0 Then
+            If dict.ContainsKey(SpellDBC.Local2R) Then
+                SpellDBC.Local2R_String = dict.Item(SpellDBC.Local2R)
+            End If
+        End If
+        If SpellDBC.Local2D <> 0 Then
+            If dict.ContainsKey(SpellDBC.Local2D) Then
+                SpellDBC.Local2D_String = dict.Item(SpellDBC.Local2D)
+            End If
+        End If
+        If SpellDBC.Local2T <> 0 Then
+            If dict.ContainsKey(SpellDBC.Local2T) Then
+                SpellDBC.Local2T_String = dict.Item(SpellDBC.Local2T)
+            End If
+        End If
+        If SpellDBC.Local3N <> 0 Then
+            If dict.ContainsKey(SpellDBC.Local3N) Then
+                SpellDBC.Local3N_String = dict.Item(SpellDBC.Local3N)
+            End If
+        End If
+        If SpellDBC.Local3R <> 0 Then
+            If dict.ContainsKey(SpellDBC.Local3R) Then
+                SpellDBC.Local3R_String = dict.Item(SpellDBC.Local3R)
+            End If
+        End If
+        If SpellDBC.Local3D <> 0 Then
+            If dict.ContainsKey(SpellDBC.Local3D) Then
+                SpellDBC.Local3D_String = dict.Item(SpellDBC.Local3D)
+            End If
+        End If
+        If SpellDBC.Local3T <> 0 Then
+            If dict.ContainsKey(SpellDBC.Local3T) Then
+                SpellDBC.Local3T_String = dict.Item(SpellDBC.Local3T)
+            End If
+        End If
+        If SpellDBC.Local4N <> 0 Then
+            If dict.ContainsKey(SpellDBC.Local4N) Then
+                SpellDBC.Local4N_String = dict.Item(SpellDBC.Local4N)
+            End If
+        End If
+        If SpellDBC.Local4R <> 0 Then
+            If dict.ContainsKey(SpellDBC.Local4R) Then
+                SpellDBC.Local4R_String = dict.Item(SpellDBC.Local4R)
+            End If
+        End If
+        If SpellDBC.Local4D <> 0 Then
+            If dict.ContainsKey(SpellDBC.Local4D) Then
+                SpellDBC.Local4D_String = dict.Item(SpellDBC.Local4D)
+            End If
+        End If
+        If SpellDBC.Local4T <> 0 Then
+            If dict.ContainsKey(SpellDBC.Local4T) Then
+                SpellDBC.Local4T_String = dict.Item(SpellDBC.Local4T)
+            End If
+        End If
+        If SpellDBC.Local5N <> 0 Then
+            If dict.ContainsKey(SpellDBC.Local5N) Then
+                SpellDBC.Local5N_String = dict.Item(SpellDBC.Local5N)
+            End If
+        End If
+        If SpellDBC.Local5R <> 0 Then
+            If dict.ContainsKey(SpellDBC.Local5R) Then
+                SpellDBC.Local5R_String = dict.Item(SpellDBC.Local5R)
+            End If
+        End If
+        If SpellDBC.Local5D <> 0 Then
+            If dict.ContainsKey(SpellDBC.Local5D) Then
+                SpellDBC.Local5D_String = dict.Item(SpellDBC.Local5D)
+            End If
+        End If
+        If SpellDBC.Local5T <> 0 Then
+            If dict.ContainsKey(SpellDBC.Local5T) Then
+                SpellDBC.Local5T_String = dict.Item(SpellDBC.Local5T)
+            End If
+        End If
+        If SpellDBC.Local6N <> 0 Then
+            If dict.ContainsKey(SpellDBC.Local6N) Then
+                SpellDBC.Local6N_String = dict.Item(SpellDBC.Local6N)
+            End If
+        End If
+        If SpellDBC.Local6R <> 0 Then
+            If dict.ContainsKey(SpellDBC.Local6R) Then
+                SpellDBC.Local6R_String = dict.Item(SpellDBC.Local6R)
+            End If
+        End If
+        If SpellDBC.Local6D <> 0 Then
+            If dict.ContainsKey(SpellDBC.Local6D) Then
+                SpellDBC.Local6D_String = dict.Item(SpellDBC.Local6D)
+            End If
+        End If
+        If SpellDBC.Local6T <> 0 Then
+            If dict.ContainsKey(SpellDBC.Local6T) Then
+                SpellDBC.Local6T_String = dict.Item(SpellDBC.Local6T)
+            End If
+        End If
+        If SpellDBC.Local7N <> 0 Then
+            If dict.ContainsKey(SpellDBC.Local7N) Then
+                SpellDBC.Local7N_String = dict.Item(SpellDBC.Local7N)
+            End If
+        End If
+        If SpellDBC.Local7R <> 0 Then
+            If dict.ContainsKey(SpellDBC.Local7R) Then
+                SpellDBC.Local7R_String = dict.Item(SpellDBC.Local7R)
+            End If
+        End If
+        If SpellDBC.Local7D <> 0 Then
+            If dict.ContainsKey(SpellDBC.Local7D) Then
+                SpellDBC.Local7D_String = dict.Item(SpellDBC.Local7D)
+            End If
+        End If
+        If SpellDBC.Local7T <> 0 Then
+            If dict.ContainsKey(SpellDBC.Local7T) Then
+                SpellDBC.Local7T_String = dict.Item(SpellDBC.Local7T)
+            End If
+        End If
+        If SpellDBC.Local8N <> 0 Then
+            If dict.ContainsKey(SpellDBC.Local8N) Then
+                SpellDBC.Local8N_String = dict.Item(SpellDBC.Local8N)
+            End If
+        End If
+        If SpellDBC.Local8R <> 0 Then
+            If dict.ContainsKey(SpellDBC.Local8R) Then
+                SpellDBC.Local8R_String = dict.Item(SpellDBC.Local8R)
+            End If
+        End If
+        If SpellDBC.Local8D <> 0 Then
+            If dict.ContainsKey(SpellDBC.Local8D) Then
+                SpellDBC.Local8D_String = dict.Item(SpellDBC.Local8D)
+            End If
+        End If
+        If SpellDBC.Local8T <> 0 Then
+            If dict.ContainsKey(SpellDBC.Local8T) Then
+                SpellDBC.Local8T_String = dict.Item(SpellDBC.Local8T)
+            End If
+        End If
     End Sub
 
     Public Sub GenerateDataTable(ByVal index As Integer)
         Form1.dt = New DataTable
-        For i = 0 To SpellDBC.Header.field_count - 1
+        For i = 0 To 204 ' Need to leave room for localisation
             Form1.dt.Columns.Add(i.ToString())
         Next i
         Dim dr As DataRow = Form1.dt.NewRow
@@ -161,6 +336,7 @@ Public Class DBC
     End Sub
 
     Private Sub GenerateStringBlock(ByRef Spell As SpellRecord, ByRef writer As BinaryWriter)
+        ' ENGB/ENUS
         If (Spell.SpellName_String.Length <> 0) Then
             If dict2.ContainsKey(Spell.SpellName_String) Then
                 Spell.SpellName_String = dict2.Item(Spell.SpellName_String)
@@ -202,6 +378,366 @@ Public Class DBC
                 writer.Write(Spell.ToolTip_String.ToCharArray())
                 dict2.Add(Spell.ToolTip_String, StringBlockIndex)
                 Spell.ToolTip_String = StringBlockIndex
+                StringBlockIndex = StringBlockIndex + l
+            End If
+        End If
+        ' LOCALES
+        If (Spell.Local1N_String.Length <> 0) Then
+            If dict2.ContainsKey(Spell.Local1N_String) Then
+                Spell.Local1N_String = dict2.Item(Spell.Local1N_String)
+            Else
+                Dim l As UInt32 = Spell.Local1N_String.Length
+                writer.Write(Spell.Local1N_String.ToCharArray())
+                dict2.Add(Spell.Local1N_String, StringBlockIndex)
+                Spell.Local1N_String = StringBlockIndex
+                StringBlockIndex = StringBlockIndex + l
+            End If
+        End If
+        If (Spell.Local1R_String.Length <> 0) Then
+            If dict2.ContainsKey(Spell.Local1R_String) Then
+                Spell.Local1N_String = dict2.Item(Spell.Local1R_String)
+            Else
+                Dim l As UInt32 = Spell.Local1R_String.Length
+                writer.Write(Spell.Local1R_String.ToCharArray())
+                dict2.Add(Spell.Local1R_String, StringBlockIndex)
+                Spell.Local1R_String = StringBlockIndex
+                StringBlockIndex = StringBlockIndex + l
+            End If
+        End If
+        If (Spell.Local1D_String.Length <> 0) Then
+            If dict2.ContainsKey(Spell.Local1D_String) Then
+                Spell.Local1D_String = dict2.Item(Spell.Local1D_String)
+            Else
+                Dim l As UInt32 = Spell.Local1D_String.Length
+                writer.Write(Spell.Local1D_String.ToCharArray())
+                dict2.Add(Spell.Local1D_String, StringBlockIndex)
+                Spell.Local1D_String = StringBlockIndex
+                StringBlockIndex = StringBlockIndex + l
+            End If
+        End If
+        If (Spell.Local1T_String.Length <> 0) Then
+            If dict2.ContainsKey(Spell.Local1T_String) Then
+                Spell.Local1T_String = dict2.Item(Spell.Local1T_String)
+            Else
+                Dim l As UInt32 = Spell.Local1T_String.Length
+                writer.Write(Spell.Local1T_String.ToCharArray())
+                dict2.Add(Spell.Local1T_String, StringBlockIndex)
+                Spell.Local1T_String = StringBlockIndex
+                StringBlockIndex = StringBlockIndex + l
+            End If
+        End If
+        ' LOCALES
+        If (Spell.Local2N_String.Length <> 0) Then
+            If dict2.ContainsKey(Spell.Local2N_String) Then
+                Spell.Local2N_String = dict2.Item(Spell.Local2N_String)
+            Else
+                Dim l As UInt32 = Spell.Local2N_String.Length
+                writer.Write(Spell.Local2N_String.ToCharArray())
+                dict2.Add(Spell.Local2N_String, StringBlockIndex)
+                Spell.Local2N_String = StringBlockIndex
+                StringBlockIndex = StringBlockIndex + l
+            End If
+        End If
+        If (Spell.Local2R_String.Length <> 0) Then
+            If dict2.ContainsKey(Spell.Local2R_String) Then
+                Spell.Local2N_String = dict2.Item(Spell.Local2R_String)
+            Else
+                Dim l As UInt32 = Spell.Local2R_String.Length
+                writer.Write(Spell.Local2R_String.ToCharArray())
+                dict2.Add(Spell.Local2R_String, StringBlockIndex)
+                Spell.Local2R_String = StringBlockIndex
+                StringBlockIndex = StringBlockIndex + l
+            End If
+        End If
+        If (Spell.Local2D_String.Length <> 0) Then
+            If dict2.ContainsKey(Spell.Local2D_String) Then
+                Spell.Local2D_String = dict2.Item(Spell.Local2D_String)
+            Else
+                Dim l As UInt32 = Spell.Local2D_String.Length
+                writer.Write(Spell.Local2D_String.ToCharArray())
+                dict2.Add(Spell.Local2D_String, StringBlockIndex)
+                Spell.Local2D_String = StringBlockIndex
+                StringBlockIndex = StringBlockIndex + l
+            End If
+        End If
+        If (Spell.Local2T_String.Length <> 0) Then
+            If dict2.ContainsKey(Spell.Local2T_String) Then
+                Spell.Local2T_String = dict2.Item(Spell.Local2T_String)
+            Else
+                Dim l As UInt32 = Spell.Local2T_String.Length
+                writer.Write(Spell.Local2T_String.ToCharArray())
+                dict2.Add(Spell.Local2T_String, StringBlockIndex)
+                Spell.Local2T_String = StringBlockIndex
+                StringBlockIndex = StringBlockIndex + l
+            End If
+        End If
+        ' LOCALES
+        If (Spell.Local3N_String.Length <> 0) Then
+            If dict2.ContainsKey(Spell.Local3N_String) Then
+                Spell.Local3N_String = dict2.Item(Spell.Local3N_String)
+            Else
+                Dim l As UInt32 = Spell.Local3N_String.Length
+                writer.Write(Spell.Local3N_String.ToCharArray())
+                dict2.Add(Spell.Local3N_String, StringBlockIndex)
+                Spell.Local3N_String = StringBlockIndex
+                StringBlockIndex = StringBlockIndex + l
+            End If
+        End If
+        If (Spell.Local3R_String.Length <> 0) Then
+            If dict2.ContainsKey(Spell.Local3R_String) Then
+                Spell.Local3N_String = dict2.Item(Spell.Local3R_String)
+            Else
+                Dim l As UInt32 = Spell.Local3R_String.Length
+                writer.Write(Spell.Local3R_String.ToCharArray())
+                dict2.Add(Spell.Local3R_String, StringBlockIndex)
+                Spell.Local3R_String = StringBlockIndex
+                StringBlockIndex = StringBlockIndex + l
+            End If
+        End If
+        If (Spell.Local3D_String.Length <> 0) Then
+            If dict2.ContainsKey(Spell.Local3D_String) Then
+                Spell.Local3D_String = dict2.Item(Spell.Local3D_String)
+            Else
+                Dim l As UInt32 = Spell.Local3D_String.Length
+                writer.Write(Spell.Local3D_String.ToCharArray())
+                dict2.Add(Spell.Local3D_String, StringBlockIndex)
+                Spell.Local3D_String = StringBlockIndex
+                StringBlockIndex = StringBlockIndex + l
+            End If
+        End If
+        If (Spell.Local3T_String.Length <> 0) Then
+            If dict2.ContainsKey(Spell.Local3T_String) Then
+                Spell.Local3T_String = dict2.Item(Spell.Local3T_String)
+            Else
+                Dim l As UInt32 = Spell.Local3T_String.Length
+                writer.Write(Spell.Local3T_String.ToCharArray())
+                dict2.Add(Spell.Local3T_String, StringBlockIndex)
+                Spell.Local3T_String = StringBlockIndex
+                StringBlockIndex = StringBlockIndex + l
+            End If
+        End If
+        ' LOCALES
+        If (Spell.Local4N_String.Length <> 0) Then
+            If dict2.ContainsKey(Spell.Local4N_String) Then
+                Spell.Local4N_String = dict2.Item(Spell.Local4N_String)
+            Else
+                Dim l As UInt32 = Spell.Local4N_String.Length
+                writer.Write(Spell.Local4N_String.ToCharArray())
+                dict2.Add(Spell.Local4N_String, StringBlockIndex)
+                Spell.Local4N_String = StringBlockIndex
+                StringBlockIndex = StringBlockIndex + l
+            End If
+        End If
+        If (Spell.Local4R_String.Length <> 0) Then
+            If dict2.ContainsKey(Spell.Local4R_String) Then
+                Spell.Local4N_String = dict2.Item(Spell.Local4R_String)
+            Else
+                Dim l As UInt32 = Spell.Local4R_String.Length
+                writer.Write(Spell.Local4R_String.ToCharArray())
+                dict2.Add(Spell.Local4R_String, StringBlockIndex)
+                Spell.Local4R_String = StringBlockIndex
+                StringBlockIndex = StringBlockIndex + l
+            End If
+        End If
+        If (Spell.Local4D_String.Length <> 0) Then
+            If dict2.ContainsKey(Spell.Local4D_String) Then
+                Spell.Local4D_String = dict2.Item(Spell.Local4D_String)
+            Else
+                Dim l As UInt32 = Spell.Local4D_String.Length
+                writer.Write(Spell.Local4D_String.ToCharArray())
+                dict2.Add(Spell.Local4D_String, StringBlockIndex)
+                Spell.Local4D_String = StringBlockIndex
+                StringBlockIndex = StringBlockIndex + l
+            End If
+        End If
+        If (Spell.Local4T_String.Length <> 0) Then
+            If dict2.ContainsKey(Spell.Local4T_String) Then
+                Spell.Local4T_String = dict2.Item(Spell.Local4T_String)
+            Else
+                Dim l As UInt32 = Spell.Local4T_String.Length
+                writer.Write(Spell.Local4T_String.ToCharArray())
+                dict2.Add(Spell.Local4T_String, StringBlockIndex)
+                Spell.Local4T_String = StringBlockIndex
+                StringBlockIndex = StringBlockIndex + l
+            End If
+        End If
+        ' LOCALES
+        If (Spell.Local5N_String.Length <> 0) Then
+            If dict2.ContainsKey(Spell.Local5N_String) Then
+                Spell.Local5N_String = dict2.Item(Spell.Local5N_String)
+            Else
+                Dim l As UInt32 = Spell.Local5N_String.Length
+                writer.Write(Spell.Local5N_String.ToCharArray())
+                dict2.Add(Spell.Local5N_String, StringBlockIndex)
+                Spell.Local5N_String = StringBlockIndex
+                StringBlockIndex = StringBlockIndex + l
+            End If
+        End If
+        If (Spell.Local5R_String.Length <> 0) Then
+            If dict2.ContainsKey(Spell.Local5R_String) Then
+                Spell.Local5N_String = dict2.Item(Spell.Local5R_String)
+            Else
+                Dim l As UInt32 = Spell.Local5R_String.Length
+                writer.Write(Spell.Local5R_String.ToCharArray())
+                dict2.Add(Spell.Local5R_String, StringBlockIndex)
+                Spell.Local5R_String = StringBlockIndex
+                StringBlockIndex = StringBlockIndex + l
+            End If
+        End If
+        If (Spell.Local5D_String.Length <> 0) Then
+            If dict2.ContainsKey(Spell.Local5D_String) Then
+                Spell.Local5D_String = dict2.Item(Spell.Local5D_String)
+            Else
+                Dim l As UInt32 = Spell.Local5D_String.Length
+                writer.Write(Spell.Local5D_String.ToCharArray())
+                dict2.Add(Spell.Local5D_String, StringBlockIndex)
+                Spell.Local5D_String = StringBlockIndex
+                StringBlockIndex = StringBlockIndex + l
+            End If
+        End If
+        If (Spell.Local5T_String.Length <> 0) Then
+            If dict2.ContainsKey(Spell.Local5T_String) Then
+                Spell.Local5T_String = dict2.Item(Spell.Local5T_String)
+            Else
+                Dim l As UInt32 = Spell.Local5T_String.Length
+                writer.Write(Spell.Local5T_String.ToCharArray())
+                dict2.Add(Spell.Local5T_String, StringBlockIndex)
+                Spell.Local5T_String = StringBlockIndex
+                StringBlockIndex = StringBlockIndex + l
+            End If
+        End If
+        ' LOCALES
+        If (Spell.Local6N_String.Length <> 0) Then
+            If dict2.ContainsKey(Spell.Local6N_String) Then
+                Spell.Local6N_String = dict2.Item(Spell.Local6N_String)
+            Else
+                Dim l As UInt32 = Spell.Local6N_String.Length
+                writer.Write(Spell.Local6N_String.ToCharArray())
+                dict2.Add(Spell.Local6N_String, StringBlockIndex)
+                Spell.Local6N_String = StringBlockIndex
+                StringBlockIndex = StringBlockIndex + l
+            End If
+        End If
+        If (Spell.Local6R_String.Length <> 0) Then
+            If dict2.ContainsKey(Spell.Local6R_String) Then
+                Spell.Local6N_String = dict2.Item(Spell.Local6R_String)
+            Else
+                Dim l As UInt32 = Spell.Local6R_String.Length
+                writer.Write(Spell.Local6R_String.ToCharArray())
+                dict2.Add(Spell.Local6R_String, StringBlockIndex)
+                Spell.Local6R_String = StringBlockIndex
+                StringBlockIndex = StringBlockIndex + l
+            End If
+        End If
+        If (Spell.Local6D_String.Length <> 0) Then
+            If dict2.ContainsKey(Spell.Local6D_String) Then
+                Spell.Local6D_String = dict2.Item(Spell.Local6D_String)
+            Else
+                Dim l As UInt32 = Spell.Local6D_String.Length
+                writer.Write(Spell.Local6D_String.ToCharArray())
+                dict2.Add(Spell.Local6D_String, StringBlockIndex)
+                Spell.Local6D_String = StringBlockIndex
+                StringBlockIndex = StringBlockIndex + l
+            End If
+        End If
+        If (Spell.Local6T_String.Length <> 0) Then
+            If dict2.ContainsKey(Spell.Local6T_String) Then
+                Spell.Local6T_String = dict2.Item(Spell.Local6T_String)
+            Else
+                Dim l As UInt32 = Spell.Local6T_String.Length
+                writer.Write(Spell.Local6T_String.ToCharArray())
+                dict2.Add(Spell.Local6T_String, StringBlockIndex)
+                Spell.Local6T_String = StringBlockIndex
+                StringBlockIndex = StringBlockIndex + l
+            End If
+        End If
+        ' LOCALES
+        If (Spell.Local7N_String.Length <> 0) Then
+            If dict2.ContainsKey(Spell.Local7N_String) Then
+                Spell.Local7N_String = dict2.Item(Spell.Local7N_String)
+            Else
+                Dim l As UInt32 = Spell.Local7N_String.Length
+                writer.Write(Spell.Local7N_String.ToCharArray())
+                dict2.Add(Spell.Local7N_String, StringBlockIndex)
+                Spell.Local7N_String = StringBlockIndex
+                StringBlockIndex = StringBlockIndex + l
+            End If
+        End If
+        If (Spell.Local7R_String.Length <> 0) Then
+            If dict2.ContainsKey(Spell.Local7R_String) Then
+                Spell.Local7N_String = dict2.Item(Spell.Local7R_String)
+            Else
+                Dim l As UInt32 = Spell.Local7R_String.Length
+                writer.Write(Spell.Local7R_String.ToCharArray())
+                dict2.Add(Spell.Local7R_String, StringBlockIndex)
+                Spell.Local7R_String = StringBlockIndex
+                StringBlockIndex = StringBlockIndex + l
+            End If
+        End If
+        If (Spell.Local7D_String.Length <> 0) Then
+            If dict2.ContainsKey(Spell.Local7D_String) Then
+                Spell.Local7D_String = dict2.Item(Spell.Local7D_String)
+            Else
+                Dim l As UInt32 = Spell.Local7D_String.Length
+                writer.Write(Spell.Local7D_String.ToCharArray())
+                dict2.Add(Spell.Local7D_String, StringBlockIndex)
+                Spell.Local7D_String = StringBlockIndex
+                StringBlockIndex = StringBlockIndex + l
+            End If
+        End If
+        If (Spell.Local7T_String.Length <> 0) Then
+            If dict2.ContainsKey(Spell.Local7T_String) Then
+                Spell.Local7T_String = dict2.Item(Spell.Local7T_String)
+            Else
+                Dim l As UInt32 = Spell.Local7T_String.Length
+                writer.Write(Spell.Local7T_String.ToCharArray())
+                dict2.Add(Spell.Local7T_String, StringBlockIndex)
+                Spell.Local7T_String = StringBlockIndex
+                StringBlockIndex = StringBlockIndex + l
+            End If
+        End If
+        ' LOCALES
+        If (Spell.Local8N_String.Length <> 0) Then
+            If dict2.ContainsKey(Spell.Local8N_String) Then
+                Spell.Local8N_String = dict2.Item(Spell.Local8N_String)
+            Else
+                Dim l As UInt32 = Spell.Local8N_String.Length
+                writer.Write(Spell.Local8N_String.ToCharArray())
+                dict2.Add(Spell.Local8N_String, StringBlockIndex)
+                Spell.Local8N_String = StringBlockIndex
+                StringBlockIndex = StringBlockIndex + l
+            End If
+        End If
+        If (Spell.Local8R_String.Length <> 0) Then
+            If dict2.ContainsKey(Spell.Local8R_String) Then
+                Spell.Local8N_String = dict2.Item(Spell.Local8R_String)
+            Else
+                Dim l As UInt32 = Spell.Local8R_String.Length
+                writer.Write(Spell.Local8R_String.ToCharArray())
+                dict2.Add(Spell.Local8R_String, StringBlockIndex)
+                Spell.Local8R_String = StringBlockIndex
+                StringBlockIndex = StringBlockIndex + l
+            End If
+        End If
+        If (Spell.Local8D_String.Length <> 0) Then
+            If dict2.ContainsKey(Spell.Local8D_String) Then
+                Spell.Local8D_String = dict2.Item(Spell.Local8D_String)
+            Else
+                Dim l As UInt32 = Spell.Local8D_String.Length
+                writer.Write(Spell.Local8D_String.ToCharArray())
+                dict2.Add(Spell.Local8D_String, StringBlockIndex)
+                Spell.Local8D_String = StringBlockIndex
+                StringBlockIndex = StringBlockIndex + l
+            End If
+        End If
+        If (Spell.Local8T_String.Length <> 0) Then
+            If dict2.ContainsKey(Spell.Local8T_String) Then
+                Spell.Local8T_String = dict2.Item(Spell.Local8T_String)
+            Else
+                Dim l As UInt32 = Spell.Local8T_String.Length
+                writer.Write(Spell.Local8T_String.ToCharArray())
+                dict2.Add(Spell.Local8T_String, StringBlockIndex)
+                Spell.Local8T_String = StringBlockIndex
                 StringBlockIndex = StringBlockIndex + l
             End If
         End If
@@ -482,19 +1018,83 @@ Public Class DBC
             Spell.spellPriority = BitConverter.ToUInt32(bytes, numBytesRead)
             numBytesRead = numBytesRead + sizeofUint32
             Spell.SpellName = BitConverter.ToUInt32(bytes, numBytesRead)
-            numBytesRead = numBytesRead + 4 * 16
+            numBytesRead = numBytesRead + sizeofUint32
+            Spell.Local1N = BitConverter.ToUInt32(bytes, numBytesRead)
+            numBytesRead = numBytesRead + sizeofUint32
+            Spell.Local2N = BitConverter.ToUInt32(bytes, numBytesRead)
+            numBytesRead = numBytesRead + sizeofUint32
+            Spell.Local3N = BitConverter.ToUInt32(bytes, numBytesRead)
+            numBytesRead = numBytesRead + sizeofUint32
+            Spell.Local4N = BitConverter.ToUInt32(bytes, numBytesRead)
+            numBytesRead = numBytesRead + sizeofUint32
+            Spell.Local5N = BitConverter.ToUInt32(bytes, numBytesRead)
+            numBytesRead = numBytesRead + sizeofUint32
+            Spell.Local6N = BitConverter.ToUInt32(bytes, numBytesRead)
+            numBytesRead = numBytesRead + sizeofUint32
+            Spell.Local7N = BitConverter.ToUInt32(bytes, numBytesRead)
+            numBytesRead = numBytesRead + sizeofUint32
+            Spell.Local8N = BitConverter.ToUInt32(bytes, numBytesRead)
+            numBytesRead = numBytesRead + sizeofUint32 * 8 ' 8 more unknown bitmasks
             Spell.SpellNameFlag = BitConverter.ToUInt32(bytes, numBytesRead)
             numBytesRead = numBytesRead + sizeofUint32
             Spell.Rank = BitConverter.ToUInt32(bytes, numBytesRead)
-            numBytesRead = numBytesRead + 4 * 16
+            numBytesRead = numBytesRead + sizeofUint32
+            Spell.Local1R = BitConverter.ToUInt32(bytes, numBytesRead)
+            numBytesRead = numBytesRead + sizeofUint32
+            Spell.Local2R = BitConverter.ToUInt32(bytes, numBytesRead)
+            numBytesRead = numBytesRead + sizeofUint32
+            Spell.Local3R = BitConverter.ToUInt32(bytes, numBytesRead)
+            numBytesRead = numBytesRead + sizeofUint32
+            Spell.Local4R = BitConverter.ToUInt32(bytes, numBytesRead)
+            numBytesRead = numBytesRead + sizeofUint32
+            Spell.Local5R = BitConverter.ToUInt32(bytes, numBytesRead)
+            numBytesRead = numBytesRead + sizeofUint32
+            Spell.Local6R = BitConverter.ToUInt32(bytes, numBytesRead)
+            numBytesRead = numBytesRead + sizeofUint32
+            Spell.Local7R = BitConverter.ToUInt32(bytes, numBytesRead)
+            numBytesRead = numBytesRead + sizeofUint32
+            Spell.Local8R = BitConverter.ToUInt32(bytes, numBytesRead)
+            numBytesRead = numBytesRead + sizeofUint32 * 8 ' 8 more unknown bitmasks
             Spell.RankFlags = BitConverter.ToUInt32(bytes, numBytesRead)
             numBytesRead = numBytesRead + sizeofUint32
             Spell.Description = BitConverter.ToUInt32(bytes, numBytesRead)
-            numBytesRead = numBytesRead + 4 * 16
+            numBytesRead = numBytesRead + sizeofUint32
+            Spell.Local1D = BitConverter.ToUInt32(bytes, numBytesRead)
+            numBytesRead = numBytesRead + sizeofUint32
+            Spell.Local2D = BitConverter.ToUInt32(bytes, numBytesRead)
+            numBytesRead = numBytesRead + sizeofUint32
+            Spell.Local3D = BitConverter.ToUInt32(bytes, numBytesRead)
+            numBytesRead = numBytesRead + sizeofUint32
+            Spell.Local4D = BitConverter.ToUInt32(bytes, numBytesRead)
+            numBytesRead = numBytesRead + sizeofUint32
+            Spell.Local5D = BitConverter.ToUInt32(bytes, numBytesRead)
+            numBytesRead = numBytesRead + sizeofUint32
+            Spell.Local6D = BitConverter.ToUInt32(bytes, numBytesRead)
+            numBytesRead = numBytesRead + sizeofUint32
+            Spell.Local7D = BitConverter.ToUInt32(bytes, numBytesRead)
+            numBytesRead = numBytesRead + sizeofUint32
+            Spell.Local8D = BitConverter.ToUInt32(bytes, numBytesRead)
+            numBytesRead = numBytesRead + sizeofUint32 * 8 ' 8 more unknown bitmasks
             Spell.DescriptionFlags = BitConverter.ToUInt32(bytes, numBytesRead)
             numBytesRead = numBytesRead + sizeofUint32
             Spell.ToolTip = BitConverter.ToUInt32(bytes, numBytesRead)
-            numBytesRead = numBytesRead + 4 * 16
+            numBytesRead = numBytesRead + sizeofUint32
+            Spell.Local1T = BitConverter.ToUInt32(bytes, numBytesRead)
+            numBytesRead = numBytesRead + sizeofUint32
+            Spell.Local2T = BitConverter.ToUInt32(bytes, numBytesRead)
+            numBytesRead = numBytesRead + sizeofUint32
+            Spell.Local3T = BitConverter.ToUInt32(bytes, numBytesRead)
+            numBytesRead = numBytesRead + sizeofUint32
+            Spell.Local4T = BitConverter.ToUInt32(bytes, numBytesRead)
+            numBytesRead = numBytesRead + sizeofUint32
+            Spell.Local5T = BitConverter.ToUInt32(bytes, numBytesRead)
+            numBytesRead = numBytesRead + sizeofUint32
+            Spell.Local6T = BitConverter.ToUInt32(bytes, numBytesRead)
+            numBytesRead = numBytesRead + sizeofUint32
+            Spell.Local7T = BitConverter.ToUInt32(bytes, numBytesRead)
+            numBytesRead = numBytesRead + sizeofUint32
+            Spell.Local8T = BitConverter.ToUInt32(bytes, numBytesRead)
+            numBytesRead = numBytesRead + sizeofUint32 * 8 ' 8 more unknown bitmasks
             Spell.ToolTipFlags = BitConverter.ToUInt32(bytes, numBytesRead)
             numBytesRead = numBytesRead + sizeofUint32
             Spell.ManaCostPercentage = BitConverter.ToUInt32(bytes, numBytesRead)
@@ -559,6 +1159,38 @@ Public Class DBC
             Spell.Rank_String = ""
             Spell.ToolTip_String = ""
             Spell.Description_String = ""
+            Spell.Local1N_String = ""
+            Spell.Local1R_String = ""
+            Spell.Local1D_String = ""
+            Spell.Local1T_String = ""
+            Spell.Local2N_String = ""
+            Spell.Local2R_String = ""
+            Spell.Local2D_String = ""
+            Spell.Local2T_String = ""
+            Spell.Local3N_String = ""
+            Spell.Local3R_String = ""
+            Spell.Local3D_String = ""
+            Spell.Local3T_String = ""
+            Spell.Local4N_String = ""
+            Spell.Local4R_String = ""
+            Spell.Local4D_String = ""
+            Spell.Local4T_String = ""
+            Spell.Local5N_String = ""
+            Spell.Local5R_String = ""
+            Spell.Local5D_String = ""
+            Spell.Local5T_String = ""
+            Spell.Local6N_String = ""
+            Spell.Local6R_String = ""
+            Spell.Local6D_String = ""
+            Spell.Local6T_String = ""
+            Spell.Local7N_String = ""
+            Spell.Local7R_String = ""
+            Spell.Local7D_String = ""
+            Spell.Local7T_String = ""
+            Spell.Local8N_String = ""
+            Spell.Local8R_String = ""
+            Spell.Local8D_String = ""
+            Spell.Local8T_String = ""
         Catch ex As Exception
             Dim f As New StreamWriter("error_log.txt", True)
             Dim out As String = "Record ID Failed To Read: " & i.ToString() & ": " & ex.Message.ToString() & vbNewLine
@@ -751,7 +1383,47 @@ Public Class DBC
         Else
             writer.Write(UInt32.Parse(spell.SpellName_String))
         End If
-        For i = 1 To 15
+        If spell.Local1N_String.Length = 0 Then
+            writer.Write(writeZero)
+        Else
+            writer.Write(UInt32.Parse(spell.Local1N_String))
+        End If
+        If spell.Local2N_String.Length = 0 Then
+            writer.Write(writeZero)
+        Else
+            writer.Write(UInt32.Parse(spell.Local2N_String))
+        End If
+        If spell.Local3N_String.Length = 0 Then
+            writer.Write(writeZero)
+        Else
+            writer.Write(UInt32.Parse(spell.Local3N_String))
+        End If
+        If spell.Local4N_String.Length = 0 Then
+            writer.Write(writeZero)
+        Else
+            writer.Write(UInt32.Parse(spell.Local4N_String))
+        End If
+        If spell.Local5N_String.Length = 0 Then
+            writer.Write(writeZero)
+        Else
+            writer.Write(UInt32.Parse(spell.Local5N_String))
+        End If
+        If spell.Local6N_String.Length = 0 Then
+            writer.Write(writeZero)
+        Else
+            writer.Write(UInt32.Parse(spell.Local6N_String))
+        End If
+        If spell.Local7N_String.Length = 0 Then
+            writer.Write(writeZero)
+        Else
+            writer.Write(UInt32.Parse(spell.Local7N_String))
+        End If
+        If spell.Local8N_String.Length = 0 Then
+            writer.Write(writeZero)
+        Else
+            writer.Write(UInt32.Parse(spell.Local8N_String))
+        End If
+        For i = 1 To 7
             writer.Write(k)
         Next
         writer.Write(spell.SpellNameFlag)
@@ -760,7 +1432,47 @@ Public Class DBC
         Else
             writer.Write(UInt32.Parse(spell.Rank_String))
         End If
-        For i = 1 To 15
+        If spell.Local1R_String.Length = 0 Then
+            writer.Write(writeZero)
+        Else
+            writer.Write(UInt32.Parse(spell.Local1R_String))
+        End If
+        If spell.Local2R_String.Length = 0 Then
+            writer.Write(writeZero)
+        Else
+            writer.Write(UInt32.Parse(spell.Local2R_String))
+        End If
+        If spell.Local3R_String.Length = 0 Then
+            writer.Write(writeZero)
+        Else
+            writer.Write(UInt32.Parse(spell.Local3R_String))
+        End If
+        If spell.Local4R_String.Length = 0 Then
+            writer.Write(writeZero)
+        Else
+            writer.Write(UInt32.Parse(spell.Local4R_String))
+        End If
+        If spell.Local5R_String.Length = 0 Then
+            writer.Write(writeZero)
+        Else
+            writer.Write(UInt32.Parse(spell.Local5R_String))
+        End If
+        If spell.Local6R_String.Length = 0 Then
+            writer.Write(writeZero)
+        Else
+            writer.Write(UInt32.Parse(spell.Local6R_String))
+        End If
+        If spell.Local7R_String.Length = 0 Then
+            writer.Write(writeZero)
+        Else
+            writer.Write(UInt32.Parse(spell.Local7R_String))
+        End If
+        If spell.Local8R_String.Length = 0 Then
+            writer.Write(writeZero)
+        Else
+            writer.Write(UInt32.Parse(spell.Local8R_String))
+        End If
+        For i = 1 To 7
             writer.Write(k)
         Next
         writer.Write(spell.RankFlags)
@@ -769,7 +1481,47 @@ Public Class DBC
         Else
             writer.Write(UInt32.Parse(spell.Description_String))
         End If
-        For i = 1 To 15
+        If spell.Local1D_String.Length = 0 Then
+            writer.Write(writeZero)
+        Else
+            writer.Write(UInt32.Parse(spell.Local1D_String))
+        End If
+        If spell.Local2D_String.Length = 0 Then
+            writer.Write(writeZero)
+        Else
+            writer.Write(UInt32.Parse(spell.Local2D_String))
+        End If
+        If spell.Local3D_String.Length = 0 Then
+            writer.Write(writeZero)
+        Else
+            writer.Write(UInt32.Parse(spell.Local3D_String))
+        End If
+        If spell.Local4D_String.Length = 0 Then
+            writer.Write(writeZero)
+        Else
+            writer.Write(UInt32.Parse(spell.Local4D_String))
+        End If
+        If spell.Local5D_String.Length = 0 Then
+            writer.Write(writeZero)
+        Else
+            writer.Write(UInt32.Parse(spell.Local5D_String))
+        End If
+        If spell.Local6D_String.Length = 0 Then
+            writer.Write(writeZero)
+        Else
+            writer.Write(UInt32.Parse(spell.Local6D_String))
+        End If
+        If spell.Local7D_String.Length = 0 Then
+            writer.Write(writeZero)
+        Else
+            writer.Write(UInt32.Parse(spell.Local7D_String))
+        End If
+        If spell.Local8D_String.Length = 0 Then
+            writer.Write(writeZero)
+        Else
+            writer.Write(UInt32.Parse(spell.Local8D_String))
+        End If
+        For i = 1 To 7
             writer.Write(k)
         Next
         writer.Write(spell.DescriptionFlags)
@@ -778,7 +1530,47 @@ Public Class DBC
         Else
             writer.Write(UInt32.Parse(spell.ToolTip_String))
         End If
-        For i = 1 To 15
+        If spell.Local1T_String.Length = 0 Then
+            writer.Write(writeZero)
+        Else
+            writer.Write(UInt32.Parse(spell.Local1T_String))
+        End If
+        If spell.Local2T_String.Length = 0 Then
+            writer.Write(writeZero)
+        Else
+            writer.Write(UInt32.Parse(spell.Local2T_String))
+        End If
+        If spell.Local3T_String.Length = 0 Then
+            writer.Write(writeZero)
+        Else
+            writer.Write(UInt32.Parse(spell.Local3T_String))
+        End If
+        If spell.Local4T_String.Length = 0 Then
+            writer.Write(writeZero)
+        Else
+            writer.Write(UInt32.Parse(spell.Local4T_String))
+        End If
+        If spell.Local5T_String.Length = 0 Then
+            writer.Write(writeZero)
+        Else
+            writer.Write(UInt32.Parse(spell.Local5T_String))
+        End If
+        If spell.Local6T_String.Length = 0 Then
+            writer.Write(writeZero)
+        Else
+            writer.Write(UInt32.Parse(spell.Local6T_String))
+        End If
+        If spell.Local7T_String.Length = 0 Then
+            writer.Write(writeZero)
+        Else
+            writer.Write(UInt32.Parse(spell.Local7T_String))
+        End If
+        If spell.Local8T_String.Length = 0 Then
+            writer.Write(writeZero)
+        Else
+            writer.Write(UInt32.Parse(spell.Local8T_String))
+        End If
+        For i = 1 To 7
             writer.Write(k)
         Next
         writer.Write(spell.ToolTipFlags)
@@ -993,6 +1785,39 @@ Public Class DBC
         Form1.dt.Rows(0).Item(170) = SpellDBC.records(index).EffectBonusMultiplier3
         Form1.dt.Rows(0).Item(171) = SpellDBC.records(index).spellDescriptionVariableID
         Form1.dt.Rows(0).Item(172) = SpellDBC.records(index).SpellDifficultyId
+        ' LOCALES
+        Form1.dt.Rows(0).Item(173) = SpellDBC.records(index).Local1N_String
+        Form1.dt.Rows(0).Item(174) = SpellDBC.records(index).Local1R_String
+        Form1.dt.Rows(0).Item(175) = SpellDBC.records(index).Local1D_String
+        Form1.dt.Rows(0).Item(176) = SpellDBC.records(index).Local1T_String
+        Form1.dt.Rows(0).Item(177) = SpellDBC.records(index).Local2N_String
+        Form1.dt.Rows(0).Item(178) = SpellDBC.records(index).Local2R_String
+        Form1.dt.Rows(0).Item(179) = SpellDBC.records(index).Local2D_String
+        Form1.dt.Rows(0).Item(180) = SpellDBC.records(index).Local2T_String
+        Form1.dt.Rows(0).Item(181) = SpellDBC.records(index).Local3N_String
+        Form1.dt.Rows(0).Item(182) = SpellDBC.records(index).Local3R_String
+        Form1.dt.Rows(0).Item(183) = SpellDBC.records(index).Local3D_String
+        Form1.dt.Rows(0).Item(184) = SpellDBC.records(index).Local3T_String
+        Form1.dt.Rows(0).Item(185) = SpellDBC.records(index).Local4N_String
+        Form1.dt.Rows(0).Item(186) = SpellDBC.records(index).Local4R_String
+        Form1.dt.Rows(0).Item(187) = SpellDBC.records(index).Local4D_String
+        Form1.dt.Rows(0).Item(188) = SpellDBC.records(index).Local4T_String
+        Form1.dt.Rows(0).Item(189) = SpellDBC.records(index).Local5N_String
+        Form1.dt.Rows(0).Item(190) = SpellDBC.records(index).Local5R_String
+        Form1.dt.Rows(0).Item(191) = SpellDBC.records(index).Local5D_String
+        Form1.dt.Rows(0).Item(192) = SpellDBC.records(index).Local5T_String
+        Form1.dt.Rows(0).Item(193) = SpellDBC.records(index).Local6N_String
+        Form1.dt.Rows(0).Item(194) = SpellDBC.records(index).Local6R_String
+        Form1.dt.Rows(0).Item(195) = SpellDBC.records(index).Local6D_String
+        Form1.dt.Rows(0).Item(196) = SpellDBC.records(index).Local6T_String
+        Form1.dt.Rows(0).Item(197) = SpellDBC.records(index).Local7N_String
+        Form1.dt.Rows(0).Item(198) = SpellDBC.records(index).Local7R_String
+        Form1.dt.Rows(0).Item(199) = SpellDBC.records(index).Local7D_String
+        Form1.dt.Rows(0).Item(200) = SpellDBC.records(index).Local7T_String
+        Form1.dt.Rows(0).Item(201) = SpellDBC.records(index).Local8N_String
+        Form1.dt.Rows(0).Item(202) = SpellDBC.records(index).Local8R_String
+        Form1.dt.Rows(0).Item(203) = SpellDBC.records(index).Local8D_String
+        Form1.dt.Rows(0).Item(204) = SpellDBC.records(index).Local8T_String
     End Sub
 
     Public Sub SaveCurrentSpell(ByVal index As Integer)
@@ -1175,6 +2000,39 @@ Public Class DBC
         SpellDBC.records(index).EffectBonusMultiplier3 = Form1.dt.Rows(0).Item(170)
         SpellDBC.records(index).spellDescriptionVariableID = Form1.dt.Rows(0).Item(171)
         SpellDBC.records(index).SpellDifficultyId = Form1.dt.Rows(0).Item(172)
+        ' LOCALES
+        SpellDBC.records(index).Local1N_String = Form1.dt.Rows(0).Item(173)
+        SpellDBC.records(index).Local1R_String = Form1.dt.Rows(0).Item(174)
+        SpellDBC.records(index).Local1D_String = Form1.dt.Rows(0).Item(175)
+        SpellDBC.records(index).Local1T_String = Form1.dt.Rows(0).Item(176)
+        SpellDBC.records(index).Local2N_String = Form1.dt.Rows(0).Item(177)
+        SpellDBC.records(index).Local2R_String = Form1.dt.Rows(0).Item(178)
+        SpellDBC.records(index).Local2D_String = Form1.dt.Rows(0).Item(179)
+        SpellDBC.records(index).Local2T_String = Form1.dt.Rows(0).Item(180)
+        SpellDBC.records(index).Local3N_String = Form1.dt.Rows(0).Item(181)
+        SpellDBC.records(index).Local3R_String = Form1.dt.Rows(0).Item(182)
+        SpellDBC.records(index).Local3D_String = Form1.dt.Rows(0).Item(183)
+        SpellDBC.records(index).Local3T_String = Form1.dt.Rows(0).Item(184)
+        SpellDBC.records(index).Local4N_String = Form1.dt.Rows(0).Item(185)
+        SpellDBC.records(index).Local4R_String = Form1.dt.Rows(0).Item(186)
+        SpellDBC.records(index).Local4D_String = Form1.dt.Rows(0).Item(187)
+        SpellDBC.records(index).Local4T_String = Form1.dt.Rows(0).Item(188)
+        SpellDBC.records(index).Local5N_String = Form1.dt.Rows(0).Item(189)
+        SpellDBC.records(index).Local5R_String = Form1.dt.Rows(0).Item(190)
+        SpellDBC.records(index).Local5D_String = Form1.dt.Rows(0).Item(191)
+        SpellDBC.records(index).Local5T_String = Form1.dt.Rows(0).Item(192)
+        SpellDBC.records(index).Local6N_String = Form1.dt.Rows(0).Item(193)
+        SpellDBC.records(index).Local6R_String = Form1.dt.Rows(0).Item(194)
+        SpellDBC.records(index).Local6D_String = Form1.dt.Rows(0).Item(195)
+        SpellDBC.records(index).Local6T_String = Form1.dt.Rows(0).Item(196)
+        SpellDBC.records(index).Local7N_String = Form1.dt.Rows(0).Item(197)
+        SpellDBC.records(index).Local7R_String = Form1.dt.Rows(0).Item(198)
+        SpellDBC.records(index).Local7D_String = Form1.dt.Rows(0).Item(199)
+        SpellDBC.records(index).Local7T_String = Form1.dt.Rows(0).Item(200)
+        SpellDBC.records(index).Local8N_String = Form1.dt.Rows(0).Item(201)
+        SpellDBC.records(index).Local8R_String = Form1.dt.Rows(0).Item(202)
+        SpellDBC.records(index).Local8D_String = Form1.dt.Rows(0).Item(203)
+        SpellDBC.records(index).Local8T_String = Form1.dt.Rows(0).Item(204)
     End Sub
 End Class
 
@@ -1356,4 +2214,69 @@ Structure SpellRecord
     Dim EffectBonusMultiplier3 As Single ' 229-231  3.2.0
     Dim spellDescriptionVariableID As UInt32                  ' 232      3.2.0
     Dim SpellDifficultyId As UInt32                    ' 233      3.3.0
+    ' Localisation values
+    Dim Local1N As UInt32
+    Dim Local1N_String As String
+    Dim Local1R As UInt32
+    Dim Local1R_String As String
+    Dim Local1D As UInt32
+    Dim Local1D_String As String
+    Dim Local1T As UInt32
+    Dim Local1T_String As String
+    Dim Local2N As UInt32
+    Dim Local2N_String As String
+    Dim Local2R As UInt32
+    Dim Local2R_String As String
+    Dim Local2D As UInt32
+    Dim Local2D_String As String
+    Dim Local2T As UInt32
+    Dim Local2T_String As String
+    Dim Local3N As UInt32
+    Dim Local3N_String As String
+    Dim Local3R As UInt32
+    Dim Local3R_String As String
+    Dim Local3D As UInt32
+    Dim Local3D_String As String
+    Dim Local3T As UInt32
+    Dim Local3T_String As String
+    Dim Local4N As UInt32
+    Dim Local4N_String As String
+    Dim Local4R As UInt32
+    Dim Local4R_String As String
+    Dim Local4D As UInt32
+    Dim Local4D_String As String
+    Dim Local4T As UInt32
+    Dim Local4T_String As String
+    Dim Local5N As UInt32
+    Dim Local5N_String As String
+    Dim Local5R As UInt32
+    Dim Local5R_String As String
+    Dim Local5D As UInt32
+    Dim Local5D_String As String
+    Dim Local5T As UInt32
+    Dim Local5T_String As String
+    Dim Local6N As UInt32
+    Dim Local6N_String As String
+    Dim Local6R As UInt32
+    Dim Local6R_String As String
+    Dim Local6D As UInt32
+    Dim Local6D_String As String
+    Dim Local6T As UInt32
+    Dim Local6T_String As String
+    Dim Local7N As UInt32
+    Dim Local7N_String As String
+    Dim Local7R As UInt32
+    Dim Local7R_String As String
+    Dim Local7D As UInt32
+    Dim Local7D_String As String
+    Dim Local7T As UInt32
+    Dim Local7T_String As String
+    Dim Local8N As UInt32
+    Dim Local8N_String As String
+    Dim Local8R As UInt32
+    Dim Local8R_String As String
+    Dim Local8D As UInt32
+    Dim Local8D_String As String
+    Dim Local8T As UInt32
+    Dim Local8T_String As String
 End Structure
