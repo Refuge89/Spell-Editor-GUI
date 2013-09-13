@@ -395,7 +395,7 @@ Public Class DBC
         End If
         If (Spell.Local1R_String.Length <> 0) Then
             If dict2.ContainsKey(Spell.Local1R_String) Then
-                Spell.Local1N_String = dict2.Item(Spell.Local1R_String)
+                Spell.Local1R_String = dict2.Item(Spell.Local1R_String)
             Else
                 Dim l As UInt32 = Spell.Local1R_String.Length
                 writer.Write(Spell.Local1R_String.ToCharArray())
@@ -440,7 +440,7 @@ Public Class DBC
         End If
         If (Spell.Local2R_String.Length <> 0) Then
             If dict2.ContainsKey(Spell.Local2R_String) Then
-                Spell.Local2N_String = dict2.Item(Spell.Local2R_String)
+                Spell.Local2R_String = dict2.Item(Spell.Local2R_String)
             Else
                 Dim l As UInt32 = Spell.Local2R_String.Length
                 writer.Write(Spell.Local2R_String.ToCharArray())
@@ -485,7 +485,7 @@ Public Class DBC
         End If
         If (Spell.Local3R_String.Length <> 0) Then
             If dict2.ContainsKey(Spell.Local3R_String) Then
-                Spell.Local3N_String = dict2.Item(Spell.Local3R_String)
+                Spell.Local3R_String = dict2.Item(Spell.Local3R_String)
             Else
                 Dim l As UInt32 = Spell.Local3R_String.Length
                 writer.Write(Spell.Local3R_String.ToCharArray())
@@ -530,7 +530,7 @@ Public Class DBC
         End If
         If (Spell.Local4R_String.Length <> 0) Then
             If dict2.ContainsKey(Spell.Local4R_String) Then
-                Spell.Local4N_String = dict2.Item(Spell.Local4R_String)
+                Spell.Local4R_String = dict2.Item(Spell.Local4R_String)
             Else
                 Dim l As UInt32 = Spell.Local4R_String.Length
                 writer.Write(Spell.Local4R_String.ToCharArray())
@@ -575,7 +575,7 @@ Public Class DBC
         End If
         If (Spell.Local5R_String.Length <> 0) Then
             If dict2.ContainsKey(Spell.Local5R_String) Then
-                Spell.Local5N_String = dict2.Item(Spell.Local5R_String)
+                Spell.Local5R_String = dict2.Item(Spell.Local5R_String)
             Else
                 Dim l As UInt32 = Spell.Local5R_String.Length
                 writer.Write(Spell.Local5R_String.ToCharArray())
@@ -620,7 +620,7 @@ Public Class DBC
         End If
         If (Spell.Local6R_String.Length <> 0) Then
             If dict2.ContainsKey(Spell.Local6R_String) Then
-                Spell.Local6N_String = dict2.Item(Spell.Local6R_String)
+                Spell.Local6R_String = dict2.Item(Spell.Local6R_String)
             Else
                 Dim l As UInt32 = Spell.Local6R_String.Length
                 writer.Write(Spell.Local6R_String.ToCharArray())
@@ -665,7 +665,7 @@ Public Class DBC
         End If
         If (Spell.Local7R_String.Length <> 0) Then
             If dict2.ContainsKey(Spell.Local7R_String) Then
-                Spell.Local7N_String = dict2.Item(Spell.Local7R_String)
+                Spell.Local7R_String = dict2.Item(Spell.Local7R_String)
             Else
                 Dim l As UInt32 = Spell.Local7R_String.Length
                 writer.Write(Spell.Local7R_String.ToCharArray())
@@ -710,7 +710,7 @@ Public Class DBC
         End If
         If (Spell.Local8R_String.Length <> 0) Then
             If dict2.ContainsKey(Spell.Local8R_String) Then
-                Spell.Local8N_String = dict2.Item(Spell.Local8R_String)
+                Spell.Local8R_String = dict2.Item(Spell.Local8R_String)
             Else
                 Dim l As UInt32 = Spell.Local8R_String.Length
                 writer.Write(Spell.Local8R_String.ToCharArray())
@@ -2001,38 +2001,38 @@ Public Class DBC
         SpellDBC.records(index).spellDescriptionVariableID = Form1.dt.Rows(0).Item(171)
         SpellDBC.records(index).SpellDifficultyId = Form1.dt.Rows(0).Item(172)
         ' LOCALES
-        SpellDBC.records(index).Local1N_String = Form1.dt.Rows(0).Item(173)
-        SpellDBC.records(index).Local1R_String = Form1.dt.Rows(0).Item(174)
-        SpellDBC.records(index).Local1D_String = Form1.dt.Rows(0).Item(175)
-        SpellDBC.records(index).Local1T_String = Form1.dt.Rows(0).Item(176)
-        SpellDBC.records(index).Local2N_String = Form1.dt.Rows(0).Item(177)
-        SpellDBC.records(index).Local2R_String = Form1.dt.Rows(0).Item(178)
-        SpellDBC.records(index).Local2D_String = Form1.dt.Rows(0).Item(179)
-        SpellDBC.records(index).Local2T_String = Form1.dt.Rows(0).Item(180)
-        SpellDBC.records(index).Local3N_String = Form1.dt.Rows(0).Item(181)
-        SpellDBC.records(index).Local3R_String = Form1.dt.Rows(0).Item(182)
-        SpellDBC.records(index).Local3D_String = Form1.dt.Rows(0).Item(183)
-        SpellDBC.records(index).Local3T_String = Form1.dt.Rows(0).Item(184)
-        SpellDBC.records(index).Local4N_String = Form1.dt.Rows(0).Item(185)
-        SpellDBC.records(index).Local4R_String = Form1.dt.Rows(0).Item(186)
-        SpellDBC.records(index).Local4D_String = Form1.dt.Rows(0).Item(187)
-        SpellDBC.records(index).Local4T_String = Form1.dt.Rows(0).Item(188)
-        SpellDBC.records(index).Local5N_String = Form1.dt.Rows(0).Item(189)
-        SpellDBC.records(index).Local5R_String = Form1.dt.Rows(0).Item(190)
-        SpellDBC.records(index).Local5D_String = Form1.dt.Rows(0).Item(191)
-        SpellDBC.records(index).Local5T_String = Form1.dt.Rows(0).Item(192)
-        SpellDBC.records(index).Local6N_String = Form1.dt.Rows(0).Item(193)
-        SpellDBC.records(index).Local6R_String = Form1.dt.Rows(0).Item(194)
-        SpellDBC.records(index).Local6D_String = Form1.dt.Rows(0).Item(195)
-        SpellDBC.records(index).Local6T_String = Form1.dt.Rows(0).Item(196)
-        SpellDBC.records(index).Local7N_String = Form1.dt.Rows(0).Item(197)
-        SpellDBC.records(index).Local7R_String = Form1.dt.Rows(0).Item(198)
-        SpellDBC.records(index).Local7D_String = Form1.dt.Rows(0).Item(199)
-        SpellDBC.records(index).Local7T_String = Form1.dt.Rows(0).Item(200)
-        SpellDBC.records(index).Local8N_String = Form1.dt.Rows(0).Item(201)
-        SpellDBC.records(index).Local8R_String = Form1.dt.Rows(0).Item(202)
-        SpellDBC.records(index).Local8D_String = Form1.dt.Rows(0).Item(203)
-        SpellDBC.records(index).Local8T_String = Form1.dt.Rows(0).Item(204)
+        SpellDBC.records(index).Local1N_String = Form1.dt.Rows(0).Item(173) & Chr(0)
+        SpellDBC.records(index).Local1R_String = Form1.dt.Rows(0).Item(174) & Chr(0)
+        SpellDBC.records(index).Local1D_String = Form1.dt.Rows(0).Item(175) & Chr(0)
+        SpellDBC.records(index).Local1T_String = Form1.dt.Rows(0).Item(176) & Chr(0)
+        SpellDBC.records(index).Local2N_String = Form1.dt.Rows(0).Item(177) & Chr(0)
+        SpellDBC.records(index).Local2R_String = Form1.dt.Rows(0).Item(178) & Chr(0)
+        SpellDBC.records(index).Local2D_String = Form1.dt.Rows(0).Item(179) & Chr(0)
+        SpellDBC.records(index).Local2T_String = Form1.dt.Rows(0).Item(180) & Chr(0)
+        SpellDBC.records(index).Local3N_String = Form1.dt.Rows(0).Item(181) & Chr(0)
+        SpellDBC.records(index).Local3R_String = Form1.dt.Rows(0).Item(182) & Chr(0)
+        SpellDBC.records(index).Local3D_String = Form1.dt.Rows(0).Item(183) & Chr(0)
+        SpellDBC.records(index).Local3T_String = Form1.dt.Rows(0).Item(184) & Chr(0)
+        SpellDBC.records(index).Local4N_String = Form1.dt.Rows(0).Item(185) & Chr(0)
+        SpellDBC.records(index).Local4R_String = Form1.dt.Rows(0).Item(186) & Chr(0)
+        SpellDBC.records(index).Local4D_String = Form1.dt.Rows(0).Item(187) & Chr(0)
+        SpellDBC.records(index).Local4T_String = Form1.dt.Rows(0).Item(188) & Chr(0)
+        SpellDBC.records(index).Local5N_String = Form1.dt.Rows(0).Item(189) & Chr(0)
+        SpellDBC.records(index).Local5R_String = Form1.dt.Rows(0).Item(190) & Chr(0)
+        SpellDBC.records(index).Local5D_String = Form1.dt.Rows(0).Item(191) & Chr(0)
+        SpellDBC.records(index).Local5T_String = Form1.dt.Rows(0).Item(192) & Chr(0)
+        SpellDBC.records(index).Local6N_String = Form1.dt.Rows(0).Item(193) & Chr(0)
+        SpellDBC.records(index).Local6R_String = Form1.dt.Rows(0).Item(194) & Chr(0)
+        SpellDBC.records(index).Local6D_String = Form1.dt.Rows(0).Item(195) & Chr(0)
+        SpellDBC.records(index).Local6T_String = Form1.dt.Rows(0).Item(196) & Chr(0)
+        SpellDBC.records(index).Local7N_String = Form1.dt.Rows(0).Item(197) & Chr(0)
+        SpellDBC.records(index).Local7R_String = Form1.dt.Rows(0).Item(198) & Chr(0)
+        SpellDBC.records(index).Local7D_String = Form1.dt.Rows(0).Item(199) & Chr(0)
+        SpellDBC.records(index).Local7T_String = Form1.dt.Rows(0).Item(200) & Chr(0)
+        SpellDBC.records(index).Local8N_String = Form1.dt.Rows(0).Item(201) & Chr(0)
+        SpellDBC.records(index).Local8R_String = Form1.dt.Rows(0).Item(202) & Chr(0)
+        SpellDBC.records(index).Local8D_String = Form1.dt.Rows(0).Item(203) & Chr(0)
+        SpellDBC.records(index).Local8T_String = Form1.dt.Rows(0).Item(204) & Chr(0)
     End Sub
 End Class
 
