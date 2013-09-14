@@ -1,5 +1,6 @@
 ﻿Imports System.IO
 Imports System.Runtime.InteropServices
+Imports System.Text
 
 ' Localisation
 '0	 enUS / enGB	 English / Great British
@@ -113,27 +114,35 @@ Public Class DBC
         Next i
         Application.DoEvents()
         ' Load string block
-        fsSource.Read(bytes, numBytesRead, SpellDBC.Header.string_block_size)
+        fsSource.Read(bytes, numBytesRead, SpellDBC.Header.string_block_size) ' WTF @ this reading the entire file EVEN THOUGH IT NEVER SHOULD
         numBytesRead = numBytesRead + 1 ' Skip over the first null character
+        Dim new_bytes(SpellDBC.Header.string_block_size) As Byte ' Time to hack fix since read is not working as intended
+        For i = 0 To SpellDBC.Header.string_block_size - 2
+            new_bytes(i) = bytes(numBytesRead)
+            numBytesRead = numBytesRead + 1
+        Next i ' End hack fix
         i = 1
         Dim offset As Integer = 0
-        While numBytesRead < numBytesToRead
-            Dim cha As Char = " "
+        Dim chars() As Char = System.Text.Encoding.UTF8.GetChars(new_bytes)
+        bytes = {}
+        new_bytes = {}
+        Dim c_c As UInt32 = 0
+        For c_c = 0 To chars.Length - 1
+            Dim cha As Char = ""
             Dim str As String = ""
-            cha = Convert.ToChar(bytes(numBytesRead))
-            numBytesRead = numBytesRead + 1
+            cha = chars(c_c)
             offset = offset + 1
             i = offset
             While cha <> Chr(0)
                 str = str & cha
-                cha = Convert.ToChar(bytes(numBytesRead))
-                numBytesRead = numBytesRead + 1
+                c_c = c_c + 1
+                cha = chars(c_c)
                 offset = offset + 1
             End While
             str = str & cha
             dict.Add(i, str)
-        End While
-        bytes = {} ' Remove ~50MB from memory
+        Next c_c
+        chars = {}
         ' Now to convert the existing spells into strings where needed
         For i = 0 To SpellDBC.Header.record_count - 1
             LoadRecordStrings(SpellDBC.records(i))
