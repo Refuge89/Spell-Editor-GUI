@@ -301,6 +301,20 @@ Public Class Form1
             dt.Rows.Item(0).Item(203) = RichTextBox17.Text
             dt.Rows.Item(0).Item(204) = TextBox29.Text
 
+            dt.Rows.Item(0).Item(71) = Effect1.SelectedIndex
+            dt.Rows.Item(0).Item(72) = Effect2.SelectedIndex
+            dt.Rows.Item(0).Item(73) = Effect3.SelectedIndex
+            dt.Rows.Item(0).Item(80) = Effect1Min.Text
+            dt.Rows.Item(0).Item(81) = Effect2Min.Text
+            dt.Rows.Item(0).Item(82) = Effect3Min.Text
+            dt.Rows.Item(0).Item(74) = Effect1Max.Text
+            dt.Rows.Item(0).Item(75) = Effect2Max.Text
+            dt.Rows.Item(0).Item(76) = Effect3Max.Text
+            dt.Rows.Item(0).Item(42) = TextBox3.Text
+            dt.Rows.Item(0).Item(43) = TextBox4.Text
+            dt.Rows.Item(0).Item(44) = TextBox5.Text
+            dt.Rows.Item(0).Item(45) = TextBox6.Text
+
             DBC.SaveCurrentSpell(dt.Rows.Item(0).Item(0))
 
             ListBox1_SelectedIndexChanged(sender, e)
