@@ -432,7 +432,7 @@ Public Class Form1
     End Sub
 
     Private Sub ComboBox1_SelectedIndexChanged_1(sender As Object, e As EventArgs) Handles durationind.SelectedIndexChanged
-        dt.Rows.Item(0).Item(40) = castindexes(durationind.SelectedIndex)
+        dt.Rows.Item(0).Item(40) = durationindexes(durationind.SelectedIndex)
     End Sub
 
     Private Sub TextBox3_TextChanged(sender As Object, e As EventArgs) Handles TextBox3.TextChanged
