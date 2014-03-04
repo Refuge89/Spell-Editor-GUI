@@ -1164,42 +1164,7 @@ Public Class DBC
             numBytesRead = numBytesRead + sizeofUint32
             Spell.SpellDifficultyId = BitConverter.ToUInt32(bytes, numBytesRead)
             numBytesRead = numBytesRead + sizeofUint32
-            Spell.SpellName_String = ""
-            Spell.Rank_String = ""
-            Spell.ToolTip_String = ""
-            Spell.Description_String = ""
-            Spell.Local1N_String = ""
-            Spell.Local1R_String = ""
-            Spell.Local1D_String = ""
-            Spell.Local1T_String = ""
-            Spell.Local2N_String = ""
-            Spell.Local2R_String = ""
-            Spell.Local2D_String = ""
-            Spell.Local2T_String = ""
-            Spell.Local3N_String = ""
-            Spell.Local3R_String = ""
-            Spell.Local3D_String = ""
-            Spell.Local3T_String = ""
-            Spell.Local4N_String = ""
-            Spell.Local4R_String = ""
-            Spell.Local4D_String = ""
-            Spell.Local4T_String = ""
-            Spell.Local5N_String = ""
-            Spell.Local5R_String = ""
-            Spell.Local5D_String = ""
-            Spell.Local5T_String = ""
-            Spell.Local6N_String = ""
-            Spell.Local6R_String = ""
-            Spell.Local6D_String = ""
-            Spell.Local6T_String = ""
-            Spell.Local7N_String = ""
-            Spell.Local7R_String = ""
-            Spell.Local7D_String = ""
-            Spell.Local7T_String = ""
-            Spell.Local8N_String = ""
-            Spell.Local8R_String = ""
-            Spell.Local8D_String = ""
-            Spell.Local8T_String = ""
+            
         Catch ex As Exception
             Dim f As New StreamWriter("error_log.txt", True)
             Dim out As String = "Record ID Failed To Read: " & i.ToString() & ": " & ex.Message.ToString() & vbNewLine
